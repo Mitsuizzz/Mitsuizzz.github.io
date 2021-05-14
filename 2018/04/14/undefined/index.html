@@ -1,0 +1,866 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96612337"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo,GitHub,Node.js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="我的第一篇博客 分享一下用一天时间搭建的个人博客真是累死我了 踩了很多坑  此篇是由Mitsuizzz编辑 搭建之前需要如下工具：  node.js 下载地址：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 作用：用来创建hexo博客框架，最好下载推荐版本  git环境 下载地址：https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 作用：把本地的hexo内容提交到Github和Codi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Hexo和Github搭建个人博客(一)">
+<meta property="og:url" content="http://lizhuangwei.top/2018/04/14/undefined/index.html">
+<meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
+<meta property="og:description" content="我的第一篇博客 分享一下用一天时间搭建的个人博客真是累死我了 踩了很多坑  此篇是由Mitsuizzz编辑 搭建之前需要如下工具：  node.js 下载地址：https:&#x2F;&#x2F;nodejs.org&#x2F;zh-cn&#x2F; 作用：用来创建hexo博客框架，最好下载推荐版本  git环境 下载地址：https:&#x2F;&#x2F;git-scm.com&#x2F;downloads 作用：把本地的hexo内容提交到Github和Codi">
+<meta property="article:published_time" content="2018-04-14T13:54:55.000Z">
+<meta property="article:modified_time" content="2018-04-15T10:10:48.000Z">
+<meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Node.js">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 用Hexo和Github搭建个人博客(一) | Mitsuizzz's Blog </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mitsuizzz's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                用Hexo和Github搭建个人博客(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-14T21:54:55+08:00" content="2018-04-14">
+              2018-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2018/04/14/undefined/" class="leancloud_visitors" data-flag-title="用Hexo和Github搭建个人博客(一)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="我的第一篇博客-分享一下用一天时间搭建的个人博客"><a href="#我的第一篇博客-分享一下用一天时间搭建的个人博客" class="headerlink" title="我的第一篇博客 分享一下用一天时间搭建的个人博客"></a>我的第一篇博客 分享一下用一天时间搭建的个人博客</h1><p>真是累死我了 踩了很多坑 </p>
+<p>此篇是由Mitsuizzz编辑</p>
+<p>搭建之前需要如下工具：</p>
+<ul>
+<li><strong>node.js</strong> 下载地址：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a></li>
+<li>作用：用来创建hexo博客框架，最好下载推荐版本 </li>
+<li><strong>git环境</strong> 下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></li>
+<li>作用：把本地的hexo内容提交到Github和Coding上去</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+
+<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><blockquote>
+<p>任意文件夹鼠标右击选择Git Bash Here打开Git命令行，执行如下命令安装Hexo</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h2 id="hexo的一些常用功能-后面为注释"><a href="#hexo的一些常用功能-后面为注释" class="headerlink" title="hexo的一些常用功能 #后面为注释"></a>hexo的一些常用功能 #后面为注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   <span class="comment">#用于清除静态文件  </span></span><br><span class="line">hexo g    <span class="comment">#完整命令为hexo generate,用于生成静态文件  </span></span><br><span class="line">hexo s    <span class="comment">#完整命令为hexo server,用于启动服务器，主要用来本地预览  </span></span><br><span class="line">hexo d    <span class="comment">#完整命令为hexo deploy,用于将本地文件发布到coding和github上  </span></span><br><span class="line">hexo n    <span class="comment">#完整命令为hexo new,用于新建一篇文章</span></span><br></pre></td></tr></table></figure>
+
+<p>##初始化博客</p>
+<p><strong>新建一个文件夹（如E:\Hexo，以下教程都以这个目录为博客根目录），在E:\Hexo目录下点击鼠标右键，选择Git Bash Here，执行如下命令：</strong>　</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+<p>在Hexo文件夹内会生成相应的文件夹</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">source：_post存放MarkDown编写的博文等源文件</span><br><span class="line">themes：存放主题文件，每个主题包含主题配置文件（_config.yml）</span><br><span class="line">_config.yml：站点配置文件，用于配置博客信息，如网站信息，主题设置</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>进行以下操作便可访问搭建好的初始博客：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   <span class="comment">#用于清除静态文件  </span></span><br><span class="line">hexo g    <span class="comment">#完整命令为hexo generate,用于生成静态文件  </span></span><br><span class="line">hexo s    <span class="comment">#完整命令为hexo</span></span><br></pre></td></tr></table></figure>
+<p>浏览器访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><br>##主题<br>但是吧，这个初始主题我不太喜欢，看我这个next主题，是不是很高大上，贼牛逼！！<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> 打开这个大牛的github，把他的主题给down下来，放到themes文件夹里</p>
+<h2 id="最重要的时刻来了-我在这里被坑了一个小时！！！！"><a href="#最重要的时刻来了-我在这里被坑了一个小时！！！！" class="headerlink" title="最重要的时刻来了 我在这里被坑了一个小时！！！！"></a>最重要的时刻来了 我在这里被坑了一个小时！！！！</h2><p>应用next主题，我们就得修改_config.yml了！ 推荐使用Notepad++<br>下载地址： <a href="https://notepad-plus-plus.org/download/v7.3.3.html" target="_blank" rel="noopener">https://notepad-plus-plus.org/download/v7.3.3.html</a></p>
+<p>下面直接copy某位大牛的教程了</p>
+<h2 id="千万注意-冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555"><a href="#千万注意-冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555" class="headerlink" title="千万注意!!!冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555"></a>千万注意!!!冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: Mitsuizzz<span class="string">'s Blog    #网站标题</span></span><br><span class="line"><span class="string">subtitle: 这是副标题    #网站副标题</span></span><br><span class="line"><span class="string">description: 坚持分享知识，坚持赞赏支持    #网站描述</span></span><br><span class="line"><span class="string">author: Mitsuizzz    #你的名字</span></span><br><span class="line"><span class="string">language: zh-Hans   #网站使用的语言</span></span><br><span class="line"><span class="string">timezone:</span></span><br><span class="line"><span class="string"># URL</span></span><br><span class="line"><span class="string">## If your site is put in a subdirectory, set url as '</span>http://yoursite.com/child<span class="string">' and root as '</span>/child/<span class="string">'</span></span><br><span class="line"><span class="string">url: https://mitsuizzz.top    #你网站的URL</span></span><br><span class="line"><span class="string">root: /</span></span><br><span class="line"><span class="string">permalink: :year/:month/:day/:english-title/   #此处将title 改为english_title，注意是下划线。</span></span><br><span class="line"><span class="string">permalink_defaults:</span></span><br><span class="line"><span class="string"># Writing</span></span><br><span class="line"><span class="string">new_post_name: :title.md # File name of new posts</span></span><br><span class="line"><span class="string">default_layout: post</span></span><br><span class="line"><span class="string">titlecase: false # Transform title into titlecase</span></span><br><span class="line"><span class="string">external_link: true # Open external links in new tab</span></span><br><span class="line"><span class="string">filename_case: 0</span></span><br><span class="line"><span class="string">render_drafts: false</span></span><br><span class="line"><span class="string">post_asset_folder: false</span></span><br><span class="line"><span class="string">relative_link: false</span></span><br><span class="line"><span class="string">future: true</span></span><br><span class="line"><span class="string">highlight:</span></span><br><span class="line"><span class="string">  enable: true</span></span><br><span class="line"><span class="string">  line_number: true</span></span><br><span class="line"><span class="string">  auto_detect: true    #代码颜色</span></span><br><span class="line"><span class="string">  tab_replace:</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># Category &amp; Tag</span></span><br><span class="line"><span class="string">default_category: uncategorized</span></span><br><span class="line"><span class="string">category_map:</span></span><br><span class="line"><span class="string">  设计模式: Design Pattern    #为避免分类名称为中文造成URL过于冗长，将中文转换成对于英文</span></span><br><span class="line"><span class="string">  数据库: Database</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">tag_map:</span></span><br><span class="line"><span class="string">  单例模式: Singleton Pattern    #为避免标签名称为中文造成URL过于冗长，将中文转换成对于英文</span></span><br><span class="line"><span class="string">  排序算法: Sort Algorithms</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"># Extensions</span></span><br><span class="line"><span class="string"># Plugins: -hexo-generator-sitmap</span></span><br><span class="line"><span class="string">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="string">theme: next    #主题设置，改为next</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置:"></a>主题配置:</h1><p>好上边的主要配置好了，我们来配置主题配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Put your favicon.ico into `hexo-site/source/` directory.</span></span><br><span class="line">favicon: /favicon.ico    <span class="comment">#网址的图标，可以在http://tool.lu/favicon/上更改，保持名称必须为favicon.ico，更改的favicon.ico放在站点的source下</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&gt; archives)</span></span><br><span class="line">menu:</span><br><span class="line">  home: /                    <span class="comment">#主页</span></span><br><span class="line">  archives: /archives        <span class="comment">#归档页</span></span><br><span class="line">  categories: /categories    <span class="comment">#分类页（需手动创建）</span></span><br><span class="line">  tags: /tags                <span class="comment">#标签页（需手动创建）</span></span><br><span class="line">  <span class="comment">#about: /about             #关于页面（需手动创建）</span></span><br><span class="line">  <span class="comment">#search: /search           #搜索页面（需手动创建）</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml     #搜索引擎抓取</span></span><br><span class="line">  <span class="comment">#commonweal: /404.html     #公益404（需手动创建）</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line">scheme: Mist    <span class="comment">#去掉默认的注释即可切换为Mist主题</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/Mitsuizzz    <span class="comment">#社交账号</span></span><br><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line"><span class="comment"># in theme directory(source/images): /images/avatar.jpg</span></span><br><span class="line"><span class="comment"># in site  directory(source/uploads): /uploads/avatar.jpg</span></span><br><span class="line">avatar: /images/deppwang.jpg    <span class="comment">#将你的头像（如：deppwang.jpg）放在站点下的 ` :\public\images`文件夹下。</span></span><br><span class="line"><span class="comment"># Blog rolls</span></span><br><span class="line">links_title: Links</span><br><span class="line"><span class="comment">#links_layout: block</span></span><br><span class="line"><span class="comment">#links_layout: inline</span></span><br><span class="line">links:    <span class="comment">#链接</span></span><br><span class="line">  阿里中间件团队博客: http://jm.taobao.org/</span><br><span class="line">  廖雪峰个人网站: http://www.liaoxuefeng.com/</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available value:</span></span><br><span class="line"><span class="comment">#    normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line">highlight_theme: night   <span class="comment">#代码主题</span></span><br></pre></td></tr></table></figure>
+<h1 id="我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！"><a href="#我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！" class="headerlink" title="我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！"></a>我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！</h1><h1 id="冒号后面都得空格！！"><a href="#冒号后面都得空格！！" class="headerlink" title="冒号后面都得空格！！"></a>冒号后面都得空格！！</h1><h1 id="这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。"><a href="#这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。" class="headerlink" title="这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。"></a>这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。</h1>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/undefined/" rel="prev" title="用Hexo和Github搭建个人博客(二)">
+                用Hexo和Github搭建个人博客(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Mitsuizzz" />
+          <p class="site-author-name" itemprop="name">Mitsuizzz</p>
+          <p class="site-description motion-element" itemprop="description">坚持分享知识，分享更多创意</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Mitsuizzz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3648673160" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://lizhuangwei.top" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="Mitsuizzz" target="_blank">Mitsuizzz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="个人网站" target="_blank">个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的第一篇博客-分享一下用一天时间搭建的个人博客"><span class="nav-number">1.</span> <span class="nav-text">我的第一篇博客 分享一下用一天时间搭建的个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先"><span class="nav-number">1.1.</span> <span class="nav-text">首先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo的一些常用功能-后面为注释"><span class="nav-number">1.2.</span> <span class="nav-text">hexo的一些常用功能 #后面为注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">1.3.</span> <span class="nav-text">代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最重要的时刻来了-我在这里被坑了一个小时！！！！"><span class="nav-number">1.4.</span> <span class="nav-text">最重要的时刻来了 我在这里被坑了一个小时！！！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#千万注意-冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555"><span class="nav-number">1.5.</span> <span class="nav-text">千万注意!!!冒号后面必须有空格，这是yml的特殊语法，我被坑了很久55555</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！"><span class="nav-number">3.</span> <span class="nav-text">我的兄弟们！千万别忘了空格。到时候上传的时候各种出错啊！！！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冒号后面都得空格！！"><span class="nav-number">4.</span> <span class="nav-text">冒号后面都得空格！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。"><span class="nav-number">5.</span> <span class="nav-text">这就是我建hexo博客是踩过的坑，具体如何上传呢，下期再见，今天整这个博客让我身心疲惫。</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+	<div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22821100&auto=0&height=66"></iframe>
+  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mitsuizzz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://lizhuangwei.com" target="_blank" rel="noopener">Mitsuizzz</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Fi5B2VbDLoujYeV1r5JVNiuM-9Nh9j0Va", "6AtYr95E8eBAv1OpJQwQxmAG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+	
+</body>
+</html>

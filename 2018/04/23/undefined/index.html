@@ -1,0 +1,1216 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96612337"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java个人笔记," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1.    Java入门Java是SUN公司在95年推出的编程语言，2009被甲骨文收购Java是纯面向对象，类似的编程语言还有C++ , C# Java优点：简单易学（相对于C++，去掉了指针，去掉了手动内存回收） 支持多线程 安全性好 跨平台运行 适合大型网络平台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（日更）Java笔记">
+<meta property="og:url" content="http://lizhuangwei.top/2018/04/23/undefined/index.html">
+<meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
+<meta property="og:description" content="1.    Java入门Java是SUN公司在95年推出的编程语言，2009被甲骨文收购Java是纯面向对象，类似的编程语言还有C++ , C# Java优点：简单易学（相对于C++，去掉了指针，去掉了手动内存回收） 支持多线程 安全性好 跨平台运行 适合大型网络平台">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/1.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/2.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/3.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/4.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/5.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/6.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/7.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/8.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/9.jpg">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/10.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/JVM.jpg">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/11.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/12.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/13.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/14.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/15.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/16.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/17.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/18.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/19.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/20.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/21.PNG">
+<meta property="og:image" content="http://lizhuangwei.top/2018/04/23/undefined/he.png">
+<meta property="article:published_time" content="2018-04-23T14:35:28.000Z">
+<meta property="article:modified_time" content="2018-06-05T14:52:30.000Z">
+<meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="java个人笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lizhuangwei.top/2018/04/23/undefined/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> （日更）Java笔记 | Mitsuizzz's Blog </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mitsuizzz's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                （日更）Java笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-23T22:35:28+08:00" content="2018-04-23">
+              2018-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
+                    <span itemprop="name">Java基础系列</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2018/04/23/undefined/" class="leancloud_visitors" data-flag-title="（日更）Java笔记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-Java入门"><a href="#1-Java入门" class="headerlink" title="1.    Java入门"></a>1.    Java入门</h1><p>Java是SUN公司在95年推出的编程语言，2009被甲骨文收购<br>Java是纯面向对象，类似的编程语言还有C++ , C#</p>
+<h1 id="Java优点："><a href="#Java优点：" class="headerlink" title="Java优点："></a>Java优点：</h1><pre><code>简单易学（相对于C++，去掉了指针，去掉了手动内存回收）
+支持多线程
+安全性好
+跨平台运行
+适合大型网络平台</code></pre><hr>
+<a id="more"></a>
+<h1 id="Java缺点："><a href="#Java缺点：" class="headerlink" title="Java缺点："></a>Java缺点：</h1><p>不适合做窗体程序，适合做web应用<br>由于需要跨平台，所有采用虚拟机机制，运行效率略低</p>
+<h1 id="Java的技术分为三个版本："><a href="#Java的技术分为三个版本：" class="headerlink" title="Java的技术分为三个版本："></a>Java的技术分为三个版本：</h1><p>JavaSE（Java Standard Edition标准版）：俗称java基础，用来开发桌面应用，C/S结构网络应用<br>JavaEE（Java Enterprice Edition企业版）：用来开发企业环境下的应用程序，通常是Web开发，JavaEE包含JSP，Servlet，EJB等技术<br>JavaME（Java Micro Edition 微型版）：用于小型智能设备开发，早期用于开发塞班手机系统的app（已经被淘汰！）</p>
+<h1 id="版本号："><a href="#版本号：" class="headerlink" title="版本号："></a>版本号：</h1><pre><code>Java1.0  未普及的版本
+Java2.0  里程碑版本，j2se  j2ee  j2me
+Java3.0  
+Java4.0 
+Java5.0 里程碑版本  JavaSE  JavaEE  JavaME
+Java6.0
+Java7.0
+Java8.0</code></pre><h1 id="Java的三个核心机制："><a href="#Java的三个核心机制：" class="headerlink" title="Java的三个核心机制："></a>Java的三个核心机制：</h1><p>Java虚拟机机制（Java Virtual Machine）：Java语法首先编译为Class字节码，在不同系统上安装特定的虚拟机来把class文件转换为不同系统的机器码运行<br>垃圾回收机制：Java利用一个后台守护进程自动进行垃圾回收，程序员无法精确干预，一般都是系统空闲自动运行<br>代码安全性检测：自动检查代码安全</p>
+<p>编译性语言：把源代码直接提前先转化为机器码，然后再执行，常见就是C  C++  C#<br>解释性语言：一边编译一般执行，常见HTML  CSS  JAVASCRIPT  SQL  PHP  Python</p>
+<h1 id="Java是半编译半解释的语言"><a href="#Java是半编译半解释的语言" class="headerlink" title="Java是半编译半解释的语言"></a>Java是半编译半解释的语言</h1><h1 id="JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行"><a href="#JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行" class="headerlink" title="JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行"></a>JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行</h1><h1 id="JRE（Java运行环境）：负责运行java程序的"><a href="#JRE（Java运行环境）：负责运行java程序的" class="headerlink" title="JRE（Java运行环境）：负责运行java程序的"></a>JRE（Java运行环境）：负责运行java程序的</h1><h1 id="JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制"><a href="#JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制" class="headerlink" title="JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制"></a>JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制</h1><h1 id="一个基本的HelloWorld程序"><a href="#一个基本的HelloWorld程序" class="headerlink" title="一个基本的HelloWorld程序"></a>一个基本的HelloWorld程序</h1><ol>
+<li>创建一个.java扩展名的类的源文件，在Java中最小的程序单元就是一个类</li>
+<li>类名和文件名必须相同</li>
+<li>声明一个类和一个主方法（main方法，入口方法）</li>
+<li>Javac命令编译源代码为字节码class类文件</li>
+<li>Java命令解释运行字节码class文件</li>
+</ol>
+<p>HelloWorld代码示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;			</span><br><span class="line">		System.out.println(<span class="string">"hello,world"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="一些必要的环境变量配置："><a href="#一些必要的环境变量配置：" class="headerlink" title="一些必要的环境变量配置："></a>一些必要的环境变量配置：</h1><p>JAVA_HOME：可选，用于其它的java产品自动找到要使用的jdk环境，比如tomcat<br>path：配置java的外部命令的路径，可以在任何位置执行这些命令，例如javac编译命令，java运行命令，javap反编译命令<br>classpath：类路径，默认就是. 代表当前目录位置</p>
+<h1 id="主方法的语法规则：必须是public-static-void-main-String-参数名"><a href="#主方法的语法规则：必须是public-static-void-main-String-参数名" class="headerlink" title="主方法的语法规则：必须是public static void main(String[]  参数名)"></a>主方法的语法规则：必须是public static void main(String[]  参数名)</h1><p>目前主流的java开发IDE工具是：eclipse和Intellij idea</p>
+<p>Eclipse的工作空间（workspace）：默认项目的存放目录，对eclipse的所有设置信息都会存放在这个目录中</p>
+<p>Eclipse的万能快捷键：alt + /</p>
+<h1 id="变量和数据类型"><a href="#变量和数据类型" class="headerlink" title="变量和数据类型"></a>变量和数据类型</h1><p>Java的变量都是强类型（JavaScript是弱类型），每一个变量在声明的时候必须明确数据类型</p>
+<h1 id="Java的标识符命名规则："><a href="#Java的标识符命名规则：" class="headerlink" title="Java的标识符命名规则："></a>Java的标识符命名规则：</h1><p>不能使关键字<br>字母，$符号，下划线开头，后面可以字母，数字，$符号，下划线<br>严格区分大小写</p>
+<h1 id="Java的标识符命名规范："><a href="#Java的标识符命名规范：" class="headerlink" title="Java的标识符命名规范："></a>Java的标识符命名规范：</h1><p>类名每个单词首字母大写，变量，方法名，第二个单词首字母大写</p>
+<h1 id="Java数据类型划分："><a href="#Java数据类型划分：" class="headerlink" title="Java数据类型划分："></a>Java数据类型划分：</h1><pre><code>基本类型：8种
+    整型：包括十进制  八进制  十六进制
+        byte  1字节（8个位bit） -128~127
+        short  2字节  -32768~32767
+        int      4字节      -2147483648~2147483647  整型直接量默认都是int型
+        long  8字节   -92233720368554775808~ 92233720368554775807  直接量需要加L或l
+    浮点型：
+        float  4字节      单精度浮点数  直接量需要加F或f
+        double  8字节  双精度浮点数  浮点数直接量默认都是double型，或加D或d
+    字符型：
+        char  2字节  无符号 0~65535  直接量必须用单引号包括 ，可以直接赋值字符例如’a’   十六进制表示 ‘\uXXXX’  也可以直接赋值数字 ，特殊字符  \n  \r  \t
+    布尔值：
+        boolean  1字节  true和false  不能和数字做任何转化
+
+引用类型：4种
+    类 class
+    数组 
+    接口 interface
+    枚举  enum</code></pre><h1 id="数据类型转化："><a href="#数据类型转化：" class="headerlink" title="数据类型转化："></a>数据类型转化：</h1><p>自动转换（隐式转换）：小类型赋值给大类型<br>强制转换（显式转换）：大类型赋值给小类型，如果超过存储范围，则截取对应的位数其他的丢弃</p>
+<p>在Java中byte，short，char三种类型允许直接赋int型的不超过范围的直接量</p>
+<h1 id="数据存储形式：原码-反码-补码"><a href="#数据存储形式：原码-反码-补码" class="headerlink" title="数据存储形式：原码  反码  补码"></a>数据存储形式：原码  反码  补码</h1><pre><code>原码：数字直接转换为二进制，第一位是符号位，0代表正数 ，1代表负数
+例如 ：12的原码是00001100   -12的原码 10001100
+
+反码：正数的反码和原码相同，负数的反码是将原码的符号位之外的位逐位取反
+例如：12的反码是00001100  -12的反码11110011
+
+补码：正数的补码和原码相同，负数的补码是将反码+1
+例如：12的补码是00001100  -12的补码是11110100</code></pre><p>计算机存储数据使用的是补码，原码和补码之间的换算都是反码+1</p>
+<p>String类型在java中是引用类型，但是java为了方便使用对string做了特殊处理，允许用=直接赋值直接量，String的直接量是双引号括起 例如 “hello,world”   “中国”  “a”  “”</p>
+<p>算数运算符：+  -  *  /  %   ++  –<br>在Java中的所有运算，运算结果的数据类型以参与运算运算的最大类型为准，运算的结果最小类型就是int<br>自增自减运算本身就带类型转换</p>
+<p>比较运算符 &gt;  &lt;  &gt;=  &lt;=  ==  !=<br>布尔值和引用类型不能直接用比较运算符比较，只能用==和!=比较</p>
+<p>逻辑运算符  &amp;逻辑与  |逻辑或  !逻辑非  &amp;&amp;短路与   ||短路或   ^异或</p>
+<p>赋值运算符  =  +=  -=  *=  /=  %=  特殊赋值运算符都自带类型转化</p>
+<p>字符串拼接运算 +  运算符两边有一个String类型，就执行拼接字符串运算，而不是数学运算</p>
+<p>三目运算符   表达式？值1：值2</p>
+<p>位运算：按照二进制进行运算<br>位与&amp;    位或|   异或^  求反~  有符号右移&gt;&gt;  有符号左移&lt;&lt;  无符号右移&gt;&gt;&gt;</p>
+<p>main方法参数叫做运行时参数：在运行java类的同时传入实参，多个值用空格分隔，自动形成以string数组</p>
+<p>语法结构</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Switch()&#123;</span><br><span class="line">Case 常亮：语句;<span class="keyword">break</span>;</span><br><span class="line">......</span><br><span class="line">Default :语句;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>如果不写break，当条件为真，执行完case语句后，会无条件执行后面的所有语句</li>
+<li>default语句位置任意，不一定放到最后</li>
+<li>表达式必须是int兼容类型（byte short char int），String类型，enum枚举类型三种情况之一</li>
+<li>case后面只能跟常量，不能写变量</li>
+<li>case后面的值不能重复<br>循环语句：<br>for   while   do..while   forEach（遍历数组或集合对象）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( 布尔表达式 ) &#123;</span><br><span class="line">  //循环内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+只要布尔表达式为 true，循环体会一直执行下去。<br>对于 while 语句而言，如果不满足条件，则不能进入循环。但有时候我们需要即使不满足条件，也至少执行一次。<br>do…while 循环和 while 循环相似，不同的是，do…while 循环至少会执行一次。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">do &#123;</span><br><span class="line">       //代码语句</span><br><span class="line">&#125;<span class="keyword">while</span>(布尔表达式);</span><br></pre></td></tr></table></figure>
+布尔表达式在循环体的后面，所以语句块在检测布尔表达式之前已经执行了。 如果布尔表达式的值为 true，则语句块一直执行，直到布尔表达式的值为 false。<br>虽然所有循环结构都可以用 while 或者 do…while表示，但 Java 提供了另一种语句 —— for 循环，使一些循环结构变得更加简单。</li>
+</ol>
+<p>for循环执行的次数是在执行前就确定的。语法格式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(初始化; 布尔表达式; 更新) &#123;</span><br><span class="line">    //代码语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>for 循环：<br>最先执行初始化步骤。可以声明一种类型，但可初始化一个或多个循环控制变量，也可以是空语句。<br>然后，检测布尔表达式的值。如果为 true，循环体被执行。如果为false，循环终止，开始执行循环体后面的语句。<br>执行一次循环后，更新循环控制变量。<br>再次检测布尔表达式。循环执行上面的过程。<br>Java 增强 for 循环<br>Java5 引入了一种主要用于数组的增强型 for 循环。</p>
+<p>Java 增强 for 循环语法格式如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(声明语句 : 表达式)</span><br><span class="line">&#123;</span><br><span class="line">   //代码句子</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>break 关键字<br>break 主要用在循环语句或者 switch 语句中，用来跳出整个语句块。<br>break 跳出最里层的循环，并且继续执行该循环下面的语句。<br>continue 关键字<br>continue 适用于任何循环控制结构中。作用是让程序立刻跳转到下一次循环的迭代。<br>在 for 循环中，continue 语句使程序立即跳转到更新语句。<br>在 while 或者 do…while 循环中，程序立即跳转到布尔表达式的判断语句。</p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组是多个相同类型数据的组合<br>数组属于引用类型,数组型数据是对象，数组中的每个元素相当于该对象的成员变量</p>
+<h1 id="在Java中数组是定长，一旦声明，长度不可改变"><a href="#在Java中数组是定长，一旦声明，长度不可改变" class="headerlink" title="在Java中数组是定长，一旦声明，长度不可改变"></a>在Java中数组是定长，一旦声明，长度不可改变</h1><p>声明数组类型： 类型 []  变量      类型   变量[]</p>
+<h1 id="创建数组对象的三种方式："><a href="#创建数组对象的三种方式：" class="headerlink" title="创建数组对象的三种方式："></a>创建数组对象的三种方式：</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">int[] a = new int[<span class="number">4</span>];</span><br><span class="line">int[] a = &#123;<span class="number">100</span>,<span class="number">101</span>,<span class="number">102</span>,<span class="number">103</span>&#125;;  仅限于声明同时赋值</span><br><span class="line">int[] a = new int[] &#123;<span class="number">100</span>,<span class="number">101</span>,<span class="number">102</span>&#125;;    new int[]中不能写死长度</span><br><span class="line"></span><br><span class="line">Java的多维数组是不规则数组，数组的元素个数不一定相同，多维数组的第一维必须指定长度，第二维以后可以不指定长度</span><br><span class="line">选择排序，冒泡排序</span><br><span class="line">字符串</span><br><span class="line">String str1 = <span class="string">"abc"</span>;//存在字符串池中</span><br><span class="line">String str2 = new String(<span class="string">"abc"</span>);//实际创建<span class="number">2</span>个对象，一个在字符串池中，一个在堆中</span><br><span class="line"></span><br><span class="line">字符串常用方法</span><br><span class="line"></span><br><span class="line">concat()字符串拼接(拼接也可以用+)</span><br><span class="line">substring(<span class="number">3</span>));//从第三位截取到最后，包含下标为三的字符</span><br><span class="line">str.substring(<span class="number">3</span>,<span class="number">5</span>));//从三截取到<span class="number">4</span>(包头不包尾)</span><br><span class="line">toLowerCase();//转换为小写</span><br><span class="line">toUpperCase();转换为大写</span><br><span class="line">startsWith(<span class="string">"abc"</span>));//判断字符串是否以abc开始，是返回true，否则返回false</span><br><span class="line">endsWith(<span class="string">"xyz"</span>));//判断字符串是否以xyz结尾，是返回true，否则返回false</span><br><span class="line">indexOf(<span class="string">"123"</span>);//从左到右查找看是否包含子字符串，包含则返回首个字符的小标，不包含返回<span class="number">-1</span></span><br><span class="line">lastIndexOf(<span class="string">"123"</span>));//从右往左查找</span><br><span class="line">charAt(<span class="number">2</span>))查找下标所对应的字符</span><br><span class="line">replace(<span class="string">'a'</span>, <span class="string">'e'</span>);//替换字符</span><br><span class="line">trim());//去除首尾空格</span><br><span class="line">equalsIgnoreCase()忽略大小写进行比较</span><br><span class="line">length()返回字符串长度</span><br></pre></td></tr></table></figure>
+<h1 id="在string类中-比较的是内存地址"><a href="#在string类中-比较的是内存地址" class="headerlink" title="在string类中 == 比较的是内存地址"></a>在string类中 == 比较的是内存地址</h1><h1 id="在string类中equals比较的是值"><a href="#在string类中equals比较的是值" class="headerlink" title="在string类中equals比较的是值"></a>在string类中equals比较的是值</h1><h1 id="StringBuffer类"><a href="#StringBuffer类" class="headerlink" title="StringBuffer类"></a>StringBuffer类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Append()在字符串末尾追加</span><br><span class="line">Insert()子字符串插入，首个参数代表插入的位置，第二个参数代表要插入的子字符</span><br><span class="line">setCharAt()字符的替换</span><br><span class="line">reverse()倒叙</span><br><span class="line">replace()替换部分字符串</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="方法声明"><a href="#方法声明" class="headerlink" title="方法声明"></a>方法声明</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;访问修饰符&gt; &lt;静态修饰符（可以省略）&gt; &lt;返回值&gt; &lt;方法名&gt;（参数列表）&#123;</span><br><span class="line">	方法体;</span><br><span class="line">	<span class="keyword">return</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问修饰符：public protected default private<br>静态修饰符：static(属于类)<br>返回值：byte short int long double float boolean char String 数组 枚举（8中基本<br>数据类型和引用类型和void）<br>&lt;方法名&gt;：首个单词字母小写，其余首字母大写<br>参数列表：可以为空，也可以写一个或多个，如果写多个，参数与参数之间必须用逗号隔开；(参数类型 参数，参数类型 参数)<br>返回值：写在方法结束处或if等语句里，返回值代表这个方法的返回数值；返回数值的类型一定要与返回值一致；可以是空；</p>
+<h1 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h1><p>1，必须在同一个类中<br>2，方法名必须相同<br>3，列表不相同(参数个数不同，参数类型不同)；<br>4,返回值不一致不会影响重载<br>//优势 简化了命名的复杂度你，给编程带来很大的遍历</p>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>类class：概念上的定义<br>对象object：具体的一个事物，也称为对象实例</p>
+<h1 id="面向对象的三大基本特征："><a href="#面向对象的三大基本特征：" class="headerlink" title="面向对象的三大基本特征："></a>面向对象的三大基本特征：</h1><pre><code>1 封装
+2 继承
+3 多态</code></pre><h1 id="声明类的语法："><a href="#声明类的语法：" class="headerlink" title="声明类的语法："></a>声明类的语法：</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[&lt;修饰符&gt;]  class  &lt;类名&gt; &#123;</span><br><span class="line"></span><br><span class="line">	&lt;属性声明&gt;</span><br><span class="line">	&lt;构造方法&gt;</span><br><span class="line">	&lt;方法声明&gt;</span><br><span class="line"></span><br><span class="line">	&lt;静态代码块&gt;</span><br><span class="line">	&lt;实例代码块&gt;</span><br><span class="line">	&lt;内部类&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类的修饰符：只能是public（公有）或者默认default（就是不写）</p>
+<p>声明属性：[&lt;修饰符&gt;] 数据类型 属性名</p>
+<p>声明方法：[&lt;修饰符&gt;]  &lt;返回类型&gt;  &lt;方法名称&gt;([参数列表]) {<br>    方法语句<br>}<br>方法的形参和实参必须个数，顺序，类型必须是一致的</p>
+<p>对象的属性默认值：<br>    byte     0<br>    short     0<br>    int         0<br>    long         0L<br>    float         0.0f<br>    double      0.0<br>    char      ‘\u0000’ 空字符<br>    boolean     false<br>所有的引用类型，默认值都是null（空指针）</p>
+<h1 id="类图："><a href="#类图：" class="headerlink" title="类图："></a>类图：</h1><p>是UML（统一建模语言）的九种图之一，表达类的结构和类与类之间的关系<br>类名<br>属性<br>构造方法<br>方法</p>
+<p>权限修饰符  + public公有  -private私有  #protected受保护的</p>
+<p>公有权限修饰符 public：成员属性或成员方法可以在任何地方访问<br>私有权限修饰符 private：成员属性或成员方法仅能在当前类中访问</p>
+<h1 id="封装："><a href="#封装：" class="headerlink" title="封装："></a>封装：</h1><p>属性私有化，提供公有的setXxx和getXxx对属性进行赋值和取值操作，boolean类型属性，getXxxx应该叫做isXxx，目的防止调用者传入不合理的值</p>
+<h1 id="构造器（构造方法）："><a href="#构造器（构造方法）：" class="headerlink" title="构造器（构造方法）："></a>构造器（构造方法）：</h1><p>用途就是创建对象的同时初始化属性值，通过new语句调用<br>默认构造器：如果类中没有任何构造器，那么java默认会自动在类中添加一个隐式无参构造器</p>
+<p><img src="1.png" alt="构造方法和普通方法的区别"></p>
+<h1 id="一个完整的java源文件："><a href="#一个完整的java源文件：" class="headerlink" title="一个完整的java源文件："></a>一个完整的java源文件：</h1><p>[包声明]   如果java源文件直接放到src根目录，就没有包声明，认为放在默认包，不推荐使用默认包，因为其他包中类无法调用默认包中的类<br>包声明的语法： package 顶层包.子包.……;   包声明必须是第一样有效代码</p>
+<p>[导入声明]+  import语句<br>如果调用的类和当前类是在同一个包中，可以直接调用，如果调用的类不在同一个包中，有两种方式：</p>
+<ol>
+<li>写完整类名（包名.类名）</li>
+<li>添加导包声明 （导包快捷键 ctrl+shift+O），导包并不包括子包，java中只有java.lang包中的类是自动导入的</li>
+</ol>
+<p>[类声明]+  一个java源文件可以写多个类，但是只能有一个public类，而且public类必须和文件同名</p>
+<h1 id="软件开发规范："><a href="#软件开发规范：" class="headerlink" title="软件开发规范："></a>软件开发规范：</h1><p>包名必须小写，一个项目的顶层包：网站后缀.公司名.项目，例如 com.ibm.erp   com.hp.print</p>
+<p>注释：<br>    // 单行注释<br>    /*   <em>/ 多行注释<br>    /*</em>   */  文档注释，可以通过javadoc命令把注释直接转换为文档，属性，方法，构造器，类本身都应该使用此注释</p>
+<h1 id="标识符命名规范"><a href="#标识符命名规范" class="headerlink" title="标识符命名规范"></a>标识符命名规范</h1><p><img src="2.png" alt="标识符"></p>
+<h1 id="基本类型："><a href="#基本类型：" class="headerlink" title="基本类型："></a>基本类型：</h1><p>都是以值的形式存在，只能存储单一数据结构</p>
+<h1 id="引用类型："><a href="#引用类型：" class="headerlink" title="引用类型："></a>引用类型：</h1><p>都是以对象实例形式存在，能够存储复杂（复合）数据结构</p>
+<h1 id="对象的属性赋值顺序："><a href="#对象的属性赋值顺序：" class="headerlink" title="对象的属性赋值顺序："></a>对象的属性赋值顺序：</h1><ol>
+<li>属性默认值</li>
+<li>等号显式赋值</li>
+<li>构造器赋值</li>
+<li>set方法赋值</li>
+</ol>
+<h1 id="值传递（用等号赋值，参数传递）"><a href="#值传递（用等号赋值，参数传递）" class="headerlink" title="值传递（用等号赋值，参数传递）"></a>值传递（用等号赋值，参数传递）</h1><p>基本类型：传递的就是值本身<br>引用类型：传递的是对象的引用</p>
+<p>如果用一个空对象null，调用对象的成员，会发生空指针异常的错误</p>
+<p>this永远代表当前对象</p>
+<h1 id="局部变量和全局变量（属性）"><a href="#局部变量和全局变量（属性）" class="headerlink" title="局部变量和全局变量（属性）"></a>局部变量和全局变量（属性）</h1><p>局部变量：声明在方法内部，作用域仅限于声明变量所在的语句块（块级作用域）或方法体，生命周期进入语句块创建，退出语句块就销毁<br>全局变量：声明在类内部，方法外部，作用域是整个类，随着对象的创建而创建，随着对象的销毁而销毁</p>
+<p><img src="3.png" alt="局部变量和全局变量"></p>
+<h1 id="类设计"><a href="#类设计" class="headerlink" title="类设计"></a>类设计</h1><p>继承的目的：减少代码冗余，尽量代码重用</p>
+<ol>
+<li>谁继承谁？子类（衍生类，派生类）继承父类（超类，基类）</li>
+<li>怎么继承？  extends 语法</li>
+<li>继承了什么？ 继承父类的属性和方法，构造器不能继承，私有属性能继承，由于权限修饰符的限制，直接访问不了</li>
+<li>继承类图 </li>
+<li>Java中是单继承：一个子类只能直接继承一个父类，但是一个父类可以有多个子类</li>
+<li>Object类是所有类的根类，任何类没有显式继承其他类，默认继承就是Object，任何类都直接或间接继承了Object</li>
+</ol>
+<h1 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h1><p><img src="4.png" alt="权限修饰符"></p>
+<p>public公有：整个项目<br>protected受保护的：同一个包的类，不同包的子类<br>default默认：同一个包的类<br>private私有：当前类</p>
+<h1 id="方法的重写（覆盖）override：子类重写父类的方法，把功能改造"><a href="#方法的重写（覆盖）override：子类重写父类的方法，把功能改造" class="headerlink" title="方法的重写（覆盖）override：子类重写父类的方法，把功能改造"></a>方法的重写（覆盖）override：子类重写父类的方法，把功能改造</h1><ol>
+<li>为什么要重写父类的方法？ 继承的功能不一定适合子类，所以要进行功能的改造</li>
+<li>能不能重写当前类的方法？不能，只能子类重写父类的方法，重写方法只能存在于子类和父类之间</li>
+<li>重写覆盖方法的规则：<br>a)    子类重写方法的权限修饰符必须大于等于父类的方法的权限修饰符<br>b)    重写方法的返回值类型必须和父类方法相同或兼容<br>c)    方法名称必须相同<br>d)    方法的参数列表必须一致（参数的个数，顺序，类型必须一致）<br>e)    子类重写方法不能比父类方法抛出更多异常</li>
+</ol>
+<h1 id="方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能"><a href="#方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能" class="headerlink" title="方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能"></a>方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能</h1><p>重载方法的规则：</p>
+<ol>
+<li>方法名称必须相同</li>
+<li>参数列表必须不同（参数的个数，顺序，类型至少有一个不同）</li>
+</ol>
+<p><img src="5.png" alt="重载和重写"></p>
+<h1 id="可变长参数："><a href="#可变长参数：" class="headerlink" title="可变长参数："></a>可变长参数：</h1><p>为了解决参数任意个数的情况，原理就是一个一维数组，可变长参数必须是参数列表中的最后一个参数 …三个点  int … i  </p>
+<h1 id="this使用的三种方式："><a href="#this使用的三种方式：" class="headerlink" title="this使用的三种方式："></a>this使用的三种方式：</h1><ol>
+<li>this代表当前对象的引用</li>
+<li>可以在局部变量和属性同名的情况下使用属性</li>
+<li>调用本类的构造方法，this() 调用其他重载构造器</li>
+</ol>
+<h1 id="super使用的两种方式："><a href="#super使用的两种方式：" class="headerlink" title="super使用的两种方式："></a>super使用的两种方式：</h1><ol>
+<li>访问父类的成员</li>
+<li>调用父类的构造器</li>
+</ol>
+<h1 id="关于构造器的几点说明："><a href="#关于构造器的几点说明：" class="headerlink" title="关于构造器的几点说明："></a>关于构造器的几点说明：</h1><ol>
+<li>如果一个类没有显式定义任何构造器，java会自动给这个类定义一个无参构造器</li>
+<li>构造器不能被继承</li>
+<li>构造器调用语句，不管是this()还是super()调用，都必须写在构造器的第一行</li>
+<li>如果构造器中没有任何显式调用构造器语句，那么java会自动的在构造器第一行加入super()语句调用父类无参构造器</li>
+<li>对构造器的调用会一直延伸到Object类</li>
+</ol>
+<h1 id="多态："><a href="#多态：" class="headerlink" title="多态："></a>多态：</h1><p>具体的表现像是，就是引用类型的向上转型，一般来说就是一个子类的对象实例赋给一个父类的类型变量</p>
+<h1 id="多态对象：多态对象一定具有多态性"><a href="#多态对象：多态对象一定具有多态性" class="headerlink" title="多态对象：多态对象一定具有多态性"></a>多态对象：多态对象一定具有多态性</h1><ol>
+<li>多态对象只能访问父类的成员</li>
+<li>但是如果父类的方法被子类重写，实际调用的是子类的重写方法（虚拟方法调用）</li>
+</ol>
+<h1 id="编译类型：决定的是对象访问成员的列表"><a href="#编译类型：决定的是对象访问成员的列表" class="headerlink" title="编译类型：决定的是对象访问成员的列表"></a>编译类型：决定的是对象访问成员的列表</h1><h1 id="运行时类型：代表的是当前对象真正的对象实例类型"><a href="#运行时类型：代表的是当前对象真正的对象实例类型" class="headerlink" title="运行时类型：代表的是当前对象真正的对象实例类型"></a>运行时类型：代表的是当前对象真正的对象实例类型</h1><h1 id="引用类型的转换"><a href="#引用类型的转换" class="headerlink" title="引用类型的转换"></a>引用类型的转换</h1><pre><code>自动转换：从子类到父类的类型可以自动转换
+强制转换：从父类到子类的类型必须强制转换</code></pre><p>没有继承关系的类型转换是非法的，自动转换和强制转换都不可以（编译错误）</p>
+<h1 id="★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型"><a href="#★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型" class="headerlink" title="★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型"></a>★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型</h1><h1 id="多态的实际作用：减少方法的重载"><a href="#多态的实际作用：减少方法的重载" class="headerlink" title="多态的实际作用：减少方法的重载"></a>多态的实际作用：减少方法的重载</h1><h1 id="instanceof运算符："><a href="#instanceof运算符：" class="headerlink" title="instanceof运算符："></a>instanceof运算符：</h1><p>对象 instanceof 类型，如果对象是指定类型或类型的子类，返回true，否则返回false，判断以运行时类型为准，而不是编译类型</p>
+<h1 id="没有继承关系的instanceof运算是非法的"><a href="#没有继承关系的instanceof运算是非法的" class="headerlink" title="没有继承关系的instanceof运算是非法的"></a>没有继承关系的instanceof运算是非法的</h1><p>默认的Object的equals方法实现和==功能相同，需要子类自己重写这个方法才能实现判断内容相等，很多类已经重写实现了equals方法，例如String Date 所有的包装类 File等</p>
+<p>hashCode()：返回当前对象的哈希码，默认是当前对象内存物理地址的后八位转化而成</p>
+<p>重写equals方法的同时也应该按照规则重写hashCode()方法<br>    重写hashCode()的原则：如果两个对象equals为true，那么两个对象的hashCode()必须相同，如果两个对象equals为false，那么两个对象的hashCode()必须不同</p>
+<p>Object的hashCode()方法主要用在Set集合中判断元素是否重复：Set集合首先判断元素的哈希码是否相同，如果哈希码不相同，则直接认为元素不重复，哈希码相同，再判断equals比较，如果equals也为true，才认为是重复元素</p>
+<p>Class对象代表运行时的类信息，存储的是类型本身的信息，例如属性信息，方法信息，构造器信息，每个类型都有自己的Class对象，甚至基本类型也有自己的Class对象，相同类型的Class对象一定相同，在第一次使用某个类型的时候这个类型的Class对象会自动创建</p>
+<h1 id="Object的getClass-方法："><a href="#Object的getClass-方法：" class="headerlink" title="Object的getClass()方法："></a>Object的getClass()方法：</h1><p>返回当前对象的类型的Class运行时类</p>
+<h1 id="Object的toString-方法："><a href="#Object的toString-方法：" class="headerlink" title="Object的toString()方法："></a>Object的toString()方法：</h1><p>默认返回当前对象的运行时类型的名称和16进制的哈希码拼接字符串，推荐子类重写这个方法，一般返回的都是属性值拼接字符串</p>
+<h1 id="toString-的两处隐式调用："><a href="#toString-的两处隐式调用：" class="headerlink" title="toString()的两处隐式调用："></a>toString()的两处隐式调用：</h1><p>1 打印对象  2  对象和字符串做拼接运算</p>
+<p>Object的finalize()方法：在当前对象被垃圾回收器回收之前自动回调的方法</p>
+<h1 id="包装类："><a href="#包装类：" class="headerlink" title="包装类："></a>包装类：</h1><p>8种基本类型都对应一个类类型，称作包装类，包装类的主要作用就是基本类型和引用类型之间的数据类型转换</p>
+<p>装箱：基本类型转换为包装类类型<br>拆箱：包装类类型转换为基本类型</p>
+<p>JDK1.5之后允许自动装箱拆箱，但是必须是匹配的基本类型才可以<br>包装类实际开发中最常用的功能是和String做转换</p>
+<h1 id="高级类特性"><a href="#高级类特性" class="headerlink" title="高级类特性"></a>高级类特性</h1><h1 id="static静态修饰符："><a href="#static静态修饰符：" class="headerlink" title="static静态修饰符："></a>static静态修饰符：</h1><p>修饰的成员称作静态成员和对象实例无关，成员是属于类本身的，静态成员存储在方法区，方法区存储的是方法的代码和静态成员</p>
+<h1 id="static能修饰哪些东西？"><a href="#static能修饰哪些东西？" class="headerlink" title="static能修饰哪些东西？"></a>static能修饰哪些东西？</h1><p>类：不能，但是能够修饰内部类<br>属性：可以，称作类属性或静态属性<br>方法：可以，称作类方法或静态方法<br>局部变量：不能<br>构造方法：不能</p>
+<p>静态成员的生命周期：静态成员会在类加载的时候创建到内存，当第一次使用某个类之前就会加载这个类到内存中，静态成员会常驻内存永不销毁</p>
+<p>静态方法不能直接调用当前类的非静态成员（实例属性，实例方法），必须通过对象调用，非静态方法可以直接调用当前类的静态或非静态成员</p>
+<p>静态代码块：可以在类中写多个静态代码块，位置任意，会在类加载的时候自动执行，就执行一次，一般都是初始化某些静态成员，或者只需要执行一次的语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">static &#123;</span><br><span class="line">	静态代码块的语句	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">实例代码块：创建对象的时候自动执行，在构造方法之前执行，没啥用处</span><br><span class="line">&#123;</span><br><span class="line">	语句块……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="静态导入："><a href="#静态导入：" class="headerlink" title="静态导入："></a>静态导入：</h1><p>import static，和import不同的是，导入的不是类，它导入的是类中的静态成员，好处是可以省略类名调用</p>
+<p>23种设计模式：设计模式就是特定功能的特定写法<br>单例模式：希望一个类只能创建一个对象，外部调用者使用的永远是一个对象实例<br>    懒汉模式：只有用到这个对象实例才会创建对象<br>    饿汉模式：提前创建对象实例</p>
+<h1 id="final"><a href="#final" class="headerlink" title="final"></a>final</h1><p>final终态修饰符：修饰类，变量（局部变量和属性），方法<br>final类：不能被其他类继承，无子类，防止子类误重写父类方法某些特定固定的功能<br>final方法：不能被子类重写<br>final变量：都是常量，常量只能赋一次值，常量规范单词全大写。单词用下划线分隔</p>
+<h1 id="abstract抽象修饰符："><a href="#abstract抽象修饰符：" class="headerlink" title="abstract抽象修饰符："></a>abstract抽象修饰符：</h1><p>抽象类：没有实现所有的功能，留了一部分功能让子类去实现<br>抽象方法：不提供方法的具体实现，只有声明方法的语句，没有{ }</p>
+<p>1.有抽象方法的类一定是抽象类<br>2.抽象类不一定有抽象方法<br>3.抽象类不能创建实例对象，但是可以有构造方法，可以通过子类来创建对象实例<br>4.抽象类可以继承抽象类或非抽象类，单继承<br>5.抽象类和抽象方法不能用final修饰<br>6.子类继承抽象类必须重写实现所有抽象方法，否则也必须是抽象类</p>
+<p>以下修饰符不允许和abstract同时使用：final  static  private</p>
+<p>模板方法设计模式：在方法中调用抽象方法，子类不同实现的功能也不同</p>
+<p>接口本身也是一种数据类型 interface，是引用类型，也有成员属性和方法，接口允许一个类实现多个接口</p>
+<p>声明接口：&lt;修饰符&gt;interface 接口名{······}<br>接口中的成员：<br>    属性：必须是公有的静态的常量 不写默认public static final常量<br>    方法：必须是公有抽象方法，不写默认就是 public abstract<br>    构造器：没有，接口不能被实例化</p>
+<p>接口和类是实现关系，类实现接口，一个类可以实现多个接口，接口和实现类之间也可以形成多态<br>类实现接口：implements 接口1，接口2，······<br>接口和接口之间是多继承关系，一个接口可以继承多个接口</p>
+<p>接口的用途：</p>
+<ol>
+<li>实现了多继承(接口和接口之间)</li>
+<li>代码规范（正规开发规范，先写接口声明所有要实现的功能，再写一个实现类具体实现功能）</li>
+<li>可以和类形成多态，传参数更灵活</li>
+<li>由于接口中都是抽象方法，可以强迫实现类必须重写这个功能</li>
+</ol>
+<p><img src="6.png" alt="抽象类与接口"></p>
+<h1 id="面向对象的关系总结："><a href="#面向对象的关系总结：" class="headerlink" title="面向对象的关系总结："></a>面向对象的关系总结：</h1><p><img src="7.png" alt="总结"></p>
+<p>面对对象的三种关系：<br>    Is a：泛化 实现<br>    Has a：组合<br>    Use a：依赖</p>
+<p>23种设计模式之简单工厂模式：通过一个方法直接得到特定的对象实例，而不需要new</p>
+<p>枚举enum：也是一种引用数据类型，存储固定的几种取值，例如  月份  星期几<br>枚举类型的成员：都是枚举常量，枚举常量的数据类型就是枚举本身</p>
+<p>内部类：在一个类中定义的类，就是内部类<br>实例内部类：没有加static的内部类，内部类所在的外部类中创建对象就直接创建，在其他类中创建内部类对象，用“外部类的对象.new”的语法创建，访问和内部类同名的外部类属性，用“外部类名.this.属性”，实例内部类的好处是可以直接访问外部类的成员而不需要创建外部类对象<br>静态内部类：加static的内部类<br>局部内部类：声明在方法内部类，局部内部类可以直接访问方法中的final局部变量<br>匿名：没有名字的内部类，匿名类主要作用就是简化创建子类或实现类的语法</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>Java程序运行过程中所发生的异常事件分为两类：</p>
+<p>错误（Error）：致命异常，没有处理的必要，例如内存溢出，虚拟机中病毒<br>异常（Exception）：正常异常可以在程序中处理之后，继续运行程序，例如空指针，下标越界，网络连接错误<br>异常类的层次：在Java中每个错误和异常都有一个对应的类</p>
+<p><img src="8.PNG" alt="图标模式"></p>
+<p>运行时异常：RuntimeException和它所有的子类，编译不提示错误，在运行期间抛出异常编译检查异常：编译期间直接提示错误</p>
+<p>Java程序在运行期间如果发生异常，首先会创建一个对应异常类型的异常对象实例，抛出这个异常对象，如果代码中有对应处理这个异常类型的语句，则执行异常处理语句，如果没有，打印堆栈消息，程序自动终止</p>
+<p>处理异常：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	可能发生</span><br><span class="line">&#125;catch（异常类型 参数）&#123;</span><br><span class="line"></span><br><span class="line">	处理异常的语句</span><br><span class="line">&#125;catch（）&#123;</span><br><span class="line"></span><br><span class="line">&#125;	……</span><br><span class="line">[<span class="keyword">finally</span>&#123;</span><br><span class="line">		永远都执行的语句，不管是否发生异常都执行</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<p>异常对象常用API：<br>    getMessage();返回异常错误信息<br>    printStackTrace();控制台打印错误堆栈信息</p>
+<p>throws语句：抛出异常声明，当前方法不处理这个异常，抛给调用者处理这个异常，throws语句可以抛出多个异常，throws 异常1，异常2……，throws抛出的一般都是编译检查错误<br>子类重写方法不能比父类方法抛出更多异常</p>
+<p>throw语句：抛出异常给虚拟机，会产生异常，创建指定类型的异常类的对象，然后throw抛给虚拟机<br>    <img src="9.jpg" alt="throw语句"><br>自定义异常类：编写一个类，继承任何一个异常类即可</p>
+<p>表示层try catch<br>业务逻辑层 数据访问层 throws</p>
+<h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><p>文件操作类File：File对象直接映射一个物理文件或目录，映射的文件或目录可以是不存在的</p>
+<p>java.util.Date 存储年月日时分秒<br>java.sql.Date 存储年月日<br>SimpleDateFormat类  把String和Date类型进行互相转换</p>
+<p>Java的File的delete方法不允许删除非空目录</p>
+<p>Input输入数据流 Output输出数据流<br>字节流：以字节为单位操作，适合 操作二进制数据<br>    根类：InputStream    OutputStream<br>字符流：以字符为单位操作，适合操作纯文本数据<br>    根类：Reader    Writer<br>FileInputStream   FileOutputStream 文件字节输入输出流<br>FileReader     FileWriter 文件字符输入输出流</p>
+<p>BufferedReader    BufferedWriter   字符输入输出缓冲流，本身没有直接操作数据流的能力，属于处理流，需要配合节点流操作数据</p>
+<p>PrintWriter  本身就是一个节点流，也可以带缓冲功能</p>
+<p>缓冲区特点是只有数据填满缓冲区才会自动刷新缓冲区（输出数据）</p>
+<p>Windows 所有文件输出流都是自动创建文件(如果文件不存在)<br>输出流默认是覆盖写入<br>Windows系统换行符是\r\n     linux系统的换行符是\n</p>
+<p>InputStreamReader   OutputStreamWriter<br>↑字节流通往字符流的桥梁</p>
+<h1 id="总结如下"><a href="#总结如下" class="headerlink" title="总结如下"></a>总结如下</h1><p><img src="10.png" alt="IO流"><br>序列化：把对象实例持久化存储到文件中   ObjectOutputStream<br>反序列化：把文件中的对象实例读取到java对象中ObjectInputStream</p>
+<p>序列化对象必须已经实现了Serializable接口</p>
+<h1 id="反射和注解"><a href="#反射和注解" class="headerlink" title="反射和注解"></a>反射和注解</h1><p>反射核心类是Class类<br>Class对象就是每个类型都拥有一个运行时类，这个类是对象实例，甚至基本类型都有运行时类包含了类型信息（属性信息，方法信息，构造器信息）</p>
+<p>反射的核心思想就是把属性，方法，构造器也当做一个对象，目的就是动态操作属性方法构造器<br>Java反射框架主要提供以下功能：<br>1.在运行时判断任意一个对象所属的类；<br>2.在运行时构造任意一个类的对象；<br>3.在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；<br>4.在运行时调用任意一个对象的方法<br>重点：是运行时而不是编译时<br><img src="JVM.jpg" alt="JVM"></p>
+<p>首先我们了解一下JVM，什么是JVM，Java的虚拟机，java之所以能跨平台就是因为这个东西，你可以理解成一个进程，程序，只不过他的作用是用来跑你的代码的。上图是java的内存模型，我们关注的点，一个方法区，一个栈，一个堆，初学的时候老师不深入的话只告诉你java的内存分为堆和栈，易懂点吧！<br>假如你写了一段代码：Object o=new Object();<br>运行了起来！首先JVM会启动，你的代码会编译成一个.class文件，然后被类加载器加载进jvm的内存中，你的类Object加载到方法区中，创建了Object类的class对象到堆中，注意这个不是new出来的对象，而是类的类型对象，每个类只有一个class对象，作为方法区类的数据结构的接口。jvm创建对象前，会先检查类是否加载，寻找类对应的class对象，若加载好，则为你的对象分配内存，初始化也就是代码:new Object()。上面的流程就是你自己写好的代码扔给jvm去跑，跑完就over了，jvm关闭，你的程序也停止了。<br>为什么要讲这个呢？因为要理解反射必须知道它在什么场景下使用。<br>题主想想上面的程序对象是自己new的，程序相当于写死了给jvm去跑。假如一个服务器上突然遇到某个请求哦要用到某个类，哎呀但没加载进jvm，是不是要停下来自己写段代码，new一下，哦启动一下服务器，（脑残）！<br>反射是什么呢？当我们的程序在运行时，需要动态的加载一些类这些类可能之前用不到所以不用加载到jvm，而是在运行时根据需要才加载，这样的好处对于服务器来说不言而喻，举个例子我们的项目底层有时是用mysql，有时用oracle，需要动态地根据实际情况加载驱动类，这个时候反射就有用了，假设 com.java.dbtest.myqlConnection，com.java.dbtest.oracleConnection这两个类我们要用，这时候我们的程序就写得比较动态化，通过Class tc = Class.forName(“com.java.dbtest.TestConnection”);通过类的全类名让jvm在服务器中找到并加载这个类，而如果是oracle则传入的参数就变成另一个了。这时候就可以看到反射的好处了，这个动态性就体现出java的特性了！举多个例子，大家如果接触过spring，会发现当你配置各种各样的bean时，是以配置文件的形式配置的，你需要用到哪些bean就配哪些，spring容器就会根据你的需求去动态加载，你的程序就能健壮地运行。<br>获得Class运行时类的三种方式：<br>1.对象.getClass()<br>2.类型.class<br>3.Class.forName(完整类型名)</p>
+<h1 id="得到构造器的方法"><a href="#得到构造器的方法" class="headerlink" title="得到构造器的方法"></a>得到构造器的方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Constructor getConstructor(Class[] params) -- 获得使用特殊的参数类型的公共构造函数， </span><br><span class="line"> </span><br><span class="line">Constructor[] getConstructors() -- 获得类的所有公共构造函数 </span><br><span class="line"> </span><br><span class="line">Constructor getDeclaredConstructor(Class[] params) -- 获得使用特定参数类型的构造函数(与接入级别无关) </span><br><span class="line"> </span><br><span class="line">Constructor[] getDeclaredConstructors() -- 获得类的所有构造函数(与接入级别无关)</span><br></pre></td></tr></table></figure>
+<h1 id="获得字段信息的方法"><a href="#获得字段信息的方法" class="headerlink" title="获得字段信息的方法"></a>获得字段信息的方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Field getField(String name) -- 获得命名的公共字段 </span><br><span class="line"> </span><br><span class="line">Field[] getFields() -- 获得类的所有公共字段 </span><br><span class="line"> </span><br><span class="line">Field getDeclaredField(String name) -- 获得类声明的命名的字段 </span><br><span class="line"> </span><br><span class="line">Field[] getDeclaredFields() -- 获得类声明的所有字段</span><br></pre></td></tr></table></figure>
+<h1 id="获得方法信息的方法"><a href="#获得方法信息的方法" class="headerlink" title="获得方法信息的方法"></a>获得方法信息的方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Method getMethod(String name, Class[] params) -- 使用特定的参数类型，获得命名的公共方法 </span><br><span class="line"> </span><br><span class="line">Method[] getMethods() -- 获得类的所有公共方法 </span><br><span class="line"> </span><br><span class="line">Method getDeclaredMethod(String name, Class[] params) -- 使用特写的参数类型，获得类声明的命名的方法 </span><br><span class="line"> </span><br><span class="line">Method[] getDeclaredMethods() -- 获得类声明的所有方法</span><br></pre></td></tr></table></figure>
+<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><p>class类.newInstance() 创建对象<br>类属性.getName()获得属性名<br>类属型.getType().getName()获得属性值的类型<br>类属型.get(实例对象)  用反射获得实例对象的值<br>类方法.getReturnType().getName()获得返回值类型名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException &#123;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		Class c = Person.class;</span><br><span class="line">		</span><br><span class="line">		Person p = new Person(<span class="string">"tom"</span>,<span class="number">27</span>,true);</span><br><span class="line">		//获得指定方法的对象</span><br><span class="line">		Method m = c.getMethod("setName", String.class);</span><br><span class="line">		//动态调用方法</span><br><span class="line">		m.invoke(p,<span class="string">"jack"</span>);//等价于p.setName(<span class="string">"jack"</span>);</span><br><span class="line">		</span><br><span class="line">		m = c.getMethod(<span class="string">"getName"</span>);</span><br><span class="line">		</span><br><span class="line">		Object result = m.invoke(p);//等价于p.getName()</span><br><span class="line">		</span><br><span class="line">		System.out.println(result);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><p>annotation：@Xxxx，能够用程序读取出来的一种特殊注释，注解也算一种数据类型</p>
+<p>实际主要在框架应用中代替xml做配置</p>
+<p>内置注解：<br>@Override：当前方法必须是重写方法，否则直接编译错误<br>@Deprecated：修饰已过时方法<br>@SuppressWarnings：禁止Java编译器产生警告<br>自定义注解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;修饰符&gt;@interface &lt;注解名&gt; &#123;</span><br><span class="line">	返回值 方法名称() [default 默认值];</span><br><span class="line">	返回值 方法名称() [default 默认值];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回值只能是：基本类型，String，Class，枚举，Annotation注解类型</p>
+<p>注解的注解<br>@Target(ElementType.METHOD) 只能修饰方法<br>@Target(ElementType.FIELD) 只能修饰属性<br>@Target(ElementType.TYPE)只能修饰类</p>
+<p>@Retention(RetentionPolicy.RUNTIME) 表示JVM运行期间此注解存在<br>@Retention(RetentionPolicy.CLASS) 表示仅在class文件中存在，运行期间不存在<br>@Retention(RetentionPolicy.SOURCE) 表示仅在java源代码中存在，编译之后丢失</p>
+<p>常用类<br>Math 数学类，提供了和数学相关的一些API<br>String 字符串类：String对象时不可修改的字符串，String是不可变类，字符串内容创建</p>
+<p>StringBuffer类：保存可修改的字符串对象，线程安全的（同步执行）</p>
+<p>StringBuilder类：功能同StringBuffer，都是可变字符串，线程不安全（异步执行）</p>
+<p>由于Java的数组是定长的，不能自由添加删除元素，集合类是变长的</p>
+<p>集合类的结构图</p>
+<p><img src="11.PNG" alt="集合类结构图"></p>
+<h1 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h1><p>特点是不能存储重复元素，元素没有顺序<br>    HashSet类：哈希表散列结构<br>    TreeSet类：可以用自然顺序对元素进行排序，排序的对象必须实现Comparable接口，重写compareTo方法</p>
+<h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><p>特点有下标能存储重复元素，元素有顺序<br>    ArrayList：线性表结构，结构上最接近数组结构，就是一个可变长数组，查找元素快，插入删除元素慢<br>    LinkedList:链表结构，查找元素慢，插入删除元素快。<br>    Vector：同ArrayList，是同步的（线程安全的）</p>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>generic type：主要目的就是减少类型转换次数，避免类型转换的代码风险，在创建对象的同时就明确数据类型，代替传统的万能的Object类型</p>
+<p>泛型的核心思想就是把数据类型本身也当成参数来传递，类型参数化</p>
+<p>如果没有传入泛型参数，默认就是Object类型，泛型不支持基本类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package chapter14;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class TestGeneric02 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		ArrayList&lt;Integer&gt; list1 = new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; list2 = new ArrayList&lt;&gt;();</span><br><span class="line">		ArrayList&lt;String&gt; list3 = new ArrayList&lt;&gt;();</span><br><span class="line">		ArrayList&lt;Number&gt; list4 = new ArrayList&lt;&gt;();</span><br><span class="line">		ArrayList&lt;Object&gt; list5 = new ArrayList&lt;&gt;();</span><br><span class="line">		</span><br><span class="line">		list1 = list3; //类型不匹配</span><br><span class="line">		list4 = list1; //类型不匹配，泛型没有多态这一说</span><br><span class="line">		list5 = list1; //类型不匹配</span><br><span class="line">		list1 = list2; //类型匹配</span><br><span class="line">		</span><br><span class="line">		ArrayList&lt;? extends Number&gt; list6 = list1; //泛型是Number的子类也兼容</span><br><span class="line">		ArrayList&lt;? super Number&gt; list7 = list5; //泛型是Number的父类也兼容	</span><br><span class="line">		ArrayList&lt;?&gt; list8 = list1; //泛型可以兼容任何类型</span><br><span class="line">		ArrayList list9 = list1;//默认就是Object类型</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>传入泛型参数的时机：</p>
+<ol>
+<li>创建对象</li>
+<li>实现接口</li>
+<li>调用方法（泛型方法，调用方法的同时传入泛型参数）<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;? extends 类型A&gt; 兼容类型A的子类型</span><br><span class="line">&lt;? super 类型A&gt; 兼容类型A的父类型</span><br><span class="line">&lt;?&gt; 兼容任何类型</span><br></pre></td></tr></table></figure>
+<h1 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h1>Map集合：特点就是存储键值对（key-value），常用实现类就是HashMap和HashTable，Map集合的键不能重复<br>HashMap：线程不安全的（异步）<br>HashTable：线程安全（同步）<br>属性文件：.properties  可以配置键值对性质的一些数据<br>properties类：可以直接加载配置文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package chapter14;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line">public class TestProperties &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">		</span><br><span class="line">		//输入流</span><br><span class="line">		InputStream is = TestProperties.class.getResourceAsStream("config.properties");</span><br><span class="line">		</span><br><span class="line">		//创建Properties对象</span><br><span class="line">		Properties p = new Properties();</span><br><span class="line">		</span><br><span class="line">		//加载流</span><br><span class="line">		p.load(<span class="keyword">is</span>);</span><br><span class="line">		</span><br><span class="line">		//关闭流</span><br><span class="line">		<span class="keyword">is</span>.close();</span><br><span class="line">		</span><br><span class="line">		//返回属性值</span><br><span class="line">		System.out.println( p.getProperty(<span class="string">"username"</span>) );</span><br><span class="line">		System.out.println( p.getProperty(<span class="string">"password"</span>) );</span><br><span class="line">		System.out.println( p.getProperty(<span class="string">"ip"</span>) );</span><br><span class="line">		System.out.println( p.getProperty(<span class="string">"port"</span>) );</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1>应用程序是由多个进程组成，一个进程是由多个线程组成的<h1 id="线程是独立执行的程序的最小单位"><a href="#线程是独立执行的程序的最小单位" class="headerlink" title="线程是独立执行的程序的最小单位"></a>线程是独立执行的程序的最小单位</h1>Java应用程序本身就是一个独立的进程，默认情况下只有一个线程，就是main方法执行的主线程，通过主线程可以创建更多的线程<br>CPU一个核心同一时刻只能执行一个程序（进程）<br>抢占式：一个程序运行之后独占CPU使用权，执行完了才能执行下一个进程<br>事件片式：给每个程序分配执行时间，时间到了必须让出CPU使用权，让下一个程序执行<br>一个线程的组成：CPU使用权<h1 id="创建一个新的线程两种方式："><a href="#创建一个新的线程两种方式：" class="headerlink" title="创建一个新的线程两种方式："></a>创建一个新的线程两种方式：</h1>继承Thread类：重写run方法<br>Thread类的常用API：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">run()：线程体，多线程执行的具体代码</span><br><span class="line">start():启动线程，一个线程对象只能启动一次</span><br><span class="line">currentThread()：返回当前正在执行的线程对象</span><br><span class="line">sleep():线程休眠若干毫秒，强制让出CPU</span><br><span class="line">join():线程合并</span><br><span class="line"><span class="keyword">yield</span>():让出CPU，到就绪状态</span><br></pre></td></tr></table></figure>
+synchronized 同步修饰符：当前修饰方法或语句块线程执行期间，同一时刻不允许其他线程执行这段代码(同步执行)</li>
+</ol>
+<p>线程的生命周期:<br><img src="12.png" alt="线程生命周期"></p>
+<h1 id="Object类中线程相关方法："><a href="#Object类中线程相关方法：" class="headerlink" title="Object类中线程相关方法："></a>Object类中线程相关方法：</h1><p>wait():让调用当前对象的线程进入到等待区，必须由其他线程唤醒<br>notify/notifyAll():唤醒等待区的其他线程，notify随机唤醒一个等待的线程，notifyAll唤醒等待区的所有线程继续执行</p>
+<p>wait()和notify()必须在synchronized语句块中执行<br>最早的是AWT技术<br>后来出现了Swing，界面好看的<br>最后SWT技术<br>JFframe的匿名方法（在构造器里写）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">btn2.addActionListener(new ActionListener() &#123;			</span><br><span class="line"><span class="meta">			@Override</span></span><br><span class="line">			public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">				JOptionPane.showMessageDialog(null, <span class="string">"hello,world"</span>);			</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		btn3.addActionListener(new ActionListener() &#123;			</span><br><span class="line"><span class="meta">			@Override</span></span><br><span class="line">			public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">				int i = JOptionPane.showConfirmDialog(null, <span class="string">"确定要执行此操作吗"</span>,<span class="string">"提示"</span>,JOptionPane.YES_NO_OPTION);</span><br><span class="line">				System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		//给窗口关闭按钮注册事件</span><br><span class="line">		this.addWindowListener(new WindowAdapter() &#123;</span><br><span class="line"><span class="meta">			@Override</span></span><br><span class="line">			public void windowClosing(WindowEvent e) &#123;</span><br><span class="line">				System.exit(<span class="number">0</span>);</span><br><span class="line">			&#125;			</span><br><span class="line">		&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="软件测试"><a href="#软件测试" class="headerlink" title="软件测试"></a>软件测试</h1><p>黑盒测试：不需要了解软件代码细节，只测试功能<br>白盒测试：需要写测试脚本或者直接写软件开发代码<br>单元测试（单体测试）：测试某个具体功能，例如某个方法，Java中使用JUnit技术<br>综合测试：测试整个项目的功能，前后端联调测试等<br>Junit技术是java单体测试技术：需要junit.jar文件支持，Junit的测试方法必须加上@Test注解，必须没有返回值和参数，必须void的无参方法，@Before 前置执行   @After后置执行<br>Jar文件：就是类库打包为一个jar压缩文件<br>命令行运行Jar文件：java –jar  xxx.jar</p>
+<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><p>Java DataBase Connection (Java连接数据库)：java中操作数据库的技术<br>Java没有提供任何操作具体某种数据库的API，真正实现数据库操作的是数据库厂商提供的第三方类库（jar包）</p>
+<p><img src="13.png" alt="嘻嘻"><br>在eclipse中使用第三方类库，需要配置构建路径，项目右键—buildpath—configure build path</p>
+<p><img src="14.png" alt="嘻嘻"><br>JDBC操作数据库的流程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>	注册驱动</span><br><span class="line"></span><br><span class="line">a）Class.forName(<span class="string">"oracle.jdbc.driver.OracleDriver"</span>);</span><br><span class="line">b）DriverManager.registerDriver(new OracleDriver());</span><br><span class="line"><span class="number">2.</span>获得数据库连接</span><br><span class="line">String url = <span class="string">"jdbc:oracle:thin:@192.168.13.59:1521:xe"</span>;//驱动url字符串</span><br><span class="line">		String user = <span class="string">"scott"</span>;</span><br><span class="line">		String password = <span class="string">"tiger"</span>;</span><br><span class="line">	</span><br><span class="line">Connection conn = DriverManager.getConnection(url, user, password);</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>创建语句对象Statement stmt = conn.createStatement();</span><br><span class="line"><span class="number">4.</span>执行查询语句，返回查询结果对象</span><br><span class="line">ResultSet rs = stmt.executeQuery(<span class="string">"select * from employees"</span>);</span><br><span class="line"><span class="number">5.</span>遍历结果集</span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">			System.out.println(</span><br><span class="line">					rs.getInt(<span class="number">1</span>) + <span class="string">","</span> + rs.getString(<span class="string">"last_name"</span>) + <span class="string">","</span> + rs.getDate(<span class="number">6</span>) + <span class="string">","</span> + rs.getDouble(<span class="number">8</span>));</span><br><span class="line"></span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>ResultSet对象代表查询结果集的游标(cursor) 指针 ,游标指向哪一行，读取的就是哪一行的数据，默认指向第一行<br>返回游标当前行的列值<br>    方式1：rs.getXxxx（索引） 更快  推荐用索引<br>    方式2：rs.getXxxx（列名）<br>6.逆向关闭对象，释放内存<br>执行查询：executeQuery();<br>执行DML：excuteUpdate();<br><img src="15.PNG" alt="嘻嘻"></p>
+<p>CallableStatement 调用存储过程和函数的语句对象<br>可滚动游标指针：游标不仅可以向下滚动，也可以上移，也可以直接跳跃到指定行<br>从数据库原理来讲，游标只能向下移动<br>游标的ResultSetType：<br>    TYPE_FORWARD_ONLY :默认，游标只能向下移动，效率最高<br>    TYPE_SCROLL_INSENSITIVE：可滚动游标，结果集更新不可视，原理就是把查询结果一次性放到Java虚拟机的一个数组中，然后通过下标读取记录，如果数据量过大肯呢过会导致JVM内存溢出<br>    TYPE_SCROLL_SENSITIVE：可滚动游标，结果集更新可视，查出结果集的rowid放到一个大数组中，然后通过rowid再去访问原始数据<br>游标的只读还是可以修改<br>    CONCUR_READ_ONLY:默认，只读游标<br>    CONCUR_UPDATABLE:可以通过ResultSet直接进行增删改<br>元数据：数据库信息，表的信息，列的信息，查询结果的结构信息<br>批处理：把多条SQL语句形成一个批处理，一次性发送到数据库执行，提高效率<br>默认情况下jdbc在执行execute方法后会自动提交事务<br>数据库连接池：事先创建好N个连接对象，重复使用，提高系统的运行效率</p>
+<h1 id="分页程序："><a href="#分页程序：" class="headerlink" title="分页程序："></a>分页程序：</h1><pre><code>前端分页：后端把json数据传递给前端，前端形成一个数组，通过下标来分页，数据量较大的时候，浏览器容易内存溢出
+后端分页：
+    内存分页：利用jdbc的可滚动游标，把数据一次性查询到java虚拟机中，然后用游标进行分页，数据量较大的时候，JVM容易内存溢出
+    SQL分页：利用SQL语句直接在数据库中执行分页函数，java所得到的就是一页数据，推荐使用</code></pre><h1 id="JavaEE"><a href="#JavaEE" class="headerlink" title="JavaEE"></a>JavaEE</h1><p>JavaEE(Java 企业版)：JSP  Servlet  EJB(EJB被其他第三方技术大量代替)<br>JavaEE运行环境：JSP/Servlet容器，常用的容器有tomcat，jboss，glassfish，weblogic，<br>websphere</p>
+<p>Servlet版本：最新的3.1，早期是2.5，语法有一定的差异，很多xml配置可以用注解来配置<br>Eclipse的Web项目工程结构<br>    .settings：当前项目工程的配置文件<br>    build：编译之后的class文件<br>    src：java源代码文件<br>    WebContent：Web资源（html，css，javascript，图片，视频）<br>            META-INF：配置EJB远程调用<br>            WEB-INF：<br>                lib  第三方jar包<br>                web.xml  部署描述文件（核心配置文件）</p>
+<h1 id="Servlet技术"><a href="#Servlet技术" class="headerlink" title="Servlet技术"></a>Servlet技术</h1><p>就是一种通过http请求调用执行的类（通过URL调用）<br>任何Servlet类，都必须直接或间接实现Servlet接口<br> <img src="16.PNG" alt="嘻嘻"><br>修改服务器端代码，必须重新加载web应用</p>
+<h1 id="创建Servlet的方式（xml配置形式）"><a href="#创建Servlet的方式（xml配置形式）" class="headerlink" title="创建Servlet的方式（xml配置形式）"></a>创建Servlet的方式（xml配置形式）</h1><p>1.创建类继承httpServlet父类<br>2.重写doGet和doPost方法<br>3.配置web.xml 部署描述文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">	&lt;servlet-name&gt;Servlet类别名 &lt;/servlet-name&gt;</span><br><span class="line">	&lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">Servlet</span>类名 &lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt; <span class="title">servlet</span>映射地址</span></span><br><span class="line"><span class="class">	&lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;别名 &lt;/<span class="title">servlet</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">	&lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/<span class="title">Servlet</span>的名  随意取  前端发送的<span class="title">url</span>得是这个&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="第二种创建Servlet的方式（注解配置形式）"><a href="#第二种创建Servlet的方式（注解配置形式）" class="headerlink" title="第二种创建Servlet的方式（注解配置形式）"></a>第二种创建Servlet的方式（注解配置形式）</h1><p>1.创建类继承httpServlet父类<br>2.重写doGet和doPost方法<br>3.@WebServlet(value=”/类名 “) 注解</p>
+<h1 id="开头路径："><a href="#开头路径：" class="headerlink" title="/开头路径："></a>/开头路径：</h1><pre><code>客户端代码：代表服务器根目录
+服务器端代码：代表的web应用根目录</code></pre><h1 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h1><p>1.当第一次请求Servlet，会自动创建servlet 对象实例，执行init初始化方法<br>2.每一次请求都会执行service方法service根据请求方式自动调用doGet或者doPost<br>3.当Servlet对象实例被销毁之前，自动调用destroy（tomcat只有关闭应用才会垃圾回收Servlet对象）<br>init，service，destroy称为servlet对象的生命周期</p>
+<p>Servlet是单实例多线程：一个Servlet只会创建一个对象实例，所有的请求使用的都是同一个对象，不同客户端可以并发请求同一个对象实例，每一次请求都会产生独立的线程<br>Servlet的虚拟URL地址，在同一个WEB应用中不可以重复</p>
+<p>为了线程安全，防止多线程并发访问Servlet对象时数据混乱，永远不要使用全局变量，要使用局部变量！</p>
+<h1 id="Get和Post请求区别"><a href="#Get和Post请求区别" class="headerlink" title="Get和Post请求区别"></a>Get和Post请求区别</h1><p><img src="17.PNG" alt="嘻嘻"></p>
+<p>HttpServletRequest 请求对象<br>HttpServletResponse 响应对象：当每次浏览器发送请求到服务器，服务器端都会自动创建两个对象（请求对象，响应对象），传递并调用service方法</p>
+<p><img src="18.PNG" alt="嘻嘻"></p>
+<h1 id="中文转码"><a href="#中文转码" class="headerlink" title="中文转码"></a>中文转码</h1><p>get方法：<br>post方法：request.setCharacterEncoding(“utf-8”);</p>
+<h1 id="一个完整的HTTP请求包含三部分信息"><a href="#一个完整的HTTP请求包含三部分信息" class="headerlink" title="一个完整的HTTP请求包含三部分信息"></a>一个完整的HTTP请求包含三部分信息</h1><pre><code>请求行：协议版本，请求方式，请求URL
+请求报头：包含了客户端的相关信息
+请求正文：发送的请求参数数据，GET请求没有请求正文</code></pre><h1 id="请求对象的API"><a href="#请求对象的API" class="headerlink" title="请求对象的API"></a>请求对象的API</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">getParammeter(“参数名称”)：返回客户端请求参数</span><br><span class="line">getParameterValues(“参数名称”)：返回多个参数名称相同的值，形成一个数组</span><br><span class="line">getParameterName():返回所有请求参数名称，形成一个Enumeration集合</span><br><span class="line">getHeader():获得指定报头信息</span><br><span class="line">getHeaderNames():获得所有报头的名称</span><br><span class="line">request.getContextPath()：返回当前web应用名称</span><br><span class="line">getMethod()：返回当前请求方法</span><br><span class="line">getProtocol()：返回协议名称</span><br><span class="line">getQueryString()：返回请求的参数字符串部分的内容</span><br><span class="line">getRequestURI()：返回请求URI 从协议开始的地址</span><br><span class="line">getRequestURL()：返回请求URL http：//ddd</span><br><span class="line">request.getRemoteAddr()：返回客户端IP地址</span><br><span class="line">request.getLocalAddr()：返回服务器的IP地址</span><br><span class="line">request.getLocalName()：返回服务器的机器名称</span><br><span class="line">request.getLocalPort()：返回服务器的端口号</span><br></pre></td></tr></table></figure>
+
+<h1 id="响应对象的API"><a href="#响应对象的API" class="headerlink" title="响应对象的API"></a>响应对象的API</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>)：设置MIME类型和编码</span><br><span class="line">response.getWriter():获得响应输出流</span><br><span class="line">response.setHeader():获得响应报头</span><br></pre></td></tr></table></figure>
+<h1 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h1><p>对资源A发出请求，资源A直接把请求直接转发给资源B，资源B给出客户端响应，只会发出一次请求，请求转发之前不能有任何数据响应到客户端，否则转发会失效<br>request.setAttribute(“username”,”tom”);<br>request.setAttribute(“userpwd”, 123456);<br>String username = (String)request.getAttribute(“username”);<br>Integer userpwd = (Integer)request.getAttribute(“userpwd”);</p>
+<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><p>对资源A发出请求，资源A给出响应，通知浏览器对资源B发出请求，资源B给出响应，会发出两次请求</p>
+<p><img src="19.PNG" alt="嘻嘻"></p>
+<p>范围对象：都具有存储键值对的方法，setAttribute() getAttribute() removeAttribute();<br>Request：在请求范围中存储数据<br>Session：仅限于一个会话的范围，同一个会话可以共享数据<br>ServletContext：全局对象，范围是整个web应用，一个web应用只有一个ServletContext上下文对象</p>
+<p>ServletContext 常用功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>在范围中共享键值对数据</span><br><span class="line"><span class="number">2.</span>读取在web.xml配置好的全局初始化参数</span><br><span class="line">	全局初始化参数：配置web.xml中的一些键值对，都是String类型</span><br><span class="line">	局部初始化参数：配置在某一个Servlet，而且只能是这个Servlet读取，别的Servlet读取不了，通过ServletConfig对象获取</span><br><span class="line"><span class="number">3.</span>getRealPath() 将相对路径转化为物理路径String path = context.getRealPath(<span class="string">"/zzz.txt"</span>);</span><br><span class="line">转化为C:\apache-tomcat<span class="number">-8.0</span><span class="number">.41</span>\webapps\JavaEE\zzz.txt</span><br></pre></td></tr></table></figure>
+
+<h1 id="会话-Session"><a href="#会话-Session" class="headerlink" title="会话 Session"></a>会话 Session</h1><p>在Web开发中，同一个机器的同一种浏览器的窗口，算一个会话Session<br>Http是无状态连接：客户端发出请求时连接服务器，得到响应后，就关闭连接，好处可以节省客户端和服务器的连接通信耗费的资源，缺点是</p>
+<h1 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">就是跨请求保留共享数据，有四种写法：</span><br><span class="line"><span class="number">1.</span>url重写，把要共享的数据通过url传递给下一个请求地址</span><br><span class="line"><span class="number">2.</span>隐藏域，把要共享的数据通过&lt;input type=”hidden”&gt; 一起提交给下一个请求地址</span><br><span class="line"><span class="number">3.</span>Cookie</span><br><span class="line"><span class="number">4.</span>Session</span><br></pre></td></tr></table></figure>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>就是存储在客户端的一个文本键值对<br>    会话级：存储在客户端的浏览器进程中，浏览器关闭就销毁<br>    硬盘级：存储在客户端的浏览器临时文件夹中，可以设置失效时间<br>Cookie只能由写入Cookie的那个域读取，例如百度无法读取新浪写入的Cookie<br>和H5的web本地存储技术相比，Cookie的区别是每次请求都会把当前域所有的cookie内容发送给服务器端，而H5的web本地存储不会把数据发送到服务器端，是纯前端操作</p>
+<p>Session是存储在服务器端的一个对象，数据类型HttpSession，session的生命周期是从会话第一次发出请求创建（实际上只有调用了request.getSession()语句才会创建session对象），产生一个session对象，包含一个唯一的sessionId，然后以会话级cookie的形式把这个sessionId写入到客户端,以会话最后一次发送请求为准，如果超过超时时长（tomcat默认是30分钟）没有发送任何请求，服务器会自动销毁这个session对象<br><img src="20.PNG" alt="嘻嘻"><br>在浏览器禁用cookie情况下，服务器端无法把sessionid传递给客户端，session将无法共享数据，解决办法是通过url手动重写传递jsessionid，语法是url;jsessionid=sessionid值<br>设置session默认的超时时长（tomcat默认是30分钟）<br>    方式1：修改web.xml文件，整个web应用生效，单位是分钟</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-config&gt;</span><br><span class="line">  		&lt;session-timeout&gt;60&lt;/session-timeout&gt;</span><br><span class="line">&lt;/session-config&gt;</span><br></pre></td></tr></table></figure>
+<p>方式2：代码设置当前会话，单位是秒</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.setMaxInactiveInterval(<span class="number">5</span>);</span><br><span class="line">读取</span><br><span class="line">long time = session.getMaxInactiveInterval();</span><br></pre></td></tr></table></figure>
+<h1 id="开发思想"><a href="#开发思想" class="headerlink" title="开发思想"></a>开发思想</h1><pre><code>分离式开发：前后端完全分离，前端（PC前端，H5前端，App）都是和统一的服务器数据访问接口进行通信，需要大量使用ajax请求
+JSP开发：大量的使用请求转发把数据传递到JSP，利用用java技术生成页面</code></pre><h1 id="按照三层架构思想"><a href="#按照三层架构思想" class="headerlink" title="按照三层架构思想"></a>按照三层架构思想</h1><p>xxx.html/xxx.jsp(表示层)    servlet(表示层)    service(业务逻辑层)    dao(数据访问层)</p>
+<h1 id="按照MVC设计模式："><a href="#按照MVC设计模式：" class="headerlink" title="按照MVC设计模式："></a>按照MVC设计模式：</h1><p>Model(模型)        View(视图)        Controller(控制器)</p>
+<p>xxx.html/xxx.jsp(视图)     servlet(控制器)     service(模型)        dao(模型)</p>
+<h1 id="在web中处理异常的两种方式"><a href="#在web中处理异常的两种方式" class="headerlink" title="在web中处理异常的两种方式"></a>在web中处理异常的两种方式</h1><p>声明式异常：就是在web.xml中进行配置，设置发生异常的错误页的url地址<br>    <error-page><br>        <error-code>404</error-code><br>        <location>/404.jsp</location><br>    </error-page><br><error-page><br>        <exception-type>java.lang.Exception</exception-type><br>        <location>/error.jsp</location><br></error-page><br>程序式异常：在Java代码中写try/catch，然后手动跳转到error页<br>过滤器Filter：对用户的请求进行拦截，执行一段自定义代码<br><img src="21.PNG" alt="嘻嘻"></p>
+<h1 id="创建过滤器"><a href="#创建过滤器" class="headerlink" title="创建过滤器"></a>创建过滤器</h1><p>1 创建类实现Filter接口<br>2 实现init，destroy，doFilter三个抽象方法<br>    init 初始化方法：过滤器第一次加载时执行<br>    destroy销毁方法：过滤器对象被销毁之前执行<br>    doFilter：每一次请求都执行这个方法<br>3 在web.xml中配置过滤器，一个filter可以对应多个filter-mapping（也可以用@WebFilter 注解）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置过滤器别名 --&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">	&lt;filter-name&gt;MyFilter&lt;/filter-name&gt;</span><br><span class="line">	&lt;filter-<span class="class"><span class="keyword">class</span>&gt; 完整类名&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">&lt;!-- 配置过滤器的拦截范围 --&gt;</span></span><br><span class="line"><span class="class">&lt;filter-mapping&gt;</span></span><br><span class="line"><span class="class">&lt;filter-name&gt;MyFilter&lt;/filter-name&gt;</span></span><br><span class="line"><span class="class">&lt;url-pattern&gt;/*   需要过滤的资源URL&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="class">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
+<p>过滤器的拦截URL常用写法：</p>
+<p>/* 过滤所有请求<br>/abc/* 过滤abc下的所有请求<br>*.html 仅过滤某个扩展名的请求，不能加斜杠开头</p>
+<p>监听器：8个监听器，可以划分为三大类，ServletContext相关的，HttpSession相关的，Request相关的，监听器主要就是监听三大范围对象的生命周期和键值对存储的事件</p>
+<h1 id="三大框架"><a href="#三大框架" class="headerlink" title="三大框架"></a>三大框架</h1><p>早期的三大Java企业级框架：Spring    Struts2    Hibernat（SSH）<br>后期的三大Java企业级框架：Spring  SpringMVC  MyBatis（SSM）<br>未来预计Java企业级框架：SpringBoot</p>
+<h1 id="框架的核心思想是用配置代替编程"><a href="#框架的核心思想是用配置代替编程" class="headerlink" title="框架的核心思想是用配置代替编程"></a>框架的核心思想是用配置代替编程</h1><pre><code>XML配置
+注解配置</code></pre><h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><p>是apache开发的一款基于Java持久化框架，持久化框架一般来说都是指数据库操作框架，类似框架式Hibernate<br>Hibernate是全自动框架，自动生成SQL语句，执行效率低<br>MyBatis是半自动框架，需要手写SQL语句，执行效率高</p>
+<p>MyBatis核心配置文件，名称任意，例如mybatis-config.xml 位置必须放到类路径下</p>
+<p>MyBatis执行数据库操作的配置流程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>在类路径创建核心配置文件，例如mybatis-config.xml</span><br><span class="line">a) &lt;properties&gt; 引用外部配置文件</span><br><span class="line">b)&lt;typeAliases&gt;配置实体类的别名</span><br><span class="line">c)&lt;environment&gt;配置数据库运行环境</span><br><span class="line">d)&lt;mappers&gt;配置映射文件路径</span><br><span class="line"><span class="number">2.</span>映射文件，名称任意，例如XxxxMapper.xml</span><br><span class="line">a)  &lt;mapper namespace=”dao接口文件的全路径”&gt;</span><br><span class="line">b)  &lt;insert&gt;&lt;update&gt;&lt;delete&gt;&lt;selecr&gt; 标签id必须和dao接口方法名称相同</span><br><span class="line"><span class="comment">#&#123;&#125;从传入的参数对象中取出对应的属性值，jdbcType是标明这个值的数据类型，用的类型名称是mybatis的数据类型，在值不为空的情况下，可以省略不写，可以自动识别</span></span><br><span class="line">&lt;resultMap&gt; 查询结果集的映射配置：配置表和类的对应关系，以及列和属性的对应关系</span><br><span class="line">&lt;id&gt; 映射主键列</span><br><span class="line">&lt;result&gt; 映射普通列</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">关于&lt;select&gt;标签中的resultMap和resultType</span><br><span class="line"></span><br><span class="line">	resultMap:代表已经定义好的&lt;resultMap&gt;的结果映射</span><br><span class="line">	resultType:有三种情况</span><br><span class="line">		单一类型，例如java.lang.Integer</span><br><span class="line">		对象类型，一般都是pojo类，需要注意查询语句的列名或别名必须和pojo类的属性名称一致，才能赋值</span><br><span class="line">		Map类型，列值自动封装为键值对，键是列名，值是列值，&lt;select id=<span class="string">"queryAvgSal"</span> resultType=<span class="string">"java.util.Map"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parameterType属性：在&lt;insert&gt;&lt;update&gt;&lt;delete&gt;&lt;select&gt;代表传给sql的数据类型</span><br><span class="line"><span class="number">1.</span>单一类型：例如java.lang.Integer</span><br><span class="line"><span class="number">2.</span>对象类型：一般都是pojo类，或者一些其他对象例如Pager</span><br><span class="line"><span class="number">3.</span>Map集合类型 传递一些比较松散的类型</span><br></pre></td></tr></table></figure>
+<p>也可以用@Param注解设置参数名称，在sql语句里用#{}引用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#&#123;&#125;引用传入的值，有可能是以下情况：</span></span><br><span class="line">	pojo对象的属性</span><br><span class="line">	传入Map集合的键名</span><br><span class="line"><span class="meta">	@Param注解的参数名称</span></span><br><span class="line">如果只有一个单一类型的参数传入，<span class="comment">#&#123;&#125;里面的名称任意  都可以引用这个值</span></span><br><span class="line">$&#123;&#125;是属于拼接字符串，不代表任何参数值的概念 prepareStatement和statement区别</span><br></pre></td></tr></table></figure>
+<p>在ORM思想中：<br>    多对一：在多的一端实体类中包含一的一端的实体类对象，例如员工对象包含一个部门对象，在<resultMap>中加入<association>映射<br>    一对多：</p>
+<h1 id="动态SQL"><a href="#动态SQL" class="headerlink" title="动态SQL"></a>动态SQL</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">可以&lt;sql&gt;标签声明一些sql代码片段，然后在其他的语句标签中使用&lt;include&gt;引用，形成代码重复使用</span><br><span class="line">&lt;<span class="keyword">if</span>&gt;标签：等价于<span class="keyword">if</span>判断</span><br><span class="line">&lt;where&gt;标签：动态判断添加where子句，代替where <span class="number">1</span>=<span class="number">1</span> 写法</span><br><span class="line">&lt;trim&gt;标签：动态判断添加where子句，删除多余<span class="keyword">or</span>和<span class="keyword">and</span></span><br><span class="line">&lt;choose&gt;标签：相当于<span class="keyword">if</span> <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">else</span>，只会有一个满足条件的执行</span><br></pre></td></tr></table></figure>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>从狭义上来说，Spring指的就是Spring的核心技术IoC和AOP技术，广义上的Spring就是Spring大家族，目前spring通用版本是3.x  4.x<br>IoC：Inversion Of Control（控制反转）：控制权要交给Spring，由Spring容器负责创建需要依赖的对象（简单的说，就是不用new了，由Spring负责new对象）<br>DI  Dependency Injection（依赖注入）：Spring会自动把需要依赖的对象自动注入（赋值）<br>使用Spring框架，必须把所有创建对象，管理对象实例生命周期，依赖对象传入等控制权都交给spring（最忌讳自己new对象）</p>
+<p>Spring的核心配置文件：位置任意（一般都放到类路径），名称任意，数量任意</p>
+<p>Spring核心容器对象：最早的核心容器BeanFactory，ApplicationContext扩展了这个核心容器的功能，ApplicationContext最常用的实现类是ClassPathXmlApplicationContext</p>
+<p>ClassPathXmlApplicationContext是自动到类路径下寻找Spring配置文件 创建核心容器</p>
+<h1 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h1><p>任何类想交给spring管理必须成为spring的一个bean才可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">配置基本bean：</span><br><span class="line">&lt;bean id=”beanId名称”  class=”类名”&gt; &lt;/bean&gt;</span><br><span class="line">注入依赖的对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;property name=<span class="string">"dao"</span> ref=<span class="string">"deptDao"</span> /&gt;</span><br><span class="line">依赖注入既可以注入对象，也可以注入普通属性，但得有set方法</span><br><span class="line">&lt;property name="name" value="李长霖"&gt;&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式"><a href="#Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式" class="headerlink" title="Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式"></a>Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式</h1><h1 id="配置bean的作用域：scope属性"><a href="#配置bean的作用域：scope属性" class="headerlink" title="配置bean的作用域：scope属性"></a>配置bean的作用域：scope属性</h1><pre><code>singleton：单例模式（默认），spring在初始化容器的时候创建这个对象
+prototype：多例模式，每次获得bean对象都是创建一个新对象</code></pre><h1 id="lazy懒加载"><a href="#lazy懒加载" class="headerlink" title="lazy懒加载"></a>lazy懒加载</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">用到bean才会创建对象，需要把lazy-init属性设置为true，多例模式默认就是懒加载，可以设置在&lt;beans&gt;根标签default-lazy-init=<span class="string">"true"</span>表示所有的bean 默认懒加载</span><br><span class="line">自动装配：不需要使用&lt;property&gt;显示注入对象，使用autowire自动装配</span><br><span class="line">byType：根据数据类型自动找到类型最匹配的bean对象自动注入</span><br><span class="line">byName：根据需要注入的属性名称和beanId名称是否相同自动注入</span><br></pre></td></tr></table></figure>
+<h1 id="使用注解配置bean：需要在核心配置文件中加入以下代码"><a href="#使用注解配置bean：需要在核心配置文件中加入以下代码" class="headerlink" title="使用注解配置bean：需要在核心配置文件中加入以下代码"></a>使用注解配置bean：需要在核心配置文件中加入以下代码</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 自动扫描注解 --&gt;</span><br><span class="line">&lt;context:component-scan base-package="com.icss"&gt;&lt;/context:component-scan&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository：数据访问层</span></span><br><span class="line"><span class="meta">@Service：业务逻辑层</span></span><br><span class="line"><span class="meta">@Controller：控制器</span></span><br><span class="line"><span class="meta">@Component("deptController") ：把当前类变成一个bean，beanId可以不设置，默认就是类型的小驼峰写法</span></span><br><span class="line"><span class="meta">@Autowired：自动装配，默认按byType装配</span></span><br><span class="line"><span class="meta">@Resource：自动装配，默认按byName装配，如果找不到，再按照byType</span></span><br></pre></td></tr></table></figure>
+<p><img src="he.png" alt="嘻嘻"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" rel="tag">#java个人笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/22/undefined/" rel="next" title="Java基础总结">
+                <i class="fa fa-chevron-left"></i> Java基础总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/03/undefined/" rel="prev" title="去除List集合中的重复值（四种好用的方法）">
+                去除List集合中的重复值（四种好用的方法） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Mitsuizzz" />
+          <p class="site-author-name" itemprop="name">Mitsuizzz</p>
+          <p class="site-description motion-element" itemprop="description">坚持分享知识，分享更多创意</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Mitsuizzz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3648673160" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://lizhuangwei.top" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="Mitsuizzz" target="_blank">Mitsuizzz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="个人网站" target="_blank">个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Java入门"><span class="nav-number">1.</span> <span class="nav-text">1.    Java入门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java优点："><span class="nav-number">2.</span> <span class="nav-text">Java优点：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java缺点："><span class="nav-number">3.</span> <span class="nav-text">Java缺点：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的技术分为三个版本："><span class="nav-number">4.</span> <span class="nav-text">Java的技术分为三个版本：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#版本号："><span class="nav-number">5.</span> <span class="nav-text">版本号：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的三个核心机制："><span class="nav-number">6.</span> <span class="nav-text">Java的三个核心机制：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java是半编译半解释的语言"><span class="nav-number">7.</span> <span class="nav-text">Java是半编译半解释的语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行"><span class="nav-number">8.</span> <span class="nav-text">JDK（Java开发工具包）：负责源代码编译为字节码，不负责运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JRE（Java运行环境）：负责运行java程序的"><span class="nav-number">9.</span> <span class="nav-text">JRE（Java运行环境）：负责运行java程序的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制"><span class="nav-number">10.</span> <span class="nav-text">JVM（Java虚拟机）：是JRE的一部分，是运行Java的核心机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个基本的HelloWorld程序"><span class="nav-number">11.</span> <span class="nav-text">一个基本的HelloWorld程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些必要的环境变量配置："><span class="nav-number">12.</span> <span class="nav-text">一些必要的环境变量配置：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主方法的语法规则：必须是public-static-void-main-String-参数名"><span class="nav-number">13.</span> <span class="nav-text">主方法的语法规则：必须是public static void main(String[]  参数名)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量和数据类型"><span class="nav-number">14.</span> <span class="nav-text">变量和数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的标识符命名规则："><span class="nav-number">15.</span> <span class="nav-text">Java的标识符命名规则：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java的标识符命名规范："><span class="nav-number">16.</span> <span class="nav-text">Java的标识符命名规范：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java数据类型划分："><span class="nav-number">17.</span> <span class="nav-text">Java数据类型划分：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型转化："><span class="nav-number">18.</span> <span class="nav-text">数据类型转化：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据存储形式：原码-反码-补码"><span class="nav-number">19.</span> <span class="nav-text">数据存储形式：原码  反码  补码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">20.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在Java中数组是定长，一旦声明，长度不可改变"><span class="nav-number">21.</span> <span class="nav-text">在Java中数组是定长，一旦声明，长度不可改变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建数组对象的三种方式："><span class="nav-number">22.</span> <span class="nav-text">创建数组对象的三种方式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在string类中-比较的是内存地址"><span class="nav-number">23.</span> <span class="nav-text">在string类中 &#x3D;&#x3D; 比较的是内存地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在string类中equals比较的是值"><span class="nav-number">24.</span> <span class="nav-text">在string类中equals比较的是值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringBuffer类"><span class="nav-number">25.</span> <span class="nav-text">StringBuffer类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法声明"><span class="nav-number">26.</span> <span class="nav-text">方法声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的重载"><span class="nav-number">27.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">28.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象的三大基本特征："><span class="nav-number">29.</span> <span class="nav-text">面向对象的三大基本特征：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#声明类的语法："><span class="nav-number">30.</span> <span class="nav-text">声明类的语法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类图："><span class="nav-number">31.</span> <span class="nav-text">类图：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封装："><span class="nav-number">32.</span> <span class="nav-text">封装：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造器（构造方法）："><span class="nav-number">33.</span> <span class="nav-text">构造器（构造方法）：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个完整的java源文件："><span class="nav-number">34.</span> <span class="nav-text">一个完整的java源文件：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件开发规范："><span class="nav-number">35.</span> <span class="nav-text">软件开发规范：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符命名规范"><span class="nav-number">36.</span> <span class="nav-text">标识符命名规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本类型："><span class="nav-number">37.</span> <span class="nav-text">基本类型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型："><span class="nav-number">38.</span> <span class="nav-text">引用类型：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象的属性赋值顺序："><span class="nav-number">39.</span> <span class="nav-text">对象的属性赋值顺序：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递（用等号赋值，参数传递）"><span class="nav-number">40.</span> <span class="nav-text">值传递（用等号赋值，参数传递）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#局部变量和全局变量（属性）"><span class="nav-number">41.</span> <span class="nav-text">局部变量和全局变量（属性）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类设计"><span class="nav-number">42.</span> <span class="nav-text">类设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#访问权限修饰符"><span class="nav-number">43.</span> <span class="nav-text">访问权限修饰符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的重写（覆盖）override：子类重写父类的方法，把功能改造"><span class="nav-number">44.</span> <span class="nav-text">方法的重写（覆盖）override：子类重写父类的方法，把功能改造</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能"><span class="nav-number">45.</span> <span class="nav-text">方法的重载overload：避免声明多个不同名称的方法，而是利用一个方法传入不同的参数来实现不同的功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可变长参数："><span class="nav-number">46.</span> <span class="nav-text">可变长参数：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this使用的三种方式："><span class="nav-number">47.</span> <span class="nav-text">this使用的三种方式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#super使用的两种方式："><span class="nav-number">48.</span> <span class="nav-text">super使用的两种方式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于构造器的几点说明："><span class="nav-number">49.</span> <span class="nav-text">关于构造器的几点说明：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态："><span class="nav-number">50.</span> <span class="nav-text">多态：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态对象：多态对象一定具有多态性"><span class="nav-number">51.</span> <span class="nav-text">多态对象：多态对象一定具有多态性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译类型：决定的是对象访问成员的列表"><span class="nav-number">52.</span> <span class="nav-text">编译类型：决定的是对象访问成员的列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行时类型：代表的是当前对象真正的对象实例类型"><span class="nav-number">53.</span> <span class="nav-text">运行时类型：代表的是当前对象真正的对象实例类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型的转换"><span class="nav-number">54.</span> <span class="nav-text">引用类型的转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型"><span class="nav-number">55.</span> <span class="nav-text">★类型转换成功和失败取决于运行时类型是否和转换的目标类型是否兼容，而不是编译类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多态的实际作用：减少方法的重载"><span class="nav-number">56.</span> <span class="nav-text">多态的实际作用：减少方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#instanceof运算符："><span class="nav-number">57.</span> <span class="nav-text">instanceof运算符：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#没有继承关系的instanceof运算是非法的"><span class="nav-number">58.</span> <span class="nav-text">没有继承关系的instanceof运算是非法的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object的getClass-方法："><span class="nav-number">59.</span> <span class="nav-text">Object的getClass()方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object的toString-方法："><span class="nav-number">60.</span> <span class="nav-text">Object的toString()方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toString-的两处隐式调用："><span class="nav-number">61.</span> <span class="nav-text">toString()的两处隐式调用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装类："><span class="nav-number">62.</span> <span class="nav-text">包装类：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级类特性"><span class="nav-number">63.</span> <span class="nav-text">高级类特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#static静态修饰符："><span class="nav-number">64.</span> <span class="nav-text">static静态修饰符：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#static能修饰哪些东西？"><span class="nav-number">65.</span> <span class="nav-text">static能修饰哪些东西？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态导入："><span class="nav-number">66.</span> <span class="nav-text">静态导入：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#final"><span class="nav-number">67.</span> <span class="nav-text">final</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#abstract抽象修饰符："><span class="nav-number">68.</span> <span class="nav-text">abstract抽象修饰符：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象的关系总结："><span class="nav-number">69.</span> <span class="nav-text">面向对象的关系总结：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">70.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO"><span class="nav-number">71.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结如下"><span class="nav-number">72.</span> <span class="nav-text">总结如下</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#反射和注解"><span class="nav-number">73.</span> <span class="nav-text">反射和注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#得到构造器的方法"><span class="nav-number">74.</span> <span class="nav-text">得到构造器的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获得字段信息的方法"><span class="nav-number">75.</span> <span class="nav-text">获得字段信息的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获得方法信息的方法"><span class="nav-number">76.</span> <span class="nav-text">获得方法信息的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用方法"><span class="nav-number">77.</span> <span class="nav-text">常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注解"><span class="nav-number">78.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Set集合"><span class="nav-number">79.</span> <span class="nav-text">Set集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List集合"><span class="nav-number">80.</span> <span class="nav-text">List集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泛型"><span class="nav-number">81.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map集合"><span class="nav-number">82.</span> <span class="nav-text">Map集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程"><span class="nav-number">83.</span> <span class="nav-text">多线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程是独立执行的程序的最小单位"><span class="nav-number">84.</span> <span class="nav-text">线程是独立执行的程序的最小单位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建一个新的线程两种方式："><span class="nav-number">85.</span> <span class="nav-text">创建一个新的线程两种方式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object类中线程相关方法："><span class="nav-number">86.</span> <span class="nav-text">Object类中线程相关方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件测试"><span class="nav-number">87.</span> <span class="nav-text">软件测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDBC"><span class="nav-number">88.</span> <span class="nav-text">JDBC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分页程序："><span class="nav-number">89.</span> <span class="nav-text">分页程序：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaEE"><span class="nav-number">90.</span> <span class="nav-text">JavaEE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet技术"><span class="nav-number">91.</span> <span class="nav-text">Servlet技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建Servlet的方式（xml配置形式）"><span class="nav-number">92.</span> <span class="nav-text">创建Servlet的方式（xml配置形式）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二种创建Servlet的方式（注解配置形式）"><span class="nav-number">93.</span> <span class="nav-text">第二种创建Servlet的方式（注解配置形式）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开头路径："><span class="nav-number">94.</span> <span class="nav-text">&#x2F;开头路径：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet的生命周期"><span class="nav-number">95.</span> <span class="nav-text">Servlet的生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get和Post请求区别"><span class="nav-number">96.</span> <span class="nav-text">Get和Post请求区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中文转码"><span class="nav-number">97.</span> <span class="nav-text">中文转码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个完整的HTTP请求包含三部分信息"><span class="nav-number">98.</span> <span class="nav-text">一个完整的HTTP请求包含三部分信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#请求对象的API"><span class="nav-number">99.</span> <span class="nav-text">请求对象的API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应对象的API"><span class="nav-number">100.</span> <span class="nav-text">响应对象的API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#请求转发"><span class="nav-number">101.</span> <span class="nav-text">请求转发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重定向"><span class="nav-number">102.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#会话-Session"><span class="nav-number">103.</span> <span class="nav-text">会话 Session</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#会话跟踪"><span class="nav-number">104.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cookie"><span class="nav-number">105.</span> <span class="nav-text">Cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发思想"><span class="nav-number">106.</span> <span class="nav-text">开发思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按照三层架构思想"><span class="nav-number">107.</span> <span class="nav-text">按照三层架构思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按照MVC设计模式："><span class="nav-number">108.</span> <span class="nav-text">按照MVC设计模式：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在web中处理异常的两种方式"><span class="nav-number">109.</span> <span class="nav-text">在web中处理异常的两种方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建过滤器"><span class="nav-number">110.</span> <span class="nav-text">创建过滤器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三大框架"><span class="nav-number">111.</span> <span class="nav-text">三大框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架的核心思想是用配置代替编程"><span class="nav-number">112.</span> <span class="nav-text">框架的核心思想是用配置代替编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-number">113.</span> <span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态SQL"><span class="nav-number">114.</span> <span class="nav-text">动态SQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">115.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bean"><span class="nav-number">116.</span> <span class="nav-text">Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式"><span class="nav-number">117.</span> <span class="nav-text">Spring默认在初始化容器的时候就会自动创建所有的bean对象，默认是单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置bean的作用域：scope属性"><span class="nav-number">118.</span> <span class="nav-text">配置bean的作用域：scope属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lazy懒加载"><span class="nav-number">119.</span> <span class="nav-text">lazy懒加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用注解配置bean：需要在核心配置文件中加入以下代码"><span class="nav-number">120.</span> <span class="nav-text">使用注解配置bean：需要在核心配置文件中加入以下代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+	<div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22821100&auto=0&height=66"></iframe>
+  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mitsuizzz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://lizhuangwei.com" target="_blank" rel="noopener">Mitsuizzz</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Fi5B2VbDLoujYeV1r5JVNiuM-9Nh9j0Va", "6AtYr95E8eBAv1OpJQwQxmAG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+	
+</body>
+</html>
