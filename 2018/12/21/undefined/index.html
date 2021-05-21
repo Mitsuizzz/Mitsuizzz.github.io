@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo,GitHub,Node.js," />
+  <meta name="keywords" content="Java个人笔记,JVM调优," />
 
 
 
@@ -93,19 +93,25 @@
 
 
 
-<meta name="description" content="第二天烫了个头 终于腾出时间整理第二步上传环节了此篇是由Mitsuizzz编辑 上传github千万不要用github桌面版直接整个文件夹上传！！！因为Github就无法解析md文件为页面了！！！ 上传必须得 以下步骤 12$ hexo g$ hexo d">
+<meta name="description" content="先了解原理，然后在进行调优。一定要记住的是任何的调优都不是一蹴而就，不要指望改动一个参数就达到调优的目的，也不要仅仅改动了一个参数，就认为是做了调优。调优是在已有的资源和要达到的目标的前提上，进行权衡。‍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Hexo和Github搭建个人博客(二)">
-<meta property="og:url" content="http://lizhuangwei.top/2018/04/15/undefined/index.html">
+<meta property="og:title" content="被虐了，JVM调优实际操作记录">
+<meta property="og:url" content="http://lizhuangwei.top/2018/12/21/undefined/index.html">
 <meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
-<meta property="og:description" content="第二天烫了个头 终于腾出时间整理第二步上传环节了此篇是由Mitsuizzz编辑 上传github千万不要用github桌面版直接整个文件夹上传！！！因为Github就无法解析md文件为页面了！！！ 上传必须得 以下步骤 12$ hexo g$ hexo d">
-<meta property="article:published_time" content="2018-04-15T10:08:00.000Z">
-<meta property="article:modified_time" content="2018-04-15T10:20:24.000Z">
+<meta property="og:description" content="先了解原理，然后在进行调优。一定要记住的是任何的调优都不是一蹴而就，不要指望改动一个参数就达到调优的目的，也不要仅仅改动了一个参数，就认为是做了调优。调优是在已有的资源和要达到的目标的前提上，进行权衡。‍">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434775.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434797.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434828.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434872.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434873.png">
+<meta property="og:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434887.png">
+<meta property="article:published_time" content="2018-12-21T08:42:03.000Z">
+<meta property="article:modified_time" content="2021-05-21T10:07:51.962Z">
 <meta property="article:author" content="Mitsuizzz">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="GitHub">
-<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="Java个人笔记">
+<meta property="article:tag" content="JVM调优">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lizhuangwei.top/2018/12/21/undefined/2434775.png">
 
 
 
@@ -123,7 +129,7 @@
   };
 </script>
 
-  <title> 用Hexo和Github搭建个人博客(二) | Mitsuizzz's Blog </title>
+  <title> 被虐了，JVM调优实际操作记录 | Mitsuizzz's Blog </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +259,7 @@
             
             
               
-                用Hexo和Github搭建个人博客(二)
+                被虐了，JVM调优实际操作记录
               
             
           </h1>
@@ -265,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-15T18:08:00+08:00" content="2018-04-15">
-              2018-04-15
+            <time itemprop="dateCreated" datetime="2018-12-21T16:42:03+08:00" content="2018-12-21">
+              2018-12-21
             </time>
           </span>
 
@@ -279,8 +285,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo系列</span>
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
                   </a>
                 </span>
 
@@ -299,7 +317,7 @@
 		
           
           
-             <span id="/2018/04/15/undefined/" class="leancloud_visitors" data-flag-title="用Hexo和Github搭建个人博客(二)">
+             <span id="/2018/12/21/undefined/" class="leancloud_visitors" data-flag-title="被虐了，JVM调优实际操作记录">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -321,26 +339,35 @@
       
 
       
-        <h1 id="第二天烫了个头-终于腾出时间整理第二步上传环节了"><a href="#第二天烫了个头-终于腾出时间整理第二步上传环节了" class="headerlink" title="第二天烫了个头 终于腾出时间整理第二步上传环节了"></a>第二天烫了个头 终于腾出时间整理第二步上传环节了</h1><p>此篇是由Mitsuizzz编辑</p>
-<h1 id="上传github千万不要用github桌面版直接整个文件夹上传！！！"><a href="#上传github千万不要用github桌面版直接整个文件夹上传！！！" class="headerlink" title="上传github千万不要用github桌面版直接整个文件夹上传！！！"></a>上传github千万不要用github桌面版直接整个文件夹上传！！！</h1><p>因为Github就无法解析md文件为页面了！！！</p>
-<p>上传必须得 以下步骤</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-
+        <p>先了解原理，然后在进行调优。<br>一定要记住的是任何的调优都不是一蹴而就，不要指望改动一个参数就达到调优的目的，也不要仅仅改动了一个参数，就认为是做了调优。调优是在已有的资源和要达到的目标的前提上，进行权衡。<br>‍</p>
 <hr>
 <a id="more"></a>
 
-
-<h2 id="首先回顾一下几个命令"><a href="#首先回顾一下几个命令" class="headerlink" title="首先回顾一下几个命令"></a>首先回顾一下几个命令</h2><blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   <span class="comment">#用于清除静态文件  </span></span><br><span class="line">hexo g    <span class="comment">#完整命令为hexo generate,用于生成静态文件  </span></span><br><span class="line">hexo s    <span class="comment">#完整命令为hexo server,用于启动服务器，主要用来本地预览  </span></span><br><span class="line">hexo d    <span class="comment">#完整命令为hexo deploy,用于将本地文件发布到coding和github上  </span></span><br><span class="line">hexo n    <span class="comment">#完整命令为hexo new,用于新建一篇文章 </span></span><br></pre></td></tr></table></figure>
+<p>从类加载到整个JVM的运行周期内大致流程和结构如下：<br><img src="2434775.png" alt="流程结构"><br>从上图可以看到，JVM 可以划分为这些部分：</p>
+<h2 id="执行引擎，包括：GC、JIT-编译器"><a href="#执行引擎，包括：GC、JIT-编译器" class="headerlink" title="执行引擎，包括：GC、JIT 编译器"></a>执行引擎，包括：GC、JIT 编译器</h2><h2 id="类加载子系统，这部分的问题，一般在开发过程中出现"><a href="#类加载子系统，这部分的问题，一般在开发过程中出现" class="headerlink" title="类加载子系统，这部分的问题，一般在开发过程中出现"></a>类加载子系统，这部分的问题，一般在开发过程中出现</h2><h2 id="JNI-部分，这部分问题一般在-JVM-之外"><a href="#JNI-部分，这部分问题一般在-JVM-之外" class="headerlink" title="JNI 部分，这部分问题一般在 JVM 之外"></a>JNI 部分，这部分问题一般在 JVM 之外</h2><h2 id="运行时数据区；Java-将内存分为-2-大块：堆内存和栈内存"><a href="#运行时数据区；Java-将内存分为-2-大块：堆内存和栈内存" class="headerlink" title="运行时数据区；Java 将内存分为 2 大块：堆内存和栈内存"></a>运行时数据区；Java 将内存分为 2 大块：堆内存和栈内存</h2><p>首先我们要对上述的内容有一定的了解，从全局出发。看了上图，在调优中我们能做的也就是对运行时数据区进行一些操作，然后选择执行引擎用何种垃圾收集器对垃圾进行回收。</p>
+<p>1、本文调优思路只针对JVM1.8，先看下JVM1.8内存模型<br><img src="2434797.png" alt="流程结构"><br><img src="2434828.png" alt="流程结构"><br>注意：JVM 线程占用的是系统空间，所以当JVM的堆内存越大，系统本身的内存就越少，自然可生成的线程数量就越少。</p>
+<p>2、JVM调优，主要从两个方面考虑：堆内存大小配置和垃圾回收算法选择</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置堆内存</span></span><br><span class="line">-Xmx4g -Xms4g </span><br><span class="line"><span class="comment"># 指定 GC 算法</span></span><br><span class="line">-XX:+UseG1GC -XX:MaxGCPauseMillis=<span class="number">50</span> </span><br><span class="line"><span class="comment"># 指定 GC 并行线程数</span></span><br><span class="line">-XX:ParallelGCThreads=<span class="number">4</span> </span><br><span class="line"><span class="comment"># 打印 GC 日志</span></span><br><span class="line">-XX:+PrintGCDetails -XX:+PrintGCDateStamps </span><br><span class="line"><span class="comment"># 指定 GC 日志文件</span></span><br><span class="line">-Xloggc:gc.log </span><br><span class="line"><span class="comment"># 指定 Meta 区的最大值</span></span><br><span class="line">-XX:MaxMetaspaceSize=<span class="number">2</span>g </span><br><span class="line"><span class="comment"># 设置单个线程栈的大小</span></span><br><span class="line">-Xss1m </span><br><span class="line"><span class="comment"># 指定堆内存溢出时自动进行 Dump</span></span><br><span class="line">-XX:+HeapDumpOnOutOfMemoryError </span><br><span class="line">-XX:HeapDumpPath=/usr/local </span><br></pre></td></tr></table></figure>
+<p>3、JVM - GC类型组合以及适用场合</p>
 </blockquote>
-<h2 id="用Notepad-打开站点配置文件，更改为如下格式。"><a href="#用Notepad-打开站点配置文件，更改为如下格式。" class="headerlink" title="用Notepad++打开站点配置文件，更改为如下格式。"></a>用Notepad++打开站点配置文件，更改为如下格式。</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line"> （空格）</span><br><span class="line">        github: git@github.com:yourName/yourName.github.io.git,master <span class="comment">#yourname必须相同</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="然后就是上传了！"><a href="#然后就是上传了！" class="headerlink" title="然后就是上传了！"></a>然后就是上传了！</h2><h2 id="当然有人会有疑问，怎么git链接github呢？那就要配置ssh-key啦"><a href="#当然有人会有疑问，怎么git链接github呢？那就要配置ssh-key啦" class="headerlink" title="当然有人会有疑问，怎么git链接github呢？那就要配置ssh key啦"></a>当然有人会有疑问，怎么git链接github呢？那就要配置ssh key啦</h2><p>这是教程<a href="https://www.cnblogs.com/superGG1990/p/6844952.html" target="_blank" rel="noopener">https://www.cnblogs.com/superGG1990/p/6844952.html</a></p>
-<p>配置完毕之后，</p>
-<p>三步走战略</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean    <span class="comment">#清除静态文件</span></span><br><span class="line">$ hexo g    <span class="comment">#重新生成静态文件</span></span><br><span class="line">$ hexo d    <span class="comment">#将博文同步到Github和Coding上</span></span><br></pre></td></tr></table></figure>
-
+<p>垃圾回收，分为Young区垃圾回收器，以及Old区垃圾回收器两部分，两部分需要组合使用：</p>
+<p>新生代收集器：Serial、ParNew、Parallel Scavenge；</p>
+<p>老年代收集器：Serial Old、Parallel Old、CMS；<br><img src="2434872.png" alt="流程结构"><br>serial：新生代收集器，是最早出现最成熟的收集器，单线程，独占式，GC时会stop the world 应用暂停。</p>
+<p>ParNew ：新生代收集器，是Serial 收集器的多线程版本，独占式，同样地GC时会stop the world 应用暂停。</p>
+<p>Parallel Scavenge：新生代收集器， 独占式， 与ParNew相似，特点：吞吐量优先</p>
+<p>CMS：（concurrent-mark-sweep），老年代收集器，非独占式，多个线程，标记并清除算法，响应时间优先，缺点是GC后不进行内存整理，会有内存碎片。</p>
+<p>Serial Old：是Serial 的老年代版本，同样是单线程收集器， 独占式</p>
+<p>Parallel Old  是Parallel Scavenge 收集器的老年代版本，多线程收集， 独占式</p>
+<p>G1：备受期待的新一代垃圾收集器，可预测的停顿：这又是G1相对于CMS的一大优势，结合了Parallel Scavenge以及CMS两种收集器的优点，又摒弃了其缺陷， 非独占式<br><img src="2434873.png" alt="流程结构"></p>
+<h3 id="收集器的好坏，主要有两个指标：停顿时间和吞吐量"><a href="#收集器的好坏，主要有两个指标：停顿时间和吞吐量" class="headerlink" title="收集器的好坏，主要有两个指标：停顿时间和吞吐量"></a>收集器的好坏，主要有两个指标：停顿时间和吞吐量</h3><h2 id="GC-选择的经验总结"><a href="#GC-选择的经验总结" class="headerlink" title="GC 选择的经验总结"></a>GC 选择的经验总结</h2><p><img src="2434887.png" alt="流程结构"><br>综合来看，G1 是 JDK11 之前 HotSpot JVM 中最先进的准产品级（production-ready） 垃圾收集器。重要的是，HotSpot 工程师的主要精力都放在不断改进 G1 上面。在更新的 JDK 版本中，将会带来更多强大的功能和优化。</p>
+<p>可以看到，G1 作为 CMS 的代替者出现，解决了 CMS 中的各种疑难问题，包括暂停时间的可预测性，并终结了堆内存的碎片化。对单业务延迟非常敏感的系统来说，如果 CPU 资源不受限制，那么 G1 可以说是 HotSpot 中最好的选择，特别是在最新版本的 JVM 中。当然这种降低延迟的优化也不是没有代价的：由于额外的写屏障和守护线程，G1 的开销会更大。如果系统属于吞吐量优先型的，又或者 CPU 持续占用 100%，而又不在乎单次 GC 的暂停时间，那么 CMS 是更好的选择。</p>
+<p>总之，G1 适合大内存，需要较低延迟的场景。<br>选择正确的 GC 算法，唯一可行的方式就是去尝试，并找出不合理的地方，一般性的指导原则：</p>
+<p>如果系统考虑吞吐优先，CPU 资源都用来最大程度处理业务，用 Parallel GC；<br>如果系统考虑低延迟有限，每次 GC 时间尽量短，用 CMS GC；<br>如果系统内存堆较大，同时希望整体来看平均 GC 时间可控，使用 G1 GC。<br>最后讨论一个很多开发者经常忽视的问题，也是面试大厂常问的问题：</p>
+<p>JDK 8 的默认 GC 是什么？<br>很多人或觉得是 CMS，甚至 G1，其实都不是。</p>
+<p>答案是：JDK 8并行 GC 是 JDK8 里的默认 GC 策略。默认使用的是 Parallel Scavenge (新生代) 和 Parallel Old (老年代),基于我的Jdk 1.8.0_181-b13版本</p>
+<p>注意，G1 成为 JDK9 以后版本的默认 GC 策略，同时，ParNew + SerialOld 这种组合不被支持。</p>
+<p>最后在分享一下，调优后如果还遇到JVM相关问题，请记住十六字箴言：做好监控，定位问题，验证结果，总结归纳。</p>
 <p>谢谢观看~</p>
 
       
@@ -390,11 +417,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/Java%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" rel="tag">#Java个人笔记</a>
           
-            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
-          
-            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+            <a href="/tags/JVM%E8%B0%83%E4%BC%98/" rel="tag">#JVM调优</a>
           
         </div>
       
@@ -403,17 +428,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/14/undefined/" rel="next" title="用Hexo和Github搭建个人博客(一)">
-                <i class="fa fa-chevron-left"></i> 用Hexo和Github搭建个人博客(一)
+              <a href="/2018/06/03/undefined/" rel="next" title="去除List集合中的重复值（四种好用的方法）">
+                <i class="fa fa-chevron-left"></i> 去除List集合中的重复值（四种好用的方法）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/20/undefined/" rel="prev" title="WEB前端笔记">
-                WEB前端笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -600,7 +621,7 @@ var jiathis_config={
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二天烫了个头-终于腾出时间整理第二步上传环节了"><span class="nav-number">1.</span> <span class="nav-text">第二天烫了个头 终于腾出时间整理第二步上传环节了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上传github千万不要用github桌面版直接整个文件夹上传！！！"><span class="nav-number">2.</span> <span class="nav-text">上传github千万不要用github桌面版直接整个文件夹上传！！！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先回顾一下几个命令"><span class="nav-number">2.1.</span> <span class="nav-text">首先回顾一下几个命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Notepad-打开站点配置文件，更改为如下格式。"><span class="nav-number">2.2.</span> <span class="nav-text">用Notepad++打开站点配置文件，更改为如下格式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#然后就是上传了！"><span class="nav-number">2.3.</span> <span class="nav-text">然后就是上传了！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当然有人会有疑问，怎么git链接github呢？那就要配置ssh-key啦"><span class="nav-number">2.4.</span> <span class="nav-text">当然有人会有疑问，怎么git链接github呢？那就要配置ssh key啦</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#执行引擎，包括：GC、JIT-编译器"><span class="nav-number">1.</span> <span class="nav-text">执行引擎，包括：GC、JIT 编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载子系统，这部分的问题，一般在开发过程中出现"><span class="nav-number">2.</span> <span class="nav-text">类加载子系统，这部分的问题，一般在开发过程中出现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JNI-部分，这部分问题一般在-JVM-之外"><span class="nav-number">3.</span> <span class="nav-text">JNI 部分，这部分问题一般在 JVM 之外</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区；Java-将内存分为-2-大块：堆内存和栈内存"><span class="nav-number">4.</span> <span class="nav-text">运行时数据区；Java 将内存分为 2 大块：堆内存和栈内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#收集器的好坏，主要有两个指标：停顿时间和吞吐量"><span class="nav-number">4.1.</span> <span class="nav-text">收集器的好坏，主要有两个指标：停顿时间和吞吐量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GC-选择的经验总结"><span class="nav-number">5.</span> <span class="nav-text">GC 选择的经验总结</span></a></li></ol></div>
             
           </div>
         </section>
