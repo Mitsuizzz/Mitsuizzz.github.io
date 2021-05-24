@@ -251,6 +251,278 @@
             
               
                 
+                <a class="post-title-link" href="/2019/03/01/undefined/" itemprop="url">
+                  记录一次GC问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-03-01T18:42:03+08:00" content="2019-03-01">
+              2019-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/03/01/undefined/" class="leancloud_visitors" data-flag-title="记录一次GC问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="记录一次GC问题"><a href="#记录一次GC问题" class="headerlink" title="记录一次GC问题"></a>记录一次GC问题</h1><p>最近在开发的时候发现开发的服务器时常触发GC，几乎每秒一次，到底是什么导致了呢？</p>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/03/01/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/02/21/undefined/" itemprop="url">
+                  Redis优化思路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-02-21T19:42:33+08:00" content="2019-02-21">
+              2019-02-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/02/21/undefined/" class="leancloud_visitors" data-flag-title="Redis优化思路">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="为了避免业务服务器到-Redis-服务器之间的网络延迟，你需要直接在-Redis-服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例-60-秒内的最大响应延迟："><a href="#为了避免业务服务器到-Redis-服务器之间的网络延迟，你需要直接在-Redis-服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例-60-秒内的最大响应延迟：" class="headerlink" title="为了避免业务服务器到 Redis 服务器之间的网络延迟，你需要直接在 Redis 服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例 60 秒内的最大响应延迟："></a>为了避免业务服务器到 Redis 服务器之间的网络延迟，你需要直接在 Redis 服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例 60 秒内的最大响应延迟：</h2><p>$redis-cli -h 127.0.0.1 -p 6379 –intrinsic-latency 60<br>Max latency so far: 1 microseconds.<br>Max latency so far: 15 microseconds.<br>Max latency so far: 17 microseconds.<br>Max latency so far: 18 microseconds.<br>Max latency so far: 31 microseconds.<br>Max latency so far: 32 microseconds.<br>Max latency so far: 59 microseconds.<br>Max latency so far: 72 microseconds.</p>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/02/21/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/01/21/undefined/" itemprop="url">
                   MySQL一些学习总结问答
                 </a>
@@ -1347,153 +1619,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/14/undefined/" itemprop="url">
-                  用Hexo和Github搭建个人博客(一)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-14T21:54:55+08:00" content="2018-04-14">
-              2018-04-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo系列</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-		
-          
-          
-             <span id="/2018/04/14/undefined/" class="leancloud_visitors" data-flag-title="用Hexo和Github搭建个人博客(一)">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="我的第一篇博客-分享一下用一天时间搭建的个人博客"><a href="#我的第一篇博客-分享一下用一天时间搭建的个人博客" class="headerlink" title="我的第一篇博客 分享一下用一天时间搭建的个人博客"></a>我的第一篇博客 分享一下用一天时间搭建的个人博客</h1><p>真是累死我了 踩了很多坑 </p>
-<p>此篇是由Mitsuizzz编辑</p>
-<p>搭建之前需要如下工具：</p>
-<ul>
-<li><strong>node.js</strong> 下载地址：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a></li>
-<li>作用：用来创建hexo博客框架，最好下载推荐版本 </li>
-<li><strong>git环境</strong> 下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></li>
-<li>作用：把本地的hexo内容提交到Github和Coding上去</li>
-</ul>
-<hr>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/14/undefined/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-	
-	<div>
-  
-	</div>
-	
-	
-
-
-	
-	
-	
-	
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -1533,7 +1665,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1541,7 +1673,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1550,7 +1682,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

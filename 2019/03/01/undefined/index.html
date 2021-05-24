@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JVM调优," />
 
 
 
@@ -93,14 +93,20 @@
 
 
 
-<meta name="description" content="坚持分享知识，分享更多创意">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mitsuizzz&#39;s Blog">
-<meta property="og:url" content="http://lizhuangwei.top/tags/Node-js/index.html">
+<meta name="description" content="记录一次GC问题最近在开发的时候发现开发的服务器时常触发GC，几乎每秒一次，到底是什么导致了呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次GC问题">
+<meta property="og:url" content="http://lizhuangwei.top/2019/03/01/undefined/index.html">
 <meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
-<meta property="og:description" content="坚持分享知识，分享更多创意">
+<meta property="og:description" content="记录一次GC问题最近在开发的时候发现开发的服务器时常触发GC，几乎每秒一次，到底是什么导致了呢？">
+<meta property="og:image" content="http://lizhuangwei.top/2019/03/01/undefined/Untitled.png">
+<meta property="og:image" content="http://lizhuangwei.top/2019/03/01/undefined/Untitled1.png">
+<meta property="article:published_time" content="2019-03-01T10:42:03.000Z">
+<meta property="article:modified_time" content="2021-05-24T02:52:35.652Z">
 <meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="JVM调优">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lizhuangwei.top/2019/03/01/undefined/Untitled.png">
 
 
 
@@ -118,7 +124,7 @@
   };
 </script>
 
-  <title> 标签: Node.js | Mitsuizzz's Blog </title>
+  <title> 记录一次GC问题 | Mitsuizzz's Blog </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,7 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,74 +233,210 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Node.js
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/15/undefined/" itemprop="url">
-              
-                <span itemprop="name">用Hexo和Github搭建个人博客(二)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-15T18:08:00+08:00"
-              content="2018-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/14/undefined/" itemprop="url">
-              
-                <span itemprop="name">用Hexo和Github搭建个人博客(一)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-14T21:54:55+08:00"
-              content="2018-04-14" >
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                记录一次GC问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-03-01T18:42:03+08:00" content="2019-03-01">
+              2019-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/03/01/undefined/" class="leancloud_visitors" data-flag-title="记录一次GC问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="记录一次GC问题"><a href="#记录一次GC问题" class="headerlink" title="记录一次GC问题"></a>记录一次GC问题</h1><p>最近在开发的时候发现开发的服务器时常触发GC，几乎每秒一次，到底是什么导致了呢？</p>
+<hr>
+<a id="more"></a>
+
+<p>/app/jdk1.8.0_192/bin/jstat -gc 1 2s</p>
+<p><img src="Untitled.png" alt="Untitled.png"></p>
+<p>这样就容易理解多了，看看FGC那一列：几乎每1秒都有一次FGC（说明，笔者这个服务用的是默认的PS垃圾回收器，所以FGC这一列的值一定是FullGC的次数）。而且，再看FGCT这一列，停顿时间那是相当恐怖。那么会是什么原因呢？</p>
+<p><strong>MaxRAMPercentage</strong>、<strong>InitialRAMPercentage</strong>、<strong>MinRAMPercentage</strong>。这三个参数是<strong>JDK8U191</strong>为适配Docker容器新增的几个参数，类比Xmx、Xms，至于-XX:InitialRAMFraction、-XX:MaxRAMFraction、-XX:MinRAMFraction已经被标记为deprecated 。这几个参数的好处是什么呢？Docker容器模式下，我们可以给每个JVM实例所属的POD分配任意大小的内存上限。比如，给每个账户服务分配4G，给每个支付服务分配8G。如此一来，启动脚本就不好写成通用的了，指定3G也不是，指定6G也不是。但是，有了这三个新增参数，我们就可以在通用的启动脚本中指定75%（-XX:MaxRAMPercentage=75 -XX:InitialRAMPercentage=75 -XX:MinRAMPercentage=75）。那么，账户服务就相当于设置了-Xmx3g -Xms3g。而支付服务相当于设置了-Xmx6g -Xms6g，是不是很赞。</p>
+<p><img src="Untitled1.png" alt="Untitled1.png"></p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>再回到前面那一段完整的GC日志（jstat的输出结果），我们分析命令结果输出时这个JVM的一些情况：</p>
+<h2 id="1-S0-S1区容量为170496K（对应S0C-S1C两列）；"><a href="#1-S0-S1区容量为170496K（对应S0C-S1C两列）；" class="headerlink" title="1.S0/S1区容量为170496K（对应S0C/S1C两列）；"></a>1.S0/S1区容量为170496K（对应S0C/S1C两列）；</h2><h2 id="2-Eden区容量为171008K（对应EC列）；"><a href="#2-Eden区容量为171008K（对应EC列）；" class="headerlink" title="2.Eden区容量为171008K（对应EC列）；"></a>2.Eden区容量为171008K（对应EC列）；</h2><h2 id="3-Old区容量为1024000K（对应OC列）；"><a href="#3-Old区容量为1024000K（对应OC列）；" class="headerlink" title="3.Old区容量为1024000K（对应OC列）；"></a>3.Old区容量为1024000K（对应OC列）；</h2><h2 id="4-Metaspace容量为70M；"><a href="#4-Metaspace容量为70M；" class="headerlink" title="4.Metaspace容量为70M；"></a>4.Metaspace容量为70M；</h2><p>根据各个区的容量大小，发现和JVM参数配置的4.5G内存出入非常大。整个堆的大小<strong>缩容</strong>了很多，从4.5G缩小到现在的大概1.5G（170496K<em>2+171008K+1024000K+70M ≈ 1.5G），WHY ?<br>如果对默认的PS垃圾回收器有一定了解的同学，可能大概知道问题所在了。没错，就是参数*</em>-XX:+UseAdaptiveSizePolicy**的锅。这个参数在PS前提下默认是开启的，其作用是自动调整堆的大小，以及对象从S区晋升到Old区的年龄阈值（threshold），调节threshold逻辑为：判断Young GC和Full GC消耗的时间差：</p>
+<h2 id="如果Young-gc-gt-1-1-Full-GC，threshold就会一直减少。"><a href="#如果Young-gc-gt-1-1-Full-GC，threshold就会一直减少。" class="headerlink" title="如果Young gc &gt; 1.1 * Full GC，threshold就会一直减少。"></a>如果Young gc &gt; 1.1 * Full GC，threshold就会一直减少。</h2><h2 id="如果1-1-Young-GC-lt-Full-GC，threshold就会一直增加。"><a href="#如果1-1-Young-GC-lt-Full-GC，threshold就会一直增加。" class="headerlink" title="如果1.1* Young GC &lt; Full GC，threshold就会一直增加。"></a>如果1.1* Young GC &lt; Full GC，threshold就会一直增加。</h2><p>也就是说，如果Young GC比较频繁，那么threshold可能会一直减小，直到最小值1，这时候S区的对象很容易晋升到Old区，导致Old区空间涨幅过快而触发Full GC的频率也加快。另外，这个参数是如何调整堆的大小就不在这里介绍了，因为很复杂，我也不知道，哈哈哈：</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM%E8%B0%83%E4%BC%98/" rel="tag">#JVM调优</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/21/undefined/" rel="next" title="Redis优化思路">
+                <i class="fa fa-chevron-left"></i> Redis优化思路
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -302,6 +444,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
 
 
         </div>
@@ -322,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.jpg"
@@ -420,6 +577,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记录一次GC问题"><span class="nav-number">1.</span> <span class="nav-text">记录一次GC问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因分析"><span class="nav-number">2.</span> <span class="nav-text">原因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-S0-S1区容量为170496K（对应S0C-S1C两列）；"><span class="nav-number">2.1.</span> <span class="nav-text">1.S0&#x2F;S1区容量为170496K（对应S0C&#x2F;S1C两列）；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Eden区容量为171008K（对应EC列）；"><span class="nav-number">2.2.</span> <span class="nav-text">2.Eden区容量为171008K（对应EC列）；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Old区容量为1024000K（对应OC列）；"><span class="nav-number">2.3.</span> <span class="nav-text">3.Old区容量为1024000K（对应OC列）；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Metaspace容量为70M；"><span class="nav-number">2.4.</span> <span class="nav-text">4.Metaspace容量为70M；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果Young-gc-gt-1-1-Full-GC，threshold就会一直减少。"><span class="nav-number">2.5.</span> <span class="nav-text">如果Young gc &gt; 1.1 * Full GC，threshold就会一直减少。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果1-1-Young-GC-lt-Full-GC，threshold就会一直增加。"><span class="nav-number">2.6.</span> <span class="nav-text">如果1.1* Young GC &lt; Full GC，threshold就会一直增加。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -523,6 +691,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
