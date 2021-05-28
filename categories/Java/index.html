@@ -96,7 +96,7 @@
 <meta name="description" content="坚持分享知识，分享更多创意">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mitsuizzz&#39;s Blog">
-<meta property="og:url" content="http://lizhuangwei.top/categories/JAVA/index.html">
+<meta property="og:url" content="http://lizhuangwei.top/categories/Java/index.html">
 <meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
 <meta property="og:description" content="坚持分享知识，分享更多创意">
 <meta property="article:author" content="Mitsuizzz">
@@ -118,7 +118,7 @@
   };
 </script>
 
-  <title> 分类: JAVA | Mitsuizzz's Blog </title>
+  <title> 分类: Java | Mitsuizzz's Blog </title>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -230,10 +230,66 @@
   <section id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        JAVA
+        Java
         <small>分类</small>
       </h2>
     </div>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2020/07/12/undefined/" itemprop="url">
+              
+                <span itemprop="name">一个小小的请求头意外问题</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-07-12T19:25:01+08:00"
+              content="2020-07-12" >
+          07-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2019/11/12/undefined/" itemprop="url">
+              
+                <span itemprop="name">SnowFlake 生成分布式自增ID</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-11-12T10:25:01+08:00"
+              content="2019-11-12" >
+          11-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
 
     
       
@@ -315,7 +371,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -324,7 +380,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -608,37 +664,6 @@
                 $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
               },
               error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
-</script>
-
-	
-</body>
-</html>
-) {
                 console.log('Failed to create');
               }
             });
