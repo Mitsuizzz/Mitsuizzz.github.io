@@ -1,0 +1,846 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96612337"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Harbor," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="环境信息：系统：CentOS Linux release 7.8.2003配置：CPU 4核、内存 8G、磁盘200Gdocker版本：19.03.13docker-cmpose版本: 1.27.4harbor版本：2.1.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Harbor 2.1离线部署">
+<meta property="og:url" content="http://lizhuangwei.top/2020/06/12/undefined/index.html">
+<meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
+<meta property="og:description" content="环境信息：系统：CentOS Linux release 7.8.2003配置：CPU 4核、内存 8G、磁盘200Gdocker版本：19.03.13docker-cmpose版本: 1.27.4harbor版本：2.1.0">
+<meta property="article:published_time" content="2020-06-12T02:25:01.000Z">
+<meta property="article:modified_time" content="2021-05-28T02:08:59.771Z">
+<meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="Harbor">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Harbor 2.1离线部署 | Mitsuizzz's Blog </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mitsuizzz's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Harbor 2.1离线部署
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-06-12T10:25:01+08:00" content="2020-06-12">
+              2020-06-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Harbor/" itemprop="url" rel="index">
+                    <span itemprop="name">Harbor</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2020/06/12/undefined/" class="leancloud_visitors" data-flag-title="Harbor 2.1离线部署">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>环境信息：<br>系统：CentOS Linux release 7.8.2003<br>配置：CPU 4核、内存 8G、磁盘200G<br>docker版本：19.03.13<br>docker-cmpose版本: 1.27.4<br>harbor版本：2.1.0</p>
+<hr>
+<a id="more"></a>
+
+<p>一、部署harbor<br>1、安装docker</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> device-mapper-persistent-<span class="keyword">data</span> lvm2 yum-utils</span><br><span class="line">yum-config-manager <span class="comment">--add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span></span><br><span class="line">yum -y <span class="keyword">install</span> docker-ce</span><br><span class="line">systemctl restart docker &amp;&amp; systemctl <span class="keyword">enable</span> docker</span><br></pre></td></tr></table></figure>
+<p>2、安装docker-compose</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)"</span> -o <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br><span class="line">chmod a+x <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br></pre></td></tr></table></figure>
+<p>3、安装harbor<br>1&gt;数据存放本地方式部署（数据容易丢失，风险较大）</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">wget</span> https://github.com/goharbor/harbor/releases/download/<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>/harbor-offline-installer-<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>.tgz</span><br><span class="line"><span class="symbol">tar</span> -xf harbor-offline-installer-<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>.tgz -C /<span class="meta">opt</span>/</span><br><span class="line"><span class="symbol">cp</span> /<span class="meta">opt</span>/harbor/harbor.yml.tmpl /<span class="meta">opt</span>/harbor/harbor.yml</span><br><span class="line">修改/<span class="meta">opt</span>/harbor/harbor.yml中的hostname字段为实际<span class="built_in">ip</span>地址或者域名</span><br><span class="line">注释掉https related config模块(本地环境可以直接使用http)</span><br><span class="line"><span class="symbol">docker</span> load -i /<span class="meta">opt</span>/harbor/harbor.v2.<span class="number">1</span>.<span class="number">0</span>.tar.gz</span><br><span class="line"><span class="keyword">bash </span>/<span class="meta">opt</span>/harbor/prepare</span><br><span class="line"><span class="keyword">bash </span>/<span class="meta">opt</span>/harbor/install.sh</span><br></pre></td></tr></table></figure>
+<p>2&gt;外置postgresql、redis、存储使用minio的s3接口、认证使用ldap（pgsql、redis、s3这些可以使用阿里云产品也比较稳定）</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#1 外置数据库部署访问(本次部署仅测试使用，生产环境建议高可用方式部署)</span></span><br><span class="line"><span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span>: redis、postgresql</span><br><span class="line"><span class="meta">#redis</span></span><br><span class="line">mkdir -p /opt/redis/conf/</span><br><span class="line">cat &lt;&lt; EOF &gt; /opt/redis/conf/redis.conf</span><br><span class="line"><span class="meta">#bind 127.0.0.1</span></span><br><span class="line">protected-mode <span class="keyword">no</span> appendonly yes</span><br><span class="line">requirepass duan@<span class="number">1994</span></span><br><span class="line">EOF</span><br><span class="line">docker run -itd <span class="comment">--restart=always -p 6379:6379 --name redis-server -v /opt/redis/conf:/usr/local/etc/redis -v /data/redis/data:/data -d redis:6.0.10 redis-server /usr/local/etc/redis/redis.conf</span></span><br><span class="line"><span class="meta">#postgresql</span></span><br><span class="line">docker run -itd <span class="comment">--restart=always -p 5432:5432 --name postgresql -v /data/postgresql/data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=duan@1994 postgres:13.1</span></span><br><span class="line"></span><br><span class="line">登录pgsql创建用户和数据库</span><br><span class="line">docker exec -it postgresql bash</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> harbor <span class="keyword">with</span> <span class="keyword">password</span> <span class="string">'harborDB'</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> harbor;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> harbor_clair;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> harbor_notary_server;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> harbor_notary_signer;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span> harbor <span class="keyword">to</span> harbor;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span> harbor_clair <span class="keyword">to</span> harbor;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span> harbor_notary_server <span class="keyword">to</span> harbor;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span> harbor_notary_signer <span class="keyword">to</span> harbor;</span><br></pre></td></tr></table></figure>
+<p>#2 部署minio(本次部署仅测试使用，生产环境建议高可用方式部署)</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">192.168.86.6部署minio</span><br><span class="line">docker run -itd <span class="params">--name</span> minio <span class="params">--restart=always</span> -p 9000<span class="function">:9000</span> -e <span class="string">"MINIO_ACCESS_KEY=admin"</span> -e <span class="string">"MINIO_SECRET_KEY=admin123456"</span> -v <span class="string">/data</span>:<span class="string">/data</span> -v <span class="string">/data/config</span>:<span class="string">/root/.minio</span> minio/minio server <span class="string">/data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#访问minio服务创建bucket（harbor-registry）</span></span><br><span class="line">http:<span class="string">//192.168.86.6</span><span class="function">:9000</span>/</span><br></pre></td></tr></table></figure>
+<p>#3 配置harbor.yaml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configuration file of Harbor</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The IP address or hostname to access admin UI and registry service.</span></span><br><span class="line"><span class="comment"># DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.</span></span><br><span class="line"><span class="attr">hostname:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># http related config</span></span><br><span class="line"><span class="attr">http:</span></span><br><span class="line">  <span class="comment"># port for http, default is 80. If https enabled, this port will redirect to https port</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># https related config</span></span><br><span class="line"><span class="comment">#https:</span></span><br><span class="line"><span class="comment">#  # https port for harbor, default is 443</span></span><br><span class="line"><span class="comment">#  port: 443</span></span><br><span class="line"><span class="comment">#  # The path of cert and key files for nginx</span></span><br><span class="line"><span class="comment">#  certificate: /your/certificate/path</span></span><br><span class="line"><span class="comment">#  private_key: /your/private/key/path</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># # Uncomment following will enable tls communication between all harbor components</span></span><br><span class="line"><span class="comment"># internal_tls:</span></span><br><span class="line"><span class="comment">#   # set enabled to true means internal tls is enabled</span></span><br><span class="line"><span class="comment">#   enabled: true</span></span><br><span class="line"><span class="comment">#   # put your cert and key files on dir</span></span><br><span class="line"><span class="comment">#   dir: /etc/harbor/tls/internal</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment external_url if you want to enable external proxy</span></span><br><span class="line"><span class="comment"># And when it enabled the hostname will no longer used</span></span><br><span class="line"><span class="comment"># external_url: https://reg.mydomain.com:8433</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The initial password of Harbor admin</span></span><br><span class="line"><span class="comment"># It only works in first time to install harbor</span></span><br><span class="line"><span class="comment"># Remember Change the admin password from UI after launching Harbor.</span></span><br><span class="line"><span class="attr">harbor_admin_password:</span> <span class="string">Harbor12345</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Harbor DB configuration</span></span><br><span class="line"><span class="attr">database:</span></span><br><span class="line">  <span class="comment"># The password for the root user of Harbor DB. Change this before any production use.</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">root123</span></span><br><span class="line">  <span class="comment"># The maximum number of connections in the idle connection pool. If it &lt;=0, no idle connections are retained.</span></span><br><span class="line">  <span class="attr">max_idle_conns:</span> <span class="number">50</span></span><br><span class="line">  <span class="comment"># The maximum number of open connections to the database. If it &lt;= 0, then there is no limit on the number of open connections.</span></span><br><span class="line">  <span class="comment"># <span class="doctag">Note:</span> the default number of connections is 1024 for postgres of harbor.</span></span><br><span class="line">  <span class="attr">max_open_conns:</span> <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The default data volume</span></span><br><span class="line"><span class="attr">data_volume:</span> <span class="string">/data</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Harbor Storage settings by default is using /data dir on local filesystem</span></span><br><span class="line"><span class="comment"># Uncomment storage_service setting If you want to using external storage</span></span><br><span class="line"><span class="comment"># storage_service:</span></span><br><span class="line"><span class="comment">#   # ca_bundle is the path to the custom root ca certificate, which will be injected into the truststore</span></span><br><span class="line"><span class="comment">#   # of registry's and chart repository's containers.  This is usually needed when the user hosts a internal storage with self signed certificate.</span></span><br><span class="line"><span class="comment">#   ca_bundle:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#   # storage backend, default is filesystem, options include filesystem, azure, gcs, s3, swift and oss</span></span><br><span class="line"><span class="comment">#   # for more info about this configuration please refer https://docs.docker.com/registry/configuration/</span></span><br><span class="line"><span class="comment">#   filesystem:</span></span><br><span class="line"><span class="comment">#     maxthreads: 100</span></span><br><span class="line"><span class="comment">#   # set disable to true when you want to disable registry redirect</span></span><br><span class="line"><span class="comment">#   redirect:</span></span><br><span class="line"><span class="comment">#     disabled: false</span></span><br><span class="line"><span class="attr">storage_service:</span></span><br><span class="line">    <span class="attr">s3:</span></span><br><span class="line">      <span class="attr">accesskey:</span> <span class="string">admin</span></span><br><span class="line">      <span class="attr">secretkey:</span> <span class="string">admin123456</span></span><br><span class="line">      <span class="attr">region:</span> <span class="string">us-east-1</span></span><br><span class="line">      <span class="attr">regionendpoint:</span> <span class="string">http://192.168.86.6:9000</span></span><br><span class="line">      <span class="attr">bucket:</span> <span class="string">harbor-registry</span></span><br><span class="line">      <span class="attr">encrypt:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">secure:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">v4auth:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">chunksize:</span> <span class="number">5242880</span></span><br><span class="line">      <span class="attr">rootdirectory:</span> <span class="string">/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Clair configuration</span></span><br><span class="line"><span class="attr">clair:</span></span><br><span class="line">  <span class="comment"># The interval of clair updaters, the unit is hour, set to 0 to disable the updaters.</span></span><br><span class="line">  <span class="attr">updaters_interval:</span> <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Trivy configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Trivy DB contains vulnerability information from NVD, Red Hat, and many other upstream vulnerability databases.</span></span><br><span class="line"><span class="comment"># It is downloaded by Trivy from the GitHub release page https://github.com/aquasecurity/trivy-db/releases and cached</span></span><br><span class="line"><span class="comment"># in the local file system. In addition, the database contains the update timestamp so Trivy can detect whether it</span></span><br><span class="line"><span class="comment"># should download a newer version from the Internet or use the cached one. Currently, the database is updated every</span></span><br><span class="line"><span class="comment"># 12 hours and published as a new release to GitHub.</span></span><br><span class="line"><span class="attr">trivy:</span></span><br><span class="line">  <span class="comment"># ignoreUnfixed The flag to display only fixed vulnerabilities</span></span><br><span class="line">  <span class="attr">ignore_unfixed:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># skipUpdate The flag to enable or disable Trivy DB downloads from GitHub</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># You might want to enable this flag in test or CI/CD environments to avoid GitHub rate limiting issues.</span></span><br><span class="line">  <span class="comment"># If the flag is enabled you have to download the `trivy-offline.tar.gz` archive manually, extract `trivy.db` and</span></span><br><span class="line">  <span class="comment"># `metadata.json` files and mount them in the `/home/scanner/.cache/trivy/db` path.</span></span><br><span class="line">  <span class="attr">skip_update:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># insecure The flag to skip verifying registry certificate</span></span><br><span class="line">  <span class="attr">insecure:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># github_token The GitHub access token to download Trivy DB</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># Anonymous downloads from GitHub are subject to the limit of 60 requests per hour. Normally such rate limit is enough</span></span><br><span class="line">  <span class="comment"># for production operations. If, for any reason, it's not enough, you could increase the rate limit to 5000</span></span><br><span class="line">  <span class="comment"># requests per hour by specifying the GitHub access token. For more details on GitHub rate limiting please consult</span></span><br><span class="line">  <span class="comment"># https://developer.github.com/v3/#rate-limiting</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># You can create a GitHub token by following the instructions in</span></span><br><span class="line">  <span class="comment"># https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># github_token: xxx</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobservice:</span></span><br><span class="line">  <span class="comment"># Maximum number of job workers in job service</span></span><br><span class="line">  <span class="attr">max_job_workers:</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="attr">notification:</span></span><br><span class="line">  <span class="comment"># Maximum retry count for webhook job</span></span><br><span class="line">  <span class="attr">webhook_job_max_retry:</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="attr">chart:</span></span><br><span class="line">  <span class="comment"># Change the value of absolute_url to enabled can enable absolute url in chart</span></span><br><span class="line">  <span class="attr">absolute_url:</span> <span class="string">disabled</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Log configurations</span></span><br><span class="line"><span class="attr">log:</span></span><br><span class="line">  <span class="comment"># options are debug, info, warning, error, fatal</span></span><br><span class="line">  <span class="attr">level:</span> <span class="string">info</span></span><br><span class="line">  <span class="comment"># configs for logs in local storage</span></span><br><span class="line">  <span class="attr">local:</span></span><br><span class="line">    <span class="comment"># Log files are rotated log_rotate_count times before being removed. If count is 0, old versions are removed rather than rotated.</span></span><br><span class="line">    <span class="attr">rotate_count:</span> <span class="number">50</span></span><br><span class="line">    <span class="comment"># Log files are rotated only if they grow bigger than log_rotate_size bytes. If size is followed by k, the size is assumed to be in kilobytes.</span></span><br><span class="line">    <span class="comment"># If the M is used, the size is in megabytes, and if G is used, the size is in gigabytes. So size 100, size 100k, size 100M and size 100G</span></span><br><span class="line">    <span class="comment"># are all valid.</span></span><br><span class="line">    <span class="attr">rotate_size:</span> <span class="string">200M</span></span><br><span class="line">    <span class="comment"># The directory on your host that store log</span></span><br><span class="line">    <span class="attr">location:</span> <span class="string">/var/log/harbor</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Uncomment following lines to enable external syslog endpoint.</span></span><br><span class="line">  <span class="comment"># external_endpoint:</span></span><br><span class="line">  <span class="comment">#   # protocol used to transmit log to external endpoint, options is tcp or udp</span></span><br><span class="line">  <span class="comment">#   protocol: tcp</span></span><br><span class="line">  <span class="comment">#   # The host of external endpoint</span></span><br><span class="line">  <span class="comment">#   host: localhost</span></span><br><span class="line">  <span class="comment">#   # Port of external endpoint</span></span><br><span class="line">  <span class="comment">#   port: 5140</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#This attribute is for migrator to detect the version of the .cfg file, DO NOT MODIFY!</span></span><br><span class="line"><span class="attr">_version:</span> <span class="number">2.0</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment external_database if using external database.</span></span><br><span class="line"><span class="attr">external_database:</span></span><br><span class="line">  <span class="attr">harbor:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span></span><br><span class="line">    <span class="attr">db_name:</span> <span class="string">harbor</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">harbor</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">harborDB</span></span><br><span class="line">    <span class="attr">ssl_mode:</span> <span class="string">disable</span></span><br><span class="line">    <span class="attr">max_idle_conns:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">max_open_conns:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">clair:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span></span><br><span class="line">    <span class="attr">db_name:</span> <span class="string">clair</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">harbor</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">harborDB</span></span><br><span class="line">    <span class="attr">ssl_mode:</span> <span class="string">disable</span></span><br><span class="line">  <span class="attr">notary_signer:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span></span><br><span class="line">    <span class="attr">db_name:</span> <span class="string">notary_signer</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">harbor</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">harborDB</span></span><br><span class="line">    <span class="attr">ssl_mode:</span> <span class="string">disable</span></span><br><span class="line">  <span class="attr">notary_server:</span></span><br><span class="line">    <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span></span><br><span class="line">    <span class="attr">db_name:</span> <span class="string">notary_server</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">harbor</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">harborDB</span></span><br><span class="line">    <span class="attr">ssl_mode:</span> <span class="string">disable</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment external_redis if using external Redis server</span></span><br><span class="line"><span class="attr">external_redis:</span></span><br><span class="line">  <span class="comment"># support redis, redis+sentinel</span></span><br><span class="line">  <span class="comment"># host for redis: &lt;host_redis&gt;:&lt;port_redis&gt;</span></span><br><span class="line">  <span class="comment"># host for redis+sentinel:</span></span><br><span class="line">  <span class="comment">#  &lt;host_sentinel1&gt;:&lt;port_sentinel1&gt;,&lt;host_sentinel2&gt;:&lt;port_sentinel2&gt;,&lt;host_sentinel3&gt;:&lt;port_sentinel3&gt;</span></span><br><span class="line">  <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.86</span><span class="number">.8</span><span class="string">:6379</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">duan@1994</span></span><br><span class="line">  <span class="comment"># sentinel_master_set must be set to support redis+sentinel</span></span><br><span class="line">  <span class="comment">#sentinel_master_set:</span></span><br><span class="line">  <span class="comment"># db_index 0 is for core, it's unchangeable</span></span><br><span class="line">  <span class="attr">registry_db_index:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">jobservice_db_index:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">chartmuseum_db_index:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">clair_db_index:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">trivy_db_index:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">idle_timeout_seconds:</span> <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment uaa for trusting the certificate of uaa instance that is hosted via self-signed cert.</span></span><br><span class="line"><span class="comment"># uaa:</span></span><br><span class="line"><span class="comment">#   ca_file: /path/to/ca</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Global proxy</span></span><br><span class="line"><span class="comment"># Config http proxy for components, e.g. http://my.proxy.com:3128</span></span><br><span class="line"><span class="comment"># Components doesn't need to connect to each others via http proxy.</span></span><br><span class="line"><span class="comment"># Remove component from `components` array if want disable proxy</span></span><br><span class="line"><span class="comment"># for it. If you want use proxy for replication, MUST enable proxy</span></span><br><span class="line"><span class="comment"># for core and jobservice, and set `http_proxy` and `https_proxy`.</span></span><br><span class="line"><span class="comment"># Add domain to the `no_proxy` field, when you want disable proxy</span></span><br><span class="line"><span class="comment"># for some special registry.</span></span><br><span class="line"><span class="attr">proxy:</span></span><br><span class="line">  <span class="attr">http_proxy:</span></span><br><span class="line">  <span class="attr">https_proxy:</span></span><br><span class="line">  <span class="attr">no_proxy:</span></span><br><span class="line">  <span class="attr">components:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">core</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">jobservice</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">clair</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">trivy</span></span><br></pre></td></tr></table></figure>
+<p>4、docker-compose维护命令<br>cd /opt/harbor/<br>启动harbor: docker-compose up -d<br>停止harbor:  docker-compose stop<br>重启harbor: docker-compose restart<br>查看harbor状态: docker-compose ps</p>
+<p>5、访问harbor 192.168.86.5 默认用户名密码admin/Harbor12345</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Harbor/" rel="tag">#Harbor</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/11/undefined/" rel="next" title="Docker容器无法启动,里面的配置文件如何修改">
+                <i class="fa fa-chevron-left"></i> Docker容器无法启动,里面的配置文件如何修改
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/12/undefined/" rel="prev" title="一个小小的请求头意外问题">
+                一个小小的请求头意外问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Mitsuizzz" />
+          <p class="site-author-name" itemprop="name">Mitsuizzz</p>
+          <p class="site-description motion-element" itemprop="description">坚持分享知识，分享更多创意</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Mitsuizzz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3648673160" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://lizhuangwei.top" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="Mitsuizzz" target="_blank">Mitsuizzz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="个人网站" target="_blank">个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+	<div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22821100&auto=0&height=66"></iframe>
+  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mitsuizzz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://lizhuangwei.com" target="_blank" rel="noopener">Mitsuizzz</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Fi5B2VbDLoujYeV1r5JVNiuM-9Nh9j0Va", "6AtYr95E8eBAv1OpJQwQxmAG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+	
+</body>
+</html>

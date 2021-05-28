@@ -1,0 +1,895 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96612337"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DevOps," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前几天在平台上看到云筏容器云平台在发福利，免费的弹性伸缩容器免费使用，我就参加了送了200额度，准备大搞特搞一套快速发布的一系列流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitLab+Jenkins+Harbor+Loki的CICD和日志收集系统搭建（基于云筏容器云平台）">
+<meta property="og:url" content="http://lizhuangwei.top/2020/10/12/undefined/index.html">
+<meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
+<meta property="og:description" content="前几天在平台上看到云筏容器云平台在发福利，免费的弹性伸缩容器免费使用，我就参加了送了200额度，准备大搞特搞一套快速发布的一系列流程。">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122135825179.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122140442964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122140603236.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122140804283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122141648903.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122142402612.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122143449494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122144249983.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122144406128.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122145930299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122145939849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122145949819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021012214595987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122150056434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122150144264.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210122150636858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2020-10-12T11:25:01.000Z">
+<meta property="article:modified_time" content="2021-05-28T02:15:56.722Z">
+<meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="DevOps">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210122135825179.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> GitLab+Jenkins+Harbor+Loki的CICD和日志收集系统搭建（基于云筏容器云平台） | Mitsuizzz's Blog </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mitsuizzz's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                GitLab+Jenkins+Harbor+Loki的CICD和日志收集系统搭建（基于云筏容器云平台）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-10-12T19:25:01+08:00" content="2020-10-12">
+              2020-10-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/DevOps/" itemprop="url" rel="index">
+                    <span itemprop="name">DevOps</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2020/10/12/undefined/" class="leancloud_visitors" data-flag-title="GitLab+Jenkins+Harbor+Loki的CICD和日志收集系统搭建（基于云筏容器云平台）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前几天在平台上看到云筏容器云平台在发福利，免费的弹性伸缩容器免费使用，我就参加了送了200额度，准备大搞特搞一套快速发布的一系列流程。</p>
+<hr>
+<a id="more"></a>
+
+<h1 id="GitLab搭建"><a href="#GitLab搭建" class="headerlink" title="GitLab搭建"></a>GitLab搭建</h1><p>在云筏容器云上搭建gitlab十分简单，在应用市场中选择，DevOps - GitLab Server即可。然后等待容器启动。<br><img src="https://img-blog.csdnimg.cn/20210122135825179.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>容器启动完成后，通过SSH进入容器终端，因为容器内部也是基于docker-compose启动的，找到docker-compose.yml，默认在/root/gitlab在，查看docker-compose的配置，找到默认用户邮箱和初始密码。<br><img src="https://img-blog.csdnimg.cn/20210122140442964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后直接点击浏览器打开<br><img src="https://img-blog.csdnimg.cn/20210122140603236.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>输入用户名和密码，完成登录，进入之后新建自己的项目，我这里用的是一个Demo。<br><img src="https://img-blog.csdnimg.cn/20210122140804283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>因为gitlab也有自己的cicd，基于yaml文件的，有兴趣可以了解下，但我准备用Jenkins来做cicd，比较自由一点。</p>
+<h1 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h1><p>Jenkins也是在云筏容器云平台中搭建，右上角新建新环境，选择Docker然后应用服务器选择镜像，在镜像仓库中搜索Jenkins，默认从docker.io上拉取镜像，这里我选择的是最新的，但最新的镜像里Jenkins的war包也不一定是最新的war包，所以容器部署后，可能还需要进行升级。然后等待容器部署，部署成功后，直接点击浏览器打开。</p>
+<p>根据提示，SSH到容器内部，打印出密码，登录Jenkins。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210122141648903.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这里我们新建一个项目，和代码仓库中保持一致，然后需要到插件仓库里下载一些插件，来优化我们的使用体验，在Plugin Manager中的Advanced可以先把插件仓库的url替换为</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//mi</span>rror.esuni.jp<span class="regexp">/jenkins/u</span>pdates<span class="regexp">/update-center.json</span></span><br></pre></td></tr></table></figure>
+<p>然后需要下载Git Parameter Plug-In，Maven Integration，SSH Agent Plugin<br>然后在Global Tool Configuration中，将JAVA_HOME和MAVEN_HOME等配置进去，因为我们是基于Maven构建的项目，所以部署Jenkins的机器上需要有这些环境。</p>
+<p>之后打开凭据管理<br><img src="https://img-blog.csdnimg.cn/20210122142402612.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>因为Jenkins需要从我们的代码仓库去拉取最新代码，然后构建打包上传，如果使用的是非用户名密码方式，则需要在Jenkins这台机器上生成公钥，将公钥放到GitLab的SSH KEYS中，再将Jenkins这台机器的私钥放到凭据管理中，然后便可以拉取到GitLab中的代码信息。这边我项目的Jenkins配置是这样的<br><img src="https://img-blog.csdnimg.cn/20210122143449494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>思路是这样的，先从GitLab拉取最新的分支信息，选择部署的分支，然后进行打包，打包构建镜像上传至自己的镜像仓库，然后通知机器拉取最新的镜像部署到服务器上。</p>
+<h1 id="Harbor"><a href="#Harbor" class="headerlink" title="Harbor"></a>Harbor</h1><p>harbor的搭建也非常的简单，只需要在容器云平台上拉取一个Centos7.6的容器，然后在内部安装docker和docker-compose，按照官方文档的快速构建<br>1.安装docker</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> device-mapper-persistent-<span class="keyword">data</span> lvm2 yum-utils</span><br><span class="line">yum-config-manager <span class="comment">--add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span></span><br><span class="line">yum -y <span class="keyword">install</span> docker-ce</span><br><span class="line">systemctl restart docker &amp;&amp; systemctl <span class="keyword">enable</span> docker</span><br></pre></td></tr></table></figure>
+<p>2.安装docker-compose</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L <span class="string">"https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)"</span> -o <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br><span class="line">chmod a+x <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>docker-compose</span><br></pre></td></tr></table></figure>
+<p>3.安装harbor</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">wget</span> https://github.com/goharbor/harbor/releases/download/<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>/harbor-offline-installer-<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>.tgz</span><br><span class="line"><span class="symbol">tar</span> -xf harbor-offline-installer-<span class="built_in">v2</span>.<span class="number">1</span>.<span class="number">0</span>.tgz -C /<span class="meta">opt</span>/</span><br><span class="line"><span class="symbol">cp</span> /<span class="meta">opt</span>/harbor/harbor.yml.tmpl /<span class="meta">opt</span>/harbor/harbor.yml</span><br><span class="line">修改/<span class="meta">opt</span>/harbor/harbor.yml中的hostname字段为实际<span class="built_in">ip</span>地址或者域名</span><br><span class="line">注释掉https related config模块(本地环境可以直接使用http)</span><br><span class="line"><span class="symbol">docker</span> load -i /<span class="meta">opt</span>/harbor/harbor.v2.<span class="number">1</span>.<span class="number">0</span>.tar.gz</span><br><span class="line"><span class="keyword">bash </span>/<span class="meta">opt</span>/harbor/prepare</span><br><span class="line"><span class="keyword">bash </span>/<span class="meta">opt</span>/harbor/install.sh</span><br></pre></td></tr></table></figure>
+<p>因为容器云给了个公网域名，直接写公网域名即可，harbor启动后：<br><img src="https://img-blog.csdnimg.cn/20210122144249983.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>因为映射的直接是80端口，直接点击浏览器打开即可。<br>默认用户名和密码为:admin/Harbor12345<br><img src="https://img-blog.csdnimg.cn/20210122144406128.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就进入到harbor仓库的管理页面了，但是要想上传和拉取镜像必须在所在机器上，将此harbor仓库的地址设为insecure-registries，如图所示，修改Jenkins和部署服务器的docker配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"log-driver"</span>: <span class="string">"loki"</span>,</span><br><span class="line">  <span class="attr">"log-opts"</span>: &#123;</span><br><span class="line">    <span class="attr">"loki-url"</span>: <span class="string">"http://47.102.200.15:3100/loki/api/v1/push"</span>,</span><br><span class="line">    <span class="attr">"max-size"</span>: <span class="string">"50m"</span>,</span><br><span class="line">    <span class="attr">"max-file"</span>: <span class="string">"10"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://docker.mirrors.ustc.edu.cn"</span>,</span><br><span class="line">    <span class="string">"https://registry.docker-cn.com"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"insecure-registries"</span>: [</span><br><span class="line">    <span class="string">"Harbor镜像仓库的地址"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">login</span> -u <span class="keyword">admin</span> -p Harbor12345 Harbor镜像仓库的地址</span><br></pre></td></tr></table></figure>
+<p>就可以push和pull 我们私有仓库的镜像了</p>
+<h1 id="Loki"><a href="#Loki" class="headerlink" title="Loki"></a>Loki</h1><p>Loki的第一个稳定版本于2019年11月19日发布，是 Grafana Labs 团队最新的开源项目，是一个水平可扩展，高可用性，多租户的日志聚合系统。 Grafana 对 Loki 的描述如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Loki: like Prometheus, but <span class="keyword">for</span> logs. Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation<span class="built_in"> system </span>inspired by Prometheus. It is designed <span class="keyword">to</span> be very cost effective <span class="keyword">and</span> easy <span class="keyword">to</span> operate. It does <span class="keyword">not</span> index the contents of the logs, but rather a <span class="builtin-name">set</span> of labels <span class="keyword">for</span> each log stream.</span><br></pre></td></tr></table></figure>
+
+<p>简单说，Loki 是专门用于聚集日志数据，重点是高可用性和可伸缩性。与竞争对手不同的是，它确实易于安装且资源效率极高。</p>
+<p>血衫目前运维大概上百个节点，虽然系统是统一的基线版本且使用docker运行应用，平时相安无事，但变更后的问题排查仍有点心有余悸。对一个火热的日志系统elk也有浅尝辄止，奈何对于非核心应用，多耗散一份算力意味着成本增加和利润的减少，elk对于小团队来说，还是过于笨重。趁着近日的疫情无法外出，调研后将 Loki 上线了生产，可以说是完美契合了中小团队对日志平台的需求。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>与其他日志聚合系统相比，Loki具有下面的一些特性：</p>
+<p>不对日志进行全文索引（vs ELK技）。通过存储压缩非结构化日志和仅索引元数据，Loki 操作起来会更简单，更省成本。<br>通过使用与 Prometheus 相同的标签记录流对日志进行索引和分组，这使得日志的扩展和操作效率更高。<br>特别适合储存 Kubernetes Pod 日志; 诸如 Pod 标签之类的元数据会被自动删除和编入索引。<br>受 Grafana 原生支持。</p>
+<h3 id="Loki-由以下3个部分组成："><a href="#Loki-由以下3个部分组成：" class="headerlink" title="Loki 由以下3个部分组成："></a>Loki 由以下3个部分组成：</h3><p>loki是主服务器，负责存储日志和处理查询。<br>promtail是代理，负责收集日志并将其发送给 loki 。<br>Grafana用于 UI 展示。</p>
+<p>Loki的安装也十分简单，如果是收集docker容器日志只需要安装docker-compose，若是k8s pod日志也只需要新增loki pod，这里我们基于docker的日志收集。</p>
+<p>编写docker-compose文件，如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">version</span>: "3"</span><br><span class="line"></span><br><span class="line"><span class="attribute">networks:</span></span><br><span class="line">  loki:</span><br><span class="line"></span><br><span class="line"><span class="attribute">services:</span></span><br><span class="line">  loki:</span><br><span class="line">    image: grafana/loki</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">    - TZ=Asia/Shanghai</span><br><span class="line">    - LANG=zh_CN.UTF-8</span><br><span class="line">    ports:</span><br><span class="line">    - 3100:3100</span><br><span class="line">    networks:</span><br><span class="line">    - loki</span><br><span class="line"></span><br><span class="line">  promtail:</span><br><span class="line">    image: grafana/promtail</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">    - TZ=Asia/Shanghai</span><br><span class="line">    - LANG=zh_CN.UTF-8</span><br><span class="line">    networks:</span><br><span class="line">    - loki</span><br><span class="line">  </span><br><span class="line">  grafana:</span><br><span class="line">    image: grafana/grafana:master</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">    - TZ=Asia/Shanghai</span><br><span class="line">    - LANG=zh_CN.UTF-8</span><br><span class="line">    ports:</span><br><span class="line">    - 3000:3000</span><br><span class="line">    networks:</span><br><span class="line">    - loki</span><br></pre></td></tr></table></figure>
+<p>启动命令docker-compose up -d ， 访问宿主机ip:3100即可访问。</p>
+<h1 id="安装docker插件"><a href="#安装docker插件" class="headerlink" title="安装docker插件"></a>安装docker插件</h1><p>Loki正式支持Docker插件，该插件将从Docker容器读取日志并将其发送到Loki。可以将插件配置为将日志发送到私有Loki实例或Grafana Cloud。</p>
+<p>Docker插件必须安装在将运行您要从中收集日志的容器的每个Docker主机上。</p>
+<p>运行以下命令以安装插件：</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">docker</span> <span class="comment">plugin</span> <span class="comment">install</span> <span class="comment">grafana/loki</span><span class="literal">-</span><span class="comment">docker</span><span class="literal">-</span><span class="comment">driver:latest</span> --<span class="comment">alias</span> <span class="comment">loki</span> --<span class="comment">grant</span><span class="literal">-</span><span class="comment">all</span><span class="literal">-</span><span class="comment">permissions</span></span><br></pre></td></tr></table></figure>
+<p>检查已安装的插件，请使用docker plugin ls命令。成功启动的插件被列为已启用：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker plugin ls</span><br><span class="line">ID                  NAME         DESCRIPTION           ENABLED</span><br><span class="line">ac720b8fcfdb        loki         Loki<span class="built_in"> Logging </span>Driver   <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h1 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h1><p>Loki提供了两种收集日志的方式，一个为全局配置收集，一个为部分为部分容器收集</p>
+<h2 id="全局配置收集"><a href="#全局配置收集" class="headerlink" title="全局配置收集"></a>全局配置收集</h2><p>编辑daemon.json。linux下默认路径是/etc/docker/daemon.json， windows则默认是%userprofile%.docker\daemon.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"log-driver"</span>: <span class="string">"loki"</span>,</span><br><span class="line">  <span class="attr">"log-opts"</span>: &#123;</span><br><span class="line">    <span class="attr">"loki-url"</span>: <span class="string">"http://YOUR_IP:3100/loki/api/v1/push"</span>,</span><br><span class="line">    <span class="attr">"max-size"</span>: <span class="string">"50m"</span>,</span><br><span class="line">    <span class="attr">"max-file"</span>: <span class="string">"10"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>加入日志收集的相关配置</p>
+<p>修改后记得重启docker</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">systemctl restart docker</span></span><br></pre></td></tr></table></figure>
+<p>之后启动的容器，日志将被收集到Loki里</p>
+<h2 id="部分收集配置"><a href="#部分收集配置" class="headerlink" title="部分收集配置"></a>部分收集配置</h2><p>启动容器时，通过–log-drive来配置。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="builtin-name">run</span> --rm <span class="attribute">--name</span>=grafana <span class="attribute">--log-driver</span>=loki --log-opt <span class="attribute">loki-url</span>=<span class="string">"http://YOUR_IP:3100/loki/api/v1/push"</span> --log-opt <span class="attribute">max-size</span>=50m --log-opt <span class="attribute">max-file</span>=10 grafana/grafana</span><br></pre></td></tr></table></figure>
+<p>docker-compose 配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">version</span>: "3"</span><br><span class="line"></span><br><span class="line"><span class="attribute">x-logging:</span></span><br><span class="line">  &amp;loki-logging</span><br><span class="line">  driver: loki</span><br><span class="line">  options:</span><br><span class="line">    loki-url: "http://YOUR_IP:3100/loki/api/v1/push"</span><br><span class="line">    max-size: "50m"</span><br><span class="line">    max-file: "10"</span><br><span class="line"></span><br><span class="line"><span class="attribute">services:</span></span><br><span class="line">  host:</span><br><span class="line">    container_name: grafana</span><br><span class="line">    image: grafana/grafana</span><br><span class="line">    environment:</span><br><span class="line">    - TZ=Asia/Shanghai</span><br><span class="line">    - LANG=zh_CN.UTF-8</span><br><span class="line">    logging: *loki-logging</span><br></pre></td></tr></table></figure>
+<h2 id="配置、查看日志"><a href="#配置、查看日志" class="headerlink" title="配置、查看日志"></a>配置、查看日志</h2><p>访问http://宿主机ip:3000/，通过Configuration -&gt; Data Source 添加数据源。<br><img src="https://img-blog.csdnimg.cn/20210122145930299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210122145939849.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210122145949819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2021012214595987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择根据容器名查询<br><img src="https://img-blog.csdnimg.cn/20210122150056434.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210122150144264.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后点击查询，日志就出来了。</p>
+<p>最后我们的流程图就是这样<br><img src="https://img-blog.csdnimg.cn/20210122150636858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01pdHN1aXp6eg==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这里一些镜像的打包还有启动都讲解的比较少，需要自己去摸索，主要是基于云筏容器云平台搭建，省了不少的力气，一些环境变量或者工具，都已经建好了，所以很轻松。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DevOps/" rel="tag">#DevOps</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/12/undefined/" rel="next" title="gitlab-runner的参数详细设置">
+                <i class="fa fa-chevron-left"></i> gitlab-runner的参数详细设置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Mitsuizzz" />
+          <p class="site-author-name" itemprop="name">Mitsuizzz</p>
+          <p class="site-description motion-element" itemprop="description">坚持分享知识，分享更多创意</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Mitsuizzz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3648673160" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://lizhuangwei.top" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="Mitsuizzz" target="_blank">Mitsuizzz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="个人网站" target="_blank">个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitLab搭建"><span class="nav-number">1.</span> <span class="nav-text">GitLab搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins"><span class="nav-number">2.</span> <span class="nav-text">Jenkins</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Harbor"><span class="nav-number">3.</span> <span class="nav-text">Harbor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Loki"><span class="nav-number">4.</span> <span class="nav-text">Loki</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">4.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loki-由以下3个部分组成："><span class="nav-number">4.1.1.</span> <span class="nav-text">Loki 由以下3个部分组成：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装docker插件"><span class="nav-number">5.</span> <span class="nav-text">安装docker插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两种方式"><span class="nav-number">6.</span> <span class="nav-text">两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局配置收集"><span class="nav-number">6.1.</span> <span class="nav-text">全局配置收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分收集配置"><span class="nav-number">6.2.</span> <span class="nav-text">部分收集配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置、查看日志"><span class="nav-number">6.3.</span> <span class="nav-text">配置、查看日志</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+	<div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22821100&auto=0&height=66"></iframe>
+  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mitsuizzz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://lizhuangwei.com" target="_blank" rel="noopener">Mitsuizzz</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Fi5B2VbDLoujYeV1r5JVNiuM-9Nh9j0Va", "6AtYr95E8eBAv1OpJQwQxmAG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+	
+</body>
+</html>

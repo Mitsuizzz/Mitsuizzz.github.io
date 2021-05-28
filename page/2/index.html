@@ -251,8 +251,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/22/undefined/" itemprop="url">
-                  Java基础总结
+                <a class="post-title-link" href="/2019/10/12/undefined/" itemprop="url">
+                  用了Docker之后性能损耗多少？
                 </a>
               
             
@@ -265,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-22T18:51:42+08:00" content="2018-04-22">
-              2018-04-22
+            <time itemprop="dateCreated" datetime="2019-10-12T10:25:01+08:00" content="2019-10-12">
+              2019-10-12
             </time>
           </span>
 
@@ -279,8 +279,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Java基础系列</span>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
                   </a>
                 </span>
 
@@ -299,7 +299,7 @@
 		
           
           
-             <span id="/2018/04/22/undefined/" class="leancloud_visitors" data-flag-title="Java基础总结">
+             <span id="/2019/10/12/undefined/" class="leancloud_visitors" data-flag-title="用了Docker之后性能损耗多少？">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -322,12 +322,10 @@
 
       
         
-          <h1 id="Java基础知识总结"><a href="#Java基础知识总结" class="headerlink" title="Java基础知识总结"></a>Java基础知识总结</h1><h1 id="java概述："><a href="#java概述：" class="headerlink" title="java概述："></a>java概述：</h1><p>1，JDK：Java Development Kit，java的开发和运行环境，java的开发工具和jre。</p>
-<p>2，JRE：Java Runtime Environment，java程序的运行环境，java运行的所需的类库+JVM(java虚拟机)。</p>
-<p>3，配置环境变量：让java jdk\bin目录下的工具，可以在任意目录下运行，原因是，将该工具所在目录告诉了系统，当使用该工具时，由系统帮我们去找指定的目录。</p>
+          <p>Docker的一大优势，就是拥有微乎其微的性能损耗，换来良好的硬件资源隔离效果。虽然各大厂商都在主要业务领域使用了Docker，已经从侧面表明Docker的性能损耗不是个什么问题。但是较真的同学，肯定还是想知道Docker到底有没有损耗呢，损耗多少。<br>这里我用PostgreSQL数据库做个简单的对比测试。分别在同一台服务器的Docker内外个各装一个10.3版本的PostgreSQL。然后执行同一个SQL。SQL如下：</p>
 <hr>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/22/undefined/#more" rel="contents">
+            <a class="btn" href="/2019/10/12/undefined/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -389,8 +387,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/21/undefined/" itemprop="url">
-                  重载与重写分析
+                <a class="post-title-link" href="/2019/08/23/undefined/" itemprop="url">
+                  PostgreSQL中找到那些被大量顺序扫表没走索引的表
                 </a>
               
             
@@ -403,8 +401,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-21T19:37:09+08:00" content="2018-04-21">
-              2018-04-21
+            <time itemprop="dateCreated" datetime="2019-08-23T09:25:01+08:00" content="2019-08-23">
+              2019-08-23
             </time>
           </span>
 
@@ -417,8 +415,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Java基础系列</span>
+                  <a href="/categories/PostgreSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">PostgreSQL</span>
                   </a>
                 </span>
 
@@ -437,7 +435,7 @@
 		
           
           
-             <span id="/2018/04/21/undefined/" class="leancloud_visitors" data-flag-title="重载与重写分析">
+             <span id="/2019/08/23/undefined/" class="leancloud_visitors" data-flag-title="PostgreSQL中找到那些被大量顺序扫表没走索引的表">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -460,10 +458,10 @@
 
       
         
-          <h1 id="整理下重载和重写的特点"><a href="#整理下重载和重写的特点" class="headerlink" title="整理下重载和重写的特点"></a>整理下重载和重写的特点</h1><h1 id="重写-Override"><a href="#重写-Override" class="headerlink" title="重写(Override)"></a>重写(Override)</h1><p>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！<br>重写的好处在于子类可以根据需要，定义特定于自己的行为。 也就是说子类能够根据需要实现父类的方法。<br>重写方法不能抛出新的检查异常或者比被重写方法申明更加宽泛的异常。例如： 父类的一个方法申明了一个检查异常 IOException，但是在重写这个方法的时候不能抛出 Exception 异常，因为 Exception 是 IOException 的父类，只能抛出 IOException 的子类异常。<br>在面向对象原则里，重写意味着可以重写任何现有方法。</p>
+          <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> schemaname,</span><br><span class="line">       relname,</span><br><span class="line">       seq_scan,</span><br><span class="line">       seq_tup_read,</span><br><span class="line">       seq_tup_read / seq_scan <span class="keyword">as</span> avg,</span><br><span class="line">       idx_scan</span><br><span class="line"><span class="keyword">from</span> pg_stat_user_tables</span><br><span class="line"><span class="keyword">where</span> seq_scan &gt; <span class="number">0</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> seq_tup_read <span class="keyword">desc</span></span><br><span class="line"><span class="keyword">limit</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
 <hr>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/21/undefined/#more" rel="contents">
+            <a class="btn" href="/2019/08/23/undefined/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -525,8 +523,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/20/undefined/" itemprop="url">
-                  WEB前端笔记
+                <a class="post-title-link" href="/2019/07/23/undefined/" itemprop="url">
+                  PGSQL修改或删除字段
                 </a>
               
             
@@ -539,8 +537,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-20T21:54:55+08:00" content="2018-04-20">
-              2018-04-20
+            <time itemprop="dateCreated" datetime="2019-07-23T09:25:01+08:00" content="2019-07-23">
+              2019-07-23
             </time>
           </span>
 
@@ -553,8 +551,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/WEB%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">WEB前端</span>
+                  <a href="/categories/PostgreSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">PostgreSQL</span>
                   </a>
                 </span>
 
@@ -573,7 +571,7 @@
 		
           
           
-             <span id="/2018/04/20/undefined/" class="leancloud_visitors" data-flag-title="WEB前端笔记">
+             <span id="/2019/07/23/undefined/" class="leancloud_visitors" data-flag-title="PGSQL修改或删除字段">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -596,10 +594,13 @@
 
       
         
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h1 id="网页制作"><a href="#网页制作" class="headerlink" title="网页制作"></a>网页制作</h1><h1 id="软件分为两种结构："><a href="#软件分为两种结构：" class="headerlink" title="软件分为两种结构："></a>软件分为两种结构：</h1><p>C/S（Client/Server） 客户端/服务器：例如 QQ 迅雷 百度网盘等<br>B/S（Browser/Server） 浏览器/服务器   例如所有的网站，基于浏览器访问的任何软件</p>
+          <h1 id="PGSQL修改或删除字段"><a href="#PGSQL修改或删除字段" class="headerlink" title="PGSQL修改或删除字段"></a>PGSQL修改或删除字段</h1><p>1.更改表名</p>
+<p>alter table 表名 rename to 新表名</p>
+<p>2.更改字段名</p>
+<p>alter table 表名 rename 字段名 to 新字段名</p>
 <hr>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/20/undefined/#more" rel="contents">
+            <a class="btn" href="/2019/07/23/undefined/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -661,8 +662,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/15/undefined/" itemprop="url">
-                  用Hexo和Github搭建个人博客(二)
+                <a class="post-title-link" href="/2019/06/23/undefined/" itemprop="url">
+                  为什么会出现Variable used in lambda expression should be final or effectively final
                 </a>
               
             
@@ -675,8 +676,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-15T18:08:00+08:00" content="2018-04-15">
-              2018-04-15
+            <time itemprop="dateCreated" datetime="2019-06-23T09:25:01+08:00" content="2019-06-23">
+              2019-06-23
             </time>
           </span>
 
@@ -689,8 +690,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo系列</span>
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
                   </a>
                 </span>
 
@@ -709,7 +710,7 @@
 		
           
           
-             <span id="/2018/04/15/undefined/" class="leancloud_visitors" data-flag-title="用Hexo和Github搭建个人博客(二)">
+             <span id="/2019/06/23/undefined/" class="leancloud_visitors" data-flag-title="为什么会出现Variable used in lambda expression should be final or effectively final">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -732,18 +733,12 @@
 
       
         
-          <h1 id="第二天烫了个头-终于腾出时间整理第二步上传环节了"><a href="#第二天烫了个头-终于腾出时间整理第二步上传环节了" class="headerlink" title="第二天烫了个头 终于腾出时间整理第二步上传环节了"></a>第二天烫了个头 终于腾出时间整理第二步上传环节了</h1><p>此篇是由Mitsuizzz编辑</p>
-<h1 id="上传github千万不要用github桌面版直接整个文件夹上传！！！"><a href="#上传github千万不要用github桌面版直接整个文件夹上传！！！" class="headerlink" title="上传github千万不要用github桌面版直接整个文件夹上传！！！"></a>上传github千万不要用github桌面版直接整个文件夹上传！！！</h1><p>因为Github就无法解析md文件为页面了！！！</p>
-<p>上传必须得 以下步骤</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+          
+            <h1 id="为什么会出现Variable-used-in-lambda-expression-should-be-final-or-effectively-final"><a href="#为什么会出现Variable-used-in-lambda-expression-should-be-final-or-effectively-final" class="headerlink" title="为什么会出现Variable used in lambda expression should be final or effectively final"></a>为什么会出现Variable used in lambda expression should be final or effectively final</h1><h1 id="Variable-used-in-lambda-expression-should-be-final-or-effectively-final"><a href="#Variable-used-in-lambda-expression-should-be-final-or-effectively-final" class="headerlink" title="Variable used in lambda expression should be final or effectively final"></a>Variable used in lambda expression should be final or effectively final</h1><p>你的问题其实和线程没关系，和 lambda 也没关系：</p>
+<p>“你不能在匿名内部类中修改外部局部变量，因为 Java 对于匿名内部类传递变量的实现是基于构造器传参的，也就是说如果允许你在匿名内部类中修改值，你修改的是匿名内部类中的外部局部变量副本，最终并不会对外部类产生效果，因为已经是二个变量了。 这样就会让程序员产生困扰，原以为修改会生效，事实上却并不会，所以 Java 就禁止在匿名内部类中修改外部局部变量。”</p>
+<p>因为lamda本质上是匿名内部类</p>
 
-
-<hr>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/15/undefined/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -802,8 +797,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/14/undefined/" itemprop="url">
-                  用Hexo和Github搭建个人博客(一)
+                <a class="post-title-link" href="/2019/05/27/undefined/" itemprop="url">
+                  Redis实现分布式锁
                 </a>
               
             
@@ -816,8 +811,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-14T21:54:55+08:00" content="2018-04-14">
-              2018-04-14
+            <time itemprop="dateCreated" datetime="2019-05-27T09:25:01+08:00" content="2019-05-27">
+              2019-05-27
             </time>
           </span>
 
@@ -830,8 +825,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo%E7%B3%BB%E5%88%97/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo系列</span>
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
                   </a>
                 </span>
 
@@ -850,7 +845,7 @@
 		
           
           
-             <span id="/2018/04/14/undefined/" class="leancloud_visitors" data-flag-title="用Hexo和Github搭建个人博客(一)">
+             <span id="/2019/05/27/undefined/" class="leancloud_visitors" data-flag-title="Redis实现分布式锁">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -873,18 +868,780 @@
 
       
         
-          <h1 id="我的第一篇博客-分享一下用一天时间搭建的个人博客"><a href="#我的第一篇博客-分享一下用一天时间搭建的个人博客" class="headerlink" title="我的第一篇博客 分享一下用一天时间搭建的个人博客"></a>我的第一篇博客 分享一下用一天时间搭建的个人博客</h1><p>真是累死我了 踩了很多坑 </p>
-<p>此篇是由Mitsuizzz编辑</p>
-<p>搭建之前需要如下工具：</p>
+          
+            <h1 id="Redis实现分布式锁"><a href="#Redis实现分布式锁" class="headerlink" title="Redis实现分布式锁"></a>Redis实现分布式锁</h1><h3 id="种方案前言"><a href="#种方案前言" class="headerlink" title="种方案前言"></a><strong>种方案前言</strong></h3><p>日常开发中，秒杀下单、抢红包等等业务场景，都需要用到分布式锁。而Redis非常适合作为分布式锁使用。本文将分七个方案展开，跟大家探讨Redis分布式锁的正确使用方式。如果有不正确的地方，欢迎大家指出哈，一起学习一起进步。</p>
 <ul>
-<li><strong>node.js</strong> 下载地址：<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/</a></li>
-<li>作用：用来创建hexo博客框架，最好下载推荐版本 </li>
-<li><strong>git环境</strong> 下载地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></li>
-<li>作用：把本地的hexo内容提交到Github和Coding上去</li>
+<li>什么是分布式锁</li>
+<li>方案一：SETNX + EXPIRE</li>
+<li>方案二：SETNX + value值是（系统时间+过期时间）</li>
+<li>方案三：使用Lua脚本(包含SETNX + EXPIRE两条指令)</li>
+<li>方案四：SET的扩展命令（SET EX PX NX）</li>
+<li>方案五：SET EX PX NX + 校验唯一随机值,再释放锁</li>
+<li>方案六: 开源框架~Redisson</li>
+<li>方案七：多机实现的分布式锁Redlock</li>
 </ul>
+<h3 id="什么是分布式锁"><a href="#什么是分布式锁" class="headerlink" title="什么是分布式锁"></a><strong>什么是分布式锁</strong></h3><blockquote>
+<p>❝分布式锁其实就是，控制分布式系统不同进程共同访问共享资源的一种锁的实现。如果不同的系统或同一个系统的不同主机之间共享了某个临界资源，往往需要互斥来防止彼此干扰，以保证一致性。❞</p>
+</blockquote>
+<p>我们先来看下，一把靠谱的分布式锁应该有哪些特征：</p>
+<p><a href="https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5bu5GqHP0pp30Uwjk3w81EZDq2Uibb2pj0BNfYAK8zcEHtQluS6ZibHh3eg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5bu5GqHP0pp30Uwjk3w81EZDq2Uibb2pj0BNfYAK8zcEHtQluS6ZibHh3eg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1</a></p>
+<ul>
+<li><strong>「互斥性」</strong>: 任意时刻，只有一个客户端能持有锁。</li>
+<li><strong>「锁超时释放」</strong>：持有锁超时，可以释放，防止不必要的资源浪费，也可以防止死锁。</li>
+<li><strong>「可重入性」</strong>:一个线程如果获取了锁之后,可以再次对其请求加锁。</li>
+<li><strong>「高性能和高可用」</strong>：加锁和解锁需要开销尽可能低，同时也要保证高可用，避免分布式锁失效。</li>
+<li><strong>「安全性」</strong>：锁只能被持有的客户端删除，不能被其他客户端删除</li>
+</ul>
+<h3 id="Redis分布式锁方案一：SETNX-EXPIRE"><a href="#Redis分布式锁方案一：SETNX-EXPIRE" class="headerlink" title="Redis分布式锁方案一：SETNX + EXPIRE"></a><strong>Redis分布式锁方案一：SETNX + EXPIRE</strong></h3><p>提到Redis的分布式锁，很多小伙伴马上就会想到<code>setnx</code>+ <code>expire</code>命令。即先用<code>setnx</code>来抢锁，如果抢到之后，再用<code>expire</code>给锁设置一个过期时间，防止锁忘记了释放。</p>
+<blockquote>
+<p>❝SETNX 是SET IF NOT EXISTS的简写.日常命令格式是SETNX key value，如果 key不存在，则SETNX成功返回1，如果这个key已经存在了，则返回0。❞</p>
+</blockquote>
+<p>假设某电商网站的某商品做秒杀活动，key可以设置为key_resource_id,value设置任意值，伪代码如下：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>（jedis.setnx(key_resource_id,lock_value) == <span class="number">1</span>）&#123; <span class="comment">//加锁</span></span><br><span class="line">    expire（key_resource_id，<span class="number">100</span>）; <span class="comment">//设置过期时间</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> something  <span class="comment">//业务请求</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">finally</span> &#123;</span><br><span class="line">       jedis.del(key_resource_id); <span class="comment">//释放锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这个方案中，<code>setnx</code>和<code>expire</code>两个命令分开了，<strong>「不是原子操作」</strong>。如果执行完<code>setnx</code>加锁，正要执行<code>expire</code>设置过期时间时，进程crash或者要重启维护了，那么这个锁就“长生不老”了，<strong>「别的线程永远获取不到锁啦」</strong>。</p>
+<h3 id="Redis分布式锁方案二：SETNX-value值是-系统时间-过期时间"><a href="#Redis分布式锁方案二：SETNX-value值是-系统时间-过期时间" class="headerlink" title="Redis分布式锁方案二：SETNX + value值是(系统时间+过期时间)"></a><strong>Redis分布式锁方案二：SETNX + value值是(系统时间+过期时间)</strong></h3><p>为了解决方案一，<strong>「发生异常锁得不到释放的场景」</strong>，有小伙伴认为，可以把过期时间放到<code>setnx</code>的value值里面。如果加锁失败，再拿出value值校验一下即可。加锁代码如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">long expires = <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>current<span class="constructor">TimeMillis()</span> + expireTime; <span class="comment">//系统时间+设置的过期时间</span></span><br><span class="line">String expiresStr = <span class="module-access"><span class="module"><span class="identifier">String</span>.</span></span>value<span class="constructor">Of(<span class="params">expires</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果当前锁不存在，返回加锁成功</span></span><br><span class="line"><span class="keyword">if</span> (jedis.setnx(key_resource_id, expiresStr)<span class="operator"> == </span><span class="number">1</span>) &#123;</span><br><span class="line">        return <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果锁已经存在，获取锁的过期时间</span></span><br><span class="line">String currentValueStr = jedis.get(key_resource_id);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果获取到的过期时间，小于系统当前时间，表示已经过期</span></span><br><span class="line"><span class="keyword">if</span> (currentValueStr != null<span class="operator"> &amp;&amp; </span><span class="module-access"><span class="module"><span class="identifier">Long</span>.</span></span>parse<span class="constructor">Long(<span class="params">currentValueStr</span>)</span> &lt; <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>current<span class="constructor">TimeMillis()</span>) &#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 锁已过期，获取上一个锁的过期时间，并设置现在锁的过期时间（不了解redis的getSet命令的小伙伴，可以去官网看下哈）</span></span><br><span class="line">    String oldValueStr = jedis.get<span class="constructor">Set(<span class="params">key_resource_id</span>, <span class="params">expiresStr</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (oldValueStr != null<span class="operator"> &amp;&amp; </span>oldValueStr.equals(currentValueStr)) &#123;</span><br><span class="line">         <span class="comment">// 考虑多线程并发的情况，只有一个线程的设置值和当前值相同，它才可以加锁</span></span><br><span class="line">         return <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//其他情况，均返回加锁失败</span></span><br><span class="line">return <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个方案的优点是，巧妙移除<code>expire</code>单独设置过期时间的操作，把<strong>「过期时间放到setnx的value值」</strong>里面来。解决了方案一发生异常，锁得不到释放的问题。但是这个方案还有别的缺点：</p>
+<blockquote>
+<p>❝过期时间是客户端自己生成的（System.currentTimeMillis()是当前系统的时间），必须要求分布式环境下，每个客户端的时间必须同步。如果锁过期的时候，并发多个客户端同时请求过来，都执行jedis.getSet()，最终只能有一个客户端加锁成功，但是该客户端锁的过期时间，可能被别的客户端覆盖该锁没有保存持有者的唯一标识，可能被别的客户端释放/解锁。❞</p>
+</blockquote>
+<h3 id="Redis分布式锁方案三：使用Lua脚本-包含SETNX-EXPIRE两条指令"><a href="#Redis分布式锁方案三：使用Lua脚本-包含SETNX-EXPIRE两条指令" class="headerlink" title="Redis分布式锁方案三：使用Lua脚本(包含SETNX + EXPIRE两条指令)"></a><strong>Redis分布式锁方案三：使用Lua脚本(包含SETNX + EXPIRE两条指令)</strong></h3><p>实际上，我们还可以使用Lua脚本来保证原子性（包含setnx和expire两条指令），lua脚本如下：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> redis.call(<span class="string">'setnx'</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">1</span>]) == <span class="number">1</span> then</span><br><span class="line">   redis.call(<span class="string">'expire'</span>,KEYS[<span class="number">1</span>],ARGV[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<p>加锁代码如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> String lua_scripts = <span class="string">"if redis.call('setnx',KEYS[1],ARGV[1]) == 1 then"</span> +</span><br><span class="line">            <span class="string">" redis.call('expire',KEYS[1],ARGV[2]) return 1 else return 0 end"</span>;</span><br><span class="line">Object result = jedis.eval(lua_scripts, <span class="module-access"><span class="module"><span class="identifier">Collections</span>.</span></span>singleton<span class="constructor">List(<span class="params">key_resource_id</span>)</span>, <span class="module-access"><span class="module"><span class="identifier">Collections</span>.</span></span>singleton<span class="constructor">List(<span class="params">values</span>)</span>);</span><br><span class="line"><span class="comment">//判断是否成功</span></span><br><span class="line">return result.equals(<span class="number">1L</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个方案，跟方案二对比，你觉得哪个更好呢？</p>
+<h3 id="Redis分布式锁方案方案四：SET的扩展命令（SET-EX-PX-NX）"><a href="#Redis分布式锁方案方案四：SET的扩展命令（SET-EX-PX-NX）" class="headerlink" title="Redis分布式锁方案方案四：SET的扩展命令（SET EX PX NX）"></a><strong>Redis分布式锁方案方案四：SET的扩展命令（SET EX PX NX）</strong></h3><p>除了使用，使用Lua脚本，保证<code>SETNX + EXPIRE</code>两条指令的原子性，我们还可以巧用Redis的SET指令扩展参数！（<code>SET key value[EX seconds][PX milliseconds][NX|XX]</code>），它也是原子性的！</p>
+<blockquote>
+<p>❝SET key value[EX seconds][PX milliseconds][NX|XX]NX :表示key不存在的时候，才能set成功，也即保证只有第一个客户端请求才能获得锁，而其他客户端请求只能等其释放锁，才能获取。EX seconds :设定key的过期时间，时间单位是秒。PX milliseconds: 设定key的过期时间，单位为毫秒XX: 仅当key存在时设置值❞</p>
+</blockquote>
+<p>伪代码demo如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>（jedis.<span class="keyword">set</span>(key_resource_id, lock_value, <span class="string">"NX"</span>, <span class="string">"EX"</span>, <span class="number">100</span>s) == <span class="number">1</span>）&#123; <span class="comment">//加锁</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> something  <span class="comment">//业务处理</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">finally</span> &#123;</span><br><span class="line">       jedis.del(key_resource_id); <span class="comment">//释放锁</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是呢，这个方案还是可能存在问题：</p>
+<ul>
+<li>问题一：<strong>「锁过期释放了，业务还没执行完」</strong>。假设线程a获取锁成功，一直在执行临界区的代码。但是100s过去后，它还没执行完。但是，这时候锁已经过期了，此时线程b又请求过来。显然线程b就可以获得锁成功，也开始执行临界区的代码。那么问题就来了，临界区的业务代码都不是严格串行执行的啦。</li>
+<li>问题二：<strong>「锁被别的线程误删」</strong>。假设线程a执行完后，去释放锁。但是它不知道当前的锁可能是线程b持有的（线程a去释放锁时，有可能过期时间已经到了，此时线程b进来占有了锁）。那线程a就把线程b的锁释放掉了，但是线程b临界区业务代码可能都还没执行完呢。</li>
+</ul>
+<h3 id="方案五：SET-EX-PX-NX-校验唯一随机值-再删除"><a href="#方案五：SET-EX-PX-NX-校验唯一随机值-再删除" class="headerlink" title="方案五：SET EX PX NX + 校验唯一随机值,再删除"></a><strong>方案五：SET EX PX NX + 校验唯一随机值,再删除</strong></h3><p>既然锁可能被别的线程误删，那我们给value值设置一个标记当前线程唯一的随机数，在删除的时候，校验一下，不就OK了嘛。伪代码如下：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>（jedis.<span class="keyword">set</span>(key_resource_id, uni_request_id, <span class="string">"NX"</span>, <span class="string">"EX"</span>, <span class="number">100</span>s) == <span class="number">1</span>）&#123; <span class="comment">//加锁</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">do</span> something  <span class="comment">//业务处理</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>()&#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">finally</span> &#123;</span><br><span class="line">       <span class="comment">//判断是不是当前线程加的锁,是才释放</span></span><br><span class="line">       <span class="keyword">if</span> (uni_request_id.<span class="keyword">equals</span>(jedis.<span class="keyword">get</span>(key_resource_id))) &#123;</span><br><span class="line">        jedis.del(lockKey); <span class="comment">//释放锁</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，<strong>「判断是不是当前线程加的锁」</strong>和<strong>「释放锁」</strong>不是一个原子操作。如果调用jedis.del()释放锁的时候，可能这把锁已经不属于当前客户端，会解除他人加的锁。</p>
+<p><a href="https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buv3sEKqlzF69a5d8OibovIwAWdNwD7O55zTMDWySkF4HpHB2vJjDIbXw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buv3sEKqlzF69a5d8OibovIwAWdNwD7O55zTMDWySkF4HpHB2vJjDIbXw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1</a></p>
+<p>为了更严谨，一般也是用lua脚本代替。lua脚本如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if redis.call(<span class="string">'get'</span>,<span class="keyword">KEYS</span>[<span class="number">1</span>]) == ARGV[<span class="number">1</span>] <span class="keyword">then</span></span><br><span class="line">   <span class="keyword">return</span> redis.call(<span class="string">'del'</span>,<span class="keyword">KEYS</span>[<span class="number">1</span>])</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Redis分布式锁方案六：Redisson框架"><a href="#Redis分布式锁方案六：Redisson框架" class="headerlink" title="Redis分布式锁方案六：Redisson框架"></a><strong>Redis分布式锁方案六：Redisson框架</strong></h3><p>方案五还是可能存在<strong>「锁过期释放，业务没执行完」</strong>的问题。有些小伙伴认为，稍微把锁过期时间设置长一些就可以啦。其实我们设想一下，是否可以给获得锁的线程，开启一个定时守护线程，每隔一段时间检查锁是否还存在，存在则对锁的过期时间延长，防止锁过期提前释放。</p>
+<p>当前开源框架Redisson解决了这个问题。我们一起来看下Redisson底层原理图吧：</p>
+<p><a href="https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5bukwAPicjh8ssz5iaJ3bFXPIXyLmiabF8lJg0UW63qbWaDibKyPFq1YokSPw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5bukwAPicjh8ssz5iaJ3bFXPIXyLmiabF8lJg0UW63qbWaDibKyPFq1YokSPw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1</a></p>
+<p>只要线程一加锁成功，就会启动一个<code>watch dog</code>看门狗，它是一个后台线程，会每隔10秒检查一下，如果线程1还持有锁，那么就会不断的延长锁key的生存时间。因此，Redisson就是使用Redisson解决了<strong>「锁过期释放，业务没执行完」</strong>问题。</p>
+<h3 id="Redis分布式锁方案七：多机实现的分布式锁Redlock-Redisson"><a href="#Redis分布式锁方案七：多机实现的分布式锁Redlock-Redisson" class="headerlink" title="Redis分布式锁方案七：多机实现的分布式锁Redlock+Redisson"></a><strong>Redis分布式锁方案七：多机实现的分布式锁Redlock+Redisson</strong></h3><p>前面六种方案都只是基于单机版的讨论，还不是很完美。其实Redis一般都是集群部署的：</p>
+<p><a href="https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buE9kFbH2E2StG56oQeRv7AcuwxgCJlaeMS9IreeGKQJth7wicjpK1ALw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buE9kFbH2E2StG56oQeRv7AcuwxgCJlaeMS9IreeGKQJth7wicjpK1ALw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1</a></p>
+<p>如果线程一在Redis的master节点上拿到了锁，但是加锁的key还没同步到slave节点。恰好这时，master节点发生故障，一个slave节点就会升级为master节点。线程二就可以获取同个key的锁啦，但线程一也已经拿到锁了，锁的安全性就没了。</p>
+<p>为了解决这个问题，Redis作者 antirez提出一种高级的分布式锁算法：Redlock。Redlock核心思想是这样的：</p>
+<blockquote>
+<p>❝搞多个Redis master部署，以保证它们不会同时宕掉。并且这些master节点是完全相互独立的，相互之间不存在数据同步。同时，需要确保在这多个master实例上，是与在Redis单实例，使用相同方法来获取和释放锁。❞</p>
+</blockquote>
+<p>我们假设当前有5个Redis master节点，在5台服务器上面运行这些Redis实例。</p>
+<p><a href="https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buqeibzdOFibXn3jIHD1laLVPdMW7X1xTE9hdaAuJAiaWOq8xkJ9xNbyVlg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" target="_blank" rel="noopener">https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzGxM0ZotibjMv7bw8KMNT5buqeibzdOFibXn3jIHD1laLVPdMW7X1xTE9hdaAuJAiaWOq8xkJ9xNbyVlg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1</a></p>
+<p>RedLock的实现步骤:如下</p>
+<blockquote>
+<p>❝1.获取当前时间，以毫秒为单位。2.按顺序向5个master节点请求加锁。客户端设置网络连接和响应超时时间，并且超时时间要小于锁的失效时间。（假设锁自动失效时间为10秒，则超时时间一般在5-50毫秒之间,我们就假设超时时间是50ms吧）。如果超时，跳过该master节点，尽快去尝试下一个master节点。3.客户端使用当前时间减去开始获取锁时间（即步骤1记录的时间），得到获取锁使用的时间。当且仅当超过一半（N/2+1，这里是5/2+1=3个节点）的Redis master节点都获得锁，并且使用的时间小于锁失效时间时，锁才算获取成功。（如上图，10s&gt; 30ms+40ms+50ms+4m0s+50ms）如果取到了锁，key的真正有效时间就变啦，需要减去获取锁所使用的时间。如果获取锁失败（没有在至少N/2+1个master实例取到锁，有或者获取锁时间已经超过了有效时间），客户端要在所有的master节点上解锁（即便有些master节点根本就没有加锁成功，也需要解锁，以防止有些漏网之鱼）。❞</p>
+</blockquote>
+<p>简化下步骤就是：</p>
+<ul>
+<li>按顺序向5个master节点请求加锁</li>
+<li>根据设置的超时时间来判断，是不是要跳过该master节点。</li>
+<li>如果大于等于3个节点加锁成功，并且使用的时间小于锁的有效期，即可认定加锁成功啦。</li>
+<li>如果获取锁失败，解锁！</li>
+</ul>
+<p>Redisson实现了redLock版本的锁，有兴趣的小伙伴，可以去了解一下哈~</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/05/25/undefined/" itemprop="url">
+                  行锁间隙锁等值和范围查询探究
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-25T09:25:01+08:00" content="2019-05-25">
+              2019-05-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/05/25/undefined/" class="leancloud_visitors" data-flag-title="行锁间隙锁等值和范围查询探究">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="行锁间隙锁等值和范围查询不同"><a href="#行锁间隙锁等值和范围查询不同" class="headerlink" title="行锁间隙锁等值和范围查询不同"></a>行锁间隙锁等值和范围查询不同</h1><p>背景:可重复读,id为主键索引,且数据库表存在(0,0,0),(5,5,5),(10,10,10),(15,15,15),(20,20,20),(25,25,25);<br>强调:间隙锁是为了解决幻读,否则binlog顺序不正确</p>
 <hr>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2018/04/14/undefined/#more" rel="contents">
+            <a class="btn" href="/2019/05/25/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/25/undefined/" itemprop="url">
+                  vim常用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-04-25T09:25:01+08:00" content="2019-04-25">
+              2019-04-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/vim/" itemprop="url" rel="index">
+                    <span itemprop="name">vim</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/04/25/undefined/" class="leancloud_visitors" data-flag-title="vim常用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="普通模式下光标移动"><a href="#普通模式下光标移动" class="headerlink" title="普通模式下光标移动"></a>普通模式下光标移动</h1><p>h：左移一个字符<br>j：下移一行<br>k：上移一行<br>l：右移一个字符</p>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/04/25/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/01/undefined/" itemprop="url">
+                  记录一次GC问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-03-01T18:42:03+08:00" content="2019-03-01">
+              2019-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/03/01/undefined/" class="leancloud_visitors" data-flag-title="记录一次GC问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="记录一次GC问题"><a href="#记录一次GC问题" class="headerlink" title="记录一次GC问题"></a>记录一次GC问题</h1><p>最近在开发的时候发现开发的服务器时常触发GC，几乎每秒一次，到底是什么导致了呢？</p>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/03/01/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/02/21/undefined/" itemprop="url">
+                  Redis优化思路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-02-21T19:42:33+08:00" content="2019-02-21">
+              2019-02-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/02/21/undefined/" class="leancloud_visitors" data-flag-title="Redis优化思路">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="为了避免业务服务器到-Redis-服务器之间的网络延迟，你需要直接在-Redis-服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例-60-秒内的最大响应延迟："><a href="#为了避免业务服务器到-Redis-服务器之间的网络延迟，你需要直接在-Redis-服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例-60-秒内的最大响应延迟：" class="headerlink" title="为了避免业务服务器到 Redis 服务器之间的网络延迟，你需要直接在 Redis 服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例 60 秒内的最大响应延迟："></a>为了避免业务服务器到 Redis 服务器之间的网络延迟，你需要直接在 Redis 服务器上测试实例的响应延迟情况。执行以下命令，就可以测试出这个实例 60 秒内的最大响应延迟：</h2><p>$redis-cli -h 127.0.0.1 -p 6379 –intrinsic-latency 60<br>Max latency so far: 1 microseconds.<br>Max latency so far: 15 microseconds.<br>Max latency so far: 17 microseconds.<br>Max latency so far: 18 microseconds.<br>Max latency so far: 31 microseconds.<br>Max latency so far: 32 microseconds.<br>Max latency so far: 59 microseconds.<br>Max latency so far: 72 microseconds.</p>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/02/21/undefined/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+	
+	<div>
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/01/21/undefined/" itemprop="url">
+                  MySQL一些学习总结问答
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-01-21T18:42:03+08:00" content="2019-01-21">
+              2019-01-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2019/01/21/undefined/" class="leancloud_visitors" data-flag-title="MySQL一些学习总结问答">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="MySQL一些学习总结问答"><a href="#MySQL一些学习总结问答" class="headerlink" title="MySQL一些学习总结问答"></a>MySQL一些学习总结问答</h1><ol>
+<li>redo log是InnoDB引擎特有的；binlog是MySQL的Server层实现的，所有引擎都可以使用。</li>
+<li>redo log是物理日志，记录的是“在某个数据页上做了什么修改”；binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“给ID=2这一行的c字段加1”。</li>
+<li>redo log是循环写的，空间固定会用完；binlog是可以追加写入的。“追加写”是指binlog文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ol>
+<hr>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/01/21/undefined/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -929,7 +1686,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -971,7 +1728,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -979,7 +1736,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -988,7 +1745,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
