@@ -1,0 +1,839 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "96612337"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Redis,Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近发现公司技术栈十分强大，看到了基于Redisson封装了一层分布式锁的一套Api，学习内部方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Redisson的分布式锁实践">
+<meta property="og:url" content="http://lizhuangwei.top/2021/06/22/undefined/index.html">
+<meta property="og:site_name" content="Mitsuizzz&#39;s Blog">
+<meta property="og:description" content="最近发现公司技术栈十分强大，看到了基于Redisson封装了一层分布式锁的一套Api，学习内部方法。">
+<meta property="article:published_time" content="2021-06-22T11:03:09.000Z">
+<meta property="article:modified_time" content="2021-06-22T11:19:28.944Z">
+<meta property="article:author" content="Mitsuizzz">
+<meta property="article:tag" content="Redis">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 基于Redisson的分布式锁实践 | Mitsuizzz's Blog </title>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mitsuizzz's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于Redisson的分布式锁实践
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2021-06-22T19:03:09+08:00" content="2021-06-22">
+              2021-06-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+		
+          
+          
+             <span id="/2021/06/22/undefined/" class="leancloud_visitors" data-flag-title="基于Redisson的分布式锁实践">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近发现公司技术栈十分强大，看到了基于Redisson封装了一层分布式锁的一套Api，学习内部方法。</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="ILock-java"><a href="#ILock-java" class="headerlink" title="ILock.java"></a>ILock.java</h2><p>接口层</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">package com.yxt.common.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>并发同步锁接口</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>获取锁示例:</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>boolean lock=tryLock(key, 10);</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>if(lock)&#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>businessFunction();</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125; else &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>businessFunction();</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>(or throw exception)</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125; finally &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>unlock(key);</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> *</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>@author df@yxt.com</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line">public <span class="class"><span class="keyword">interface</span> <span class="title">ILock</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>获取锁: 指定释放时间，默认单位毫秒</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     *</span></span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param lockKey</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param leaseTime</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return boolean</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    boolean tryLock(<span class="built_in">String</span> lockKey, long leaseTime);</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>获取锁: 指定释放时间</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     *</span></span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param lockKey</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param leaseTime</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param unit</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return boolean</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    public boolean tryLock(<span class="built_in">String</span> lockKey, <span class="built_in">int</span> leaseTime, TimeUnit unit);</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>获取锁：指定等待时间和释放时间</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     *</span></span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param lockKey</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param waitTime:      等待时间</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param leaseTime：释放时间</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param unit</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return boolean</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    public boolean tryLock(<span class="built_in">String</span> lockKey, <span class="built_in">int</span> waitTime, <span class="built_in">int</span> leaseTime, TimeUnit unit);</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>获取锁:有自动续期功能</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param lockKey</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    boolean tryLock(<span class="built_in">String</span> lockKey);</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>释放锁</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     *</span></span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param lockKey</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="keyword">void</span> unLock(<span class="built_in">String</span> lockKey);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LockService-java"><a href="#LockService-java" class="headerlink" title="LockService.java"></a>LockService.java</h2><p>ILock接口的实现</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.redisson.api.RLock;</span><br><span class="line">import org.redisson.api.RedissonClient;</span><br><span class="line"></span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Lock service based on redission, default implementation of &#123;@link ILock()&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">@Slf4j</span><br><span class="line">public <span class="keyword">class</span> LockService implements ILock &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> final RedissonClient redissonClient;</span><br><span class="line">    <span class="keyword">private</span> boolean fairLock = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * define a non-fair lockService</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param redissonClient</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    public <span class="constructor">LockService(RedissonClient <span class="params">redissonClient</span>)</span> &#123;</span><br><span class="line">        this.redissonClient = redissonClient;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * define a lockService</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param redissonClient</span></span><br><span class="line"><span class="comment">     * @param isFairLock     if required a fair lock, pass true.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    public <span class="constructor">LockService(RedissonClient <span class="params">redissonClient</span>, <span class="params">boolean</span> <span class="params">isFairLock</span>)</span> &#123;</span><br><span class="line">        this.redissonClient = redissonClient;</span><br><span class="line">        this.fairLock = isFairLock;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean <span class="keyword">try</span><span class="constructor">Lock(String <span class="params">lockKey</span>, <span class="params">long</span> <span class="params">leaseTime</span>)</span> &#123;</span><br><span class="line">        log<span class="constructor">LockKey(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        RLock lock = get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            return lock.<span class="keyword">try</span><span class="constructor">Lock(0, <span class="params">leaseTime</span>, TimeUnit.MILLISECONDS)</span>;</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">Thread</span>.</span></span>current<span class="constructor">Thread()</span>.interrupt<span class="literal">()</span>;</span><br><span class="line">            return <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean <span class="keyword">try</span><span class="constructor">Lock(String <span class="params">lockKey</span>, <span class="params">int</span> <span class="params">leaseTime</span>, TimeUnit <span class="params">unit</span>)</span> &#123;</span><br><span class="line">        log<span class="constructor">LockKey(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        RLock lock = get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            return lock.<span class="keyword">try</span><span class="constructor">Lock(0, <span class="params">leaseTime</span>, <span class="params">unit</span>)</span>;</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">Thread</span>.</span></span>current<span class="constructor">Thread()</span>.interrupt<span class="literal">()</span>;</span><br><span class="line">            return <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean <span class="keyword">try</span><span class="constructor">Lock(String <span class="params">lockKey</span>, <span class="params">int</span> <span class="params">waitTime</span>, <span class="params">int</span> <span class="params">leaseTime</span>, TimeUnit <span class="params">unit</span>)</span> &#123;</span><br><span class="line">        log<span class="constructor">LockKey(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        RLock lock = get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            return lock.<span class="keyword">try</span><span class="constructor">Lock(<span class="params">waitTime</span>, <span class="params">leaseTime</span>, <span class="params">unit</span>)</span>;</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">Thread</span>.</span></span>current<span class="constructor">Thread()</span>.interrupt<span class="literal">()</span>;</span><br><span class="line">            return <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean <span class="keyword">try</span><span class="constructor">Lock(String <span class="params">lockKey</span>)</span> &#123;</span><br><span class="line">        log<span class="constructor">LockKey(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        RLock lock = get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        return lock.<span class="keyword">try</span><span class="constructor">Lock()</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void un<span class="constructor">Lock(String <span class="params">lockKey</span>)</span> &#123;</span><br><span class="line">        log.debug(<span class="string">"unLock: &#123;&#125;"</span>, lockKey);</span><br><span class="line">        RLock lock = get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        catched<span class="constructor">Unlock(<span class="params">lock</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> RLock get<span class="constructor">Lock(String <span class="params">lockKey</span>)</span> &#123;</span><br><span class="line">        RLock lock;</span><br><span class="line">        <span class="keyword">if</span> (fairLock) &#123;</span><br><span class="line">            lock = redissonClient.get<span class="constructor">FairLock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            lock = redissonClient.get<span class="constructor">Lock(<span class="params">lockKey</span>)</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        return lock;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void catched<span class="constructor">Unlock(RLock <span class="params">lock</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (lock.is<span class="constructor">HeldByCurrentThread()</span>) &#123;</span><br><span class="line">                lock.unlock<span class="literal">()</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            log.error(<span class="string">"unlock error: &#123;&#125;"</span>, e.get<span class="constructor">Message()</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void log<span class="constructor">LockKey(String <span class="params">lockKey</span>)</span> &#123;</span><br><span class="line">        log.debug(<span class="string">"tryLock: &#123;&#125;"</span>, lockKey);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Redisson内部也是基于Lua脚本去进行加锁"><a href="#Redisson内部也是基于Lua脚本去进行加锁" class="headerlink" title="Redisson内部也是基于Lua脚本去进行加锁"></a>Redisson内部也是基于Lua脚本去进行加锁</h2><h2 id="Redis过期的监听事件"><a href="#Redis过期的监听事件" class="headerlink" title="Redis过期的监听事件"></a>Redis过期的监听事件</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.<span class="type">Slf4j</span>;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.<span class="type">StringUtils</span>;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.<span class="type">Autowired</span>;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.connection.<span class="type">Message</span>;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.listener.<span class="type">KeyExpirationEventMessageListener</span>;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.listener.<span class="type">RedisMessageListenerContainer</span>;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.<span class="type">Component</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">RedisKeyExpirationListener</span> <span class="keyword">extends</span> <span class="title">KeyExpirationEventMessageListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">RedisRepository</span> kngRedisRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">KngUserStudyComponent</span> kngUserStudyComponent;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">LockService</span> lockService;</span><br><span class="line"></span><br><span class="line">    public <span class="type">RedisKeyExpirationListener</span>(<span class="type">RedisMessageListenerContainer</span> listenerContainer) &#123;</span><br><span class="line">        <span class="keyword">super</span>(listenerContainer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void onMessage(<span class="type">Message</span> message, byte[] pattern) &#123;</span><br><span class="line">        <span class="type">String</span> expiredKey = message.toString();</span><br><span class="line">        <span class="keyword">if</span>(expiredKey.startsWith(<span class="string">"kng:user:studyInfo:"</span>))&#123;</span><br><span class="line">            log.debug(<span class="string">"studyInfo overdue expiredKey &#123;&#125;："</span>,expiredKey);</span><br><span class="line">            <span class="type">String</span> key = expiredKey.replace(<span class="type">RedisConstant</span>.<span class="type">KNG_USER_STUDY_OVERDUE</span>, <span class="string">""</span>);</span><br><span class="line">            <span class="type">String</span> lockKey = <span class="type">String</span>.format(<span class="type">RedisConstant</span>.<span class="type">KNG_USER_STUDY_LOCK</span>,key);</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(lockService.tryLock(lockKey,<span class="number">0</span>))&#123;</span><br><span class="line">                    <span class="type">String</span> value = kngRedisRepository.getValueByKey(key);</span><br><span class="line">                    log.debug(<span class="string">"studyInfo overdue key：&#123;&#125;, value:&#123;&#125;"</span>,key,value);</span><br><span class="line">                    <span class="keyword">if</span>(<span class="type">StringUtils</span>.isNotBlank(value))&#123;</span><br><span class="line">                        <span class="type">KngUserStudy</span> kngUserStudy = <span class="type">BeanHelper</span>.json2Bean(value, <span class="type">KngUserStudy</span><span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">                        kngUserStudyComponent.updateById(kngUserStudy);</span><br><span class="line">                        kngRedisRepository.delete(key);</span><br><span class="line">                        log.debug(<span class="string">"studyInfo overdue key：&#123;&#125;, save delete ok"</span>,key);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">catch</span> (<span class="type">Exception</span> e)&#123;</span><br><span class="line">                log.error(<span class="string">"studyInfo overdue error lockKey:&#123;&#125;"</span>,lockKey,e);</span><br><span class="line">            &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                lockService.unLock(lockKey);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>在看他们代码的实现中：在新增一个key的时候，并且新增一个key:xxx且有过期时间到Redis中，而不是在key自己身上加过期时间，key自己没有过期时间，然后过期事件监听的是key:xxx，通过这个来进行一些操作。上方代码就是这么做的。保存了业务数据，及时刷到库里实现最终一致性。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+	
+	<div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+------ 本文结束 ------</div>
+<br/>
+<div style="border: 1px solid black">
+<div style="margin-left:10px">
+<span style="font-weight:blod;text-align:center;display:block;">版权声明</span>
+<img src="/images/wechat.jpg" style="text-align:center;width:200px;height:200px;">
+<br/>
+<p style="font-size: 10px;line-height: 30px;text-align:center;"><a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> by <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">Creative Commons BY-NC-ND 4.0 International License</a>.<br/>
+由<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz</a>创作并维护的<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a>博客采用<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" style="color:#258FC6">创作共用保留署名-非商业-禁止演绎4.0国际许可证</a>。<br/>
+本文首发于<a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">Mitsuizzz's Notes</a> 博客（ <a href="http://lizhuangwei.com" target="_blank" rel="noopener" style="color:#258FC6">http://lizhuangwei.com</a> ），版权所有，侵权必究。</p>
+</div>
+</div>
+
+  
+	</div>
+	
+	
+
+
+	
+	
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag">#Redis</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/11/undefined/" rel="next" title="为什么只改一行的语句，锁这么多">
+                <i class="fa fa-chevron-left"></i> 为什么只改一行的语句，锁这么多
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+<a class="jiathis_button_weixin"></a>
+<a class="jiathis_button_cqq"></a>
+<a class="jiathis_button_qzone"></a>
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tieba"></a>
+<a href="http://www.jiathis.com/share?uid=2161858" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	data_track_clickback:true,
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2161858" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTczNS8xMjI3MQ=="></div>
+	
+	</div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="Mitsuizzz" />
+          <p class="site-author-name" itemprop="name">Mitsuizzz</p>
+          <p class="site-description motion-element" itemprop="description">坚持分享知识，分享更多创意</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Mitsuizzz" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3648673160" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://lizhuangwei.top" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="Mitsuizzz" target="_blank">Mitsuizzz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lizhuangwei.top/" title="个人网站" target="_blank">个人网站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ILock-java"><span class="nav-number">1.</span> <span class="nav-text">ILock.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LockService-java"><span class="nav-number">2.</span> <span class="nav-text">LockService.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redisson内部也是基于Lua脚本去进行加锁"><span class="nav-number">3.</span> <span class="nav-text">Redisson内部也是基于Lua脚本去进行加锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis过期的监听事件"><span class="nav-number">4.</span> <span class="nav-text">Redis过期的监听事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">5.</span> <span class="nav-text">Tips</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+	<div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=22821100&auto=0&height=66"></iframe>
+  </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mitsuizzz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://lizhuangwei.com" target="_blank" rel="noopener">Mitsuizzz</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("Fi5B2VbDLoujYeV1r5JVNiuM-9Nh9j0Va", "6AtYr95E8eBAv1OpJQwQxmAG");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+	
+</body>
+</html>
